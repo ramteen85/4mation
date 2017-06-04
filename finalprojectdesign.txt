@@ -1,0 +1,50 @@
+User Characteristics:
+
+- Admin: 
+
+The Administrator is a super user and he has complete control over all activities the can be performed.
+The administrator can 
+
+- View, edit, create, or delete Employee and task details.
+- send memos and messages out to everyone
+
+- Managers can
+
+- Create, view, edit or delete tasks for each employee
+- Can send memos out to everyone
+- Can message other employees and managers
+
+- Employees can 
+
+- view and check off tasks
+- send messages to everyone
+
+
+Functional Requirements:
+
+- Home page
+
+First page of the website. Contains company information and log in page.
+All users log in from this page.
+
+- Employees module
+
+On this page, the Administrator can add, edit, view or delete employee records.
+They can also do everything managers can do on the same page.
+Managers use this page too. But Admin functions will not be visible to them. 
+They can also assign, edit or delete tasks for employees, as well as send memos and messages to all users.
+
+
+
+
+
+
+
+
+
+- 
+
+
+
+
+      
