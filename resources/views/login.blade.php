@@ -67,52 +67,31 @@
                 </nav>                 
             </div>
         </section>
-        <section id="cb-title-1-5" class="cb-title-block cb-title-1-5" data-pg-collapsed> 
+        <section id="cb-title-1-5" class="cb-title-block cb-title-1-5"> 
             <div id="title5"> 
                 `     
                 <h1 style="padding-bottom: 10px">Sign into your Account</h1>
             </div>
         </section>
-        <section id="cb-form-1-3" class="cb-form-block cb-form-1-3" data-pg-collapsed>
-            <div id="pageloginregister1"> 
+        <section id="cb-form-1-1" class="cb-form-block cb-form-1-1" data-pg-collapsed>
+            <div id="pagelogin1"> 
                 <div class="container"> 
-                    <div class="row"> 
-                        <div class="col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2"> 
-                            <div style="background: #d7c57d;" class="lr-box"> 
-                                <h4 class="text-uppercase editContent" style="outline: none; cursor: inherit;">Register For an account</h4> 
-                                <form action="#"> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Username</p> 
-                                    <input type="email" class="form-control" placeholder="Enter your username" required="">
-                                    <br> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">First name</p> 
-                                    <input type="email" class="form-control" placeholder="Enter your first name" required="">
-                                    <br> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Last name</p> 
-                                    <input type="email" class="form-control" placeholder="Enter your last name" required="">
-                                    <br> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Email</p> 
-                                    <input type="email" class="form-control" placeholder="Enter your E-mail" required="">
-                                    <br> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Password</p> 
-                                    <input type="password" class="form-control" placeholder="Enter your password" required="">
-                                    <br>
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Confirm Password</p> 
-                                    <input type="password" class="form-control" placeholder="Confirm your password" required="">
-                                    <br>
-                                    <input type="submit" class="btn btn-default-green editContent" value="Sign in"> 
-                                    <a href="#" class="pull-right editContent" style="outline: none; cursor: inherit;">Forgot password?</a> 
-                                </form>                                 
-                            </div>                             
-                        </div>                         
+                    <div class="login"> 
+                        <form action="members" method="POST"> 
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="text" name="username" class="form-control" placeholder="Username"> 
+                            <input type="password" name="password" class="form-control" placeholder="Password"> 
+                            <input type="submit" class="btn btn-default-orange-tiny-no-t" style="outline: none; cursor: inherit;" value="Login" /> 
+                        </form>                         
                     </div>                     
                 </div>                 
             </div>             
         </section>
-        <section id="cb-content-2-7" class="content-block cb-content-2-7" data-pg-collapsed>
+        <section id="cb-content-2-7" class="content-block cb-content-2-7">
             <div id="content17" data-pgc-define="content-17" data-pgc-define-name="content-17" data-pgc-define-auto-update="false" data-pgc-section="Content"> 
                 <div class="row row-eq-height"> 
                     <div class="col-md-12 nopaddingnomargin"> 
-                        <div class="col-md-4 nopaddingnomargin"> 
+                        <div class="col-md-4 nopaddingnomargin" data-pg-collapsed> 
                             <div class="content"> 
                                 <div class="icon"> 
                                     <span class="fa fa-hashtag" style="outline: none; cursor: inherit;"></span> 
@@ -121,7 +100,7 @@
                                 <p style="outline: none; cursor: inherit;">Employees are to use this system to log in and complete their tasks. A manager will post daily tasks and it is up to the employee to complete them and sign off on them. All tasks will appear on the task list on each employees accounts and are assigned to each individual employee.</p>
                             </div>                             
                         </div>                         
-                        <div class="col-md-4 nopaddingnomargin"> 
+                        <div class="col-md-4 nopaddingnomargin" data-pg-collapsed> 
                             <div class="content"> 
                                 <div class="icon"> 
                                     <span class="fa fa-hashtag" style="outline: none; cursor: inherit;"></span> 
@@ -130,7 +109,7 @@
                                 <p style="outline: none; cursor: inherit;">Our staff management system also has a private messaging system. Every Employee including Managers and Administrators can send messages to one another within the system.</p>
                             </div>                             
                         </div>                         
-                        <div class="col-md-4 nopaddingnomargin"> 
+                        <div class="col-md-4 nopaddingnomargin" data-pg-collapsed> 
                             <div class="content"> 
                                 <div class="icon"> 
                                     <span class="fa fa-hashtag" style="outline: none; cursor: inherit;"></span> 
@@ -138,7 +117,7 @@
                                 <h3 style="outline: none; cursor: inherit;" class="sectiontitle">aDMIN AND MANAGER TOOLS</h3> 
                                 <p style="outline: none; cursor: inherit;">Administrators can log in with full permission and access control over the entire staff management system. They can do everything Managers and Employees can do. Managers also have a higher level of Access control, however they may only assign and delete tasks for every individual Employee.</p>
                             </div>                             
-                        </div>                         
+                        </div>                                                                                                    
                     </div>                     
                 </div>                 
             </div>             

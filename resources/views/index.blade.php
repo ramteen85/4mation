@@ -27,8 +27,40 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/custom.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>  
     </head>     
     <body data-spy="scroll" data-target="nav">
+        
+
+        <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">~~ Authentication Error ~~</h4>
+             </div>
+             <div class="modal-body">
+                 <p><strong>Incorrect Username / Pass</p>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+             </div>
+           </div>
+          </div>
+        </div> 
+
+
+
+        @if(!empty(Session::get('error_code')) && Session::get('error_code') == 5)
+        <script>
+        $(function() {
+            $("#getCodeModal").modal('show');
+
+
+        });
+        </script>
+        @endif
+
+
         <section id="cb-navigation-1-2" class="cb-navigation-block cb-navigation-1-2">
             <div id="navigation2"> 
                 <nav class="navbar navbar-default"> 
@@ -197,7 +229,7 @@
                 </div>                 
             </div>             
         </section>
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>         
+               
         <script type="text/javascript" src="js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>

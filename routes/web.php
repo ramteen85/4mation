@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', 'pagesController@index');
-Route::get('/login', 'pagesController@login');
-Route::get('/register', 'pagesController@register');
+Route::get('/', 'PagesController@index');
+Route::get('login', 'PagesController@showLoginForm');
+Route::get('register', 'PagesController@showRegisterForm');
+Route::post('members', 'PagesController@logmein');
