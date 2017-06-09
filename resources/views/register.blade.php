@@ -70,7 +70,7 @@
         <section id="cb-title-1-5" class="cb-title-block cb-title-1-5"> 
             <div id="title5"> 
                 `     
-                <h1 style="padding-bottom: 10px">Sign into your Account</h1>
+                <h1 style="padding-bottom: 10px">Register an Account</h1>
             </div>
         </section>
         <section id="cb-form-1-3" class="cb-form-block cb-form-1-3">
@@ -79,27 +79,32 @@
                     <div class="row"> 
                         <div class="col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2"> 
                             <div style="background: #d7c57d;" class="lr-box"> 
-                                <h4 class="text-uppercase editContent" style="outline: none; cursor: inherit;">Register For an account</h4> 
-                                <form action="#"> 
+                                
+                                <form method="POST" action="/register"> 
+                                {{ csrf_field() }}
+
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Username</p> 
-                                    <input type="text" class="form-control" name="username" placeholder="Enter your username" required="">
+                                    <input type="text" class="form-control" name="username" placeholder="Enter your username" required>
                                     <br> 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">First name</p> 
-                                    <input type="text" name="firstname" class="form-control" placeholder="Enter your first name" required="">
+                                    <input type="text" name="firstname" class="form-control" placeholder="Enter your first name" required>
                                     <br> 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Last name</p> 
-                                    <input type="text" name="lastname" class="form-control" placeholder="Enter your last name" required="">
+                                    <input type="text" name="lastname" class="form-control" placeholder="Enter your last name" required>
                                     <br> 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Email</p> 
-                                    <input type="email" name="email" class="form-control" placeholder="Enter your E-mail" required="">
+                                    <input type="email" name="email" class="form-control" placeholder="Enter your E-mail" required>
                                     <br> 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Password</p> 
-                                    <input type="password" name="password" class="form-control" placeholder="Enter your password" required="">
+                                    <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
                                     <br>
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Confirm Password</p> 
-                                    <input type="password" class="form-control" placeholder="Confirm your password" required="">
+                                    <input id="password_confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirm your password" required>
                                     <br>
-                                    <input type="submit" class="btn btn-default-green editContent" value="Sign in">                                      
+                                    <input type="submit" class="btn btn-default-green editContent" value="Register">
+
+
+                                    @include('layouts.errors')                                     
                                 </form>                                 
                             </div>                             
                         </div>                         

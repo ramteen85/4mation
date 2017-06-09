@@ -33,26 +33,22 @@ class PagesController extends Controller
     	$username = $req->input('username');
     	$password = $req->input('password');
 
-    	$check = DB::table('users')->where(['username'=>$username, 'password'=>$password])->get();
+        if(! auth()->attempt(request(['username','password']))) 
+        {
+            //login fail
+            return redirect('/')->with('error_code', 5);
+        }
 
-    	if(count($check) > 0)
-    	{
-    		//login good
 
-    		$users = DB::table('users')->where('username', $username)->get();
+        //login good
 
-    		//$users = "test";
+        $users = DB::table('users')->where('username', $username)->get();
 
-    		return view('members')->with('users', $users);
-    	}
-    	else
-    	{
-    		//login fail
-    		return redirect('/')->with('error_code', 5);
-    	}
+        //$users = "test";
 
+        return view('members')->with('users', $users);
     	
-
+        
     }
 }
 

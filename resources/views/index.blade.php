@@ -48,6 +48,33 @@
           </div>
         </div> 
 
+        <div class="modal fade" id="getCodeModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">Registration Notification</h4>
+             </div>
+             <div class="modal-body">
+                 <p><strong>Thanks for registering! You may now sign in.</p>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+             </div>
+           </div>
+          </div>
+        </div> 
+
+        @if($flash = session('regd'))
+            <script>
+            $(function() {
+                $("#getCodeModal2").modal('show');
+
+
+            });
+            </script>
+        @endif
+
+
 
 
         @if(!empty(Session::get('error_code')) && Session::get('error_code') == 5)
