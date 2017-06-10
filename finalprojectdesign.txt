@@ -5,46 +5,75 @@ User Characteristics:
 The Administrator is a super user and he has complete control over all activities the can be performed.
 The administrator can 
 
-- View, edit, create, or delete Employee and task details.
-- send memos and messages out to everyone
-
-- Managers can
-
-- Create, view, edit or delete tasks for each employee
-- Can send memos out to everyone
-- Can message other employees and managers
+- View, edit, create, or delete Employees, teams and task details.
+- send messages out to everyone all at once, privately or people of a specific team
+- assign employees to a specific team
+- make another employee an administrator (password required)
+- revoke administrator privelages from an employee (password required)
 
 - Employees can 
 
+- fill in their profiles
 - view and check off tasks
-- send messages to everyone
+- send private messages to everyone
 
 
 Functional Requirements:
 
 - Home page
 
-First page of the website. Contains company information and log in page.
-All users log in from this page.
+First page of the website. Contains company information and email form.
+All users can proceed to either log in, or register from here.
 
-- Employees module
+- Sign in page
 
-On this page, the Administrator can add, edit, view or delete employee records.
-They can also do everything managers can do on the same page.
-Managers use this page too. But Admin functions will not be visible to them. 
-They can also assign, edit or delete tasks for employees, as well as send memos and messages to all users.
+all admins and employees can sign in to their accounts here.
 
+- registration page
 
+all new employees must register here
 
+- Members area
 
+the page every user sees when they first log in. all public announcements will appear here.
 
+- edit profile area
 
+all users can edit or delete their own profile on this page
 
+- view profile area
 
+all users can view each other's profiles on this page
 
-- 
+- task area
 
+all users can view and check off their tasks on this page
 
+- inbox page
 
+all users can view a list their conversations here
 
-      
+- compose message page
+
+all users can send messages to other users on this page
+
+- read message page
+
+all users can read their actual messages on this page
+
+- admin page
+
+visible and accessible to admins only. admins on this page can choose to:
+- set tasks to specific employees
+- cancel tasks
+- change employee details
+- create a new employee
+- promote / demote an employee with admin rights
+- fire an employeee
+- assign employees to a team
+- create or delete teams
+- search for employees by team, e-mail, username or full name
+- view all employees in a certain team
+- view all employees skilled in particular programming languages 
+- view total number of employees
+- view total number of employees on each team    
