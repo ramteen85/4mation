@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index')->name('home');
 Route::get('login', 'PagesController@showLoginForm');
 Route::get('register', 'PagesController@showRegisterForm');
+Route::get('tasks', 'PagesController@showTasks');
 Route::post('members', 'PagesController@logmein');
 Route::post('register', 'RegistrationController@create');
+Route::get('/logout', 'PagesController@destroy');
+Route::get('members', 'PagesController@members');

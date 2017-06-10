@@ -32,21 +32,7 @@
     <body data-spy="scroll" data-target="nav">
         
 
-        <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-             <div class="modal-content">
-             <div class="modal-header">
-                 <h4 class="modal-title">~~ Authentication Error ~~</h4>
-             </div>
-             <div class="modal-body">
-                 <p><strong>Incorrect Username / Pass</p>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
-             </div>
-           </div>
-          </div>
-        </div> 
+         
 
         <div class="modal fade" id="getCodeModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -77,55 +63,12 @@
 
 
 
-        @if(!empty(Session::get('error_code')) && Session::get('error_code') == 5)
-        <script>
-        $(function() {
-            $("#getCodeModal").modal('show');
+        
 
 
-        });
-        </script>
-        @endif
+        
+        @include('layouts.nav')
 
-
-        <section id="cb-navigation-1-2" class="cb-navigation-block cb-navigation-1-2">
-            <div id="navigation2"> 
-                <nav class="navbar navbar-default"> 
-                    <div class="container"> 
-                        <!-- Brand and toggle get grouped for better mobile display -->                         
-                        <div class="navbar-header"> 
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> 
-                                <span class="sr-only">Toggle navigation</span> 
-                                <span class="icon-bar"></span> 
-                                <span class="icon-bar"></span> 
-                                <span class="icon-bar"></span> 
-                            </button>                             
-                            <a class="navbar-brand" href="/" style="outline: none; cursor: inherit;">
-                                <img src="images/logo.png" alt="Logo" style="outline: none; cursor: inherit;">
-                            </a>                             
-                        </div>                         
-                        <!-- Collect the nav links, forms, and other content for toggling -->                         
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
-                            <ul class="nav navbar-nav pull-right"> 
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" role="button" aria-haspopup="true" aria-expanded="false" style="outline: none; cursor: inherit;">Menu&nbsp;<span class="caret"></span></a> 
-                                    <ul class="dropdown-menu text-center"> 
-                                        <li>
-                                            <a href="login" style="outline: none; cursor: inherit;">Log in</a>
-                                        </li>                                         
-                                        <li>
-                                            <a href="register" style="outline: none; cursor: inherit;">Register</a>
-                                        </li>                                                                                  
-                                    </ul>                                     
-                                </li>                                 
-                            </ul>                             
-                        </div>
-                        <!-- /.navbar-collapse -->                         
-                    </div>
-                    <!-- /.container -->                     
-                </nav>                 
-            </div>
-        </section>
         <section id="cb-title-1-5" class="cb-title-block cb-title-1-5"> 
             <div id="title5"> 
                 `     
@@ -248,14 +191,8 @@
                 </div>                 
             </div>             
         </section>
-        <section id="cb-footer-1-3" class="cb-footer-block cb-footer-1-3">
-            <div id="footer3"> 
-                <div class="container"> 
-                    <p class="editContent pull-left" style="outline: none; cursor: inherit;">Copyright © 2017</p> 
-                    <p class="editContent pull-right" style="outline: none; cursor: inherit;"><span class="fa fa-heart" style="outline: none; cursor: inherit;"></span>&nbsp; ~~CODED BY RAM~~ &nbsp;<span class="fa fa-heart" style="outline: none; cursor: inherit;"></span></p>
-                </div>                 
-            </div>             
-        </section>
+
+        @include('layouts.footer')
                
         <script type="text/javascript" src="js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>

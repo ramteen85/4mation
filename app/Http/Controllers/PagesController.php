@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use App\User;
 use DB;
 
 
@@ -17,7 +18,14 @@ class PagesController extends Controller
     {
     	return view('index');
     }
-
+    public function members()
+    {
+        return view('members');
+    }
+    public function showTasks()
+    {
+        return view('task');
+    }
     public function showLoginForm()
     {
     	return view('login');
@@ -36,19 +44,26 @@ class PagesController extends Controller
         if(! auth()->attempt(request(['username','password']))) 
         {
             //login fail
-            return redirect('/')->with('error_code', 5);
+            return redirect('/login')->with('error_code', 5);
         }
 
 
         //login good
 
-        $users = DB::table('users')->where('username', $username)->get();
+
+        
 
         //$users = "test";
 
-        return view('members')->with('users', $users);
+        return view('members');
     	
         
+    }
+
+    public function destroy()
+    {
+        auth()->logout();
+        return redirect()->home();
     }
 }
 

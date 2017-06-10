@@ -1,0 +1,66 @@
+
+
+/* Put your custom styles here */
+
+#logo
+{
+    position: relative;
+    top: -10px;
+}
+
+@media (min-width:768px)
+{
+    .dropdown:hover .dropdown-menu
+    {
+        margin-top: 0;
+        display: block;
+    }
+}
+
+.text-center
+{
+    text-align: center;
+}
+
+#title5 h1::after
+{
+    background: none;
+}
+
+@media (min-width:1200px)
+{
+    #content17 .content h3
+    {
+        line-height: 43px;
+        font-size: 30px;
+        margin-bottom: 44px;
+    }
+    #content17 .content p
+    {
+        font-size: 22px;
+    }
+}
+
+body
+{
+    background-color: #244a6e;
+}
+
+#cb-content-2-7
+{
+    background-color: #bbbbbb;
+}
+
+div#team3
+{
+    background-color: #959393;
+}
+
+@media (max-width:479px)
+{
+    .ftext
+    {
+        font-size: 5px;
+    }
+}
+
