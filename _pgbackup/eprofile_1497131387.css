@@ -1,0 +1,19 @@
+
+
+#pbox1
+{
+    border: 1px solid black;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#pbox2
+{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+

@@ -1,0 +1,25 @@
+
+
+.lstyle
+{
+    color: #2937d5;
+    font-weight: 800;
+}
+
+#pbox3
+{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #85c994;
+}
+
+#pbox4
+{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #85c994;
+}

@@ -46,10 +46,17 @@
                             <h1 class="white-text stathead fatwhite">Your Statistics</h1>
                             <div style="padding: 0;" class="statsbg container col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-md-12 bg-info statcol pad-sm">
-                                    <h3 class="htext1">Name: &nbsp; Robert Miller</h3>
+                                    <h3 class="htext1">Name: &nbsp; {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h3>
                                 </div>
                                 <div class="col-md-12 bg-info statcol pad-sm">
-                                    <h3 class="htext1">Role: &nbsp; Employee</h3>
+                                    <h3 class="htext1">
+                                    @if(Auth::user()->role == 0)
+                                    	Role: &nbsp; Employee
+                                    @elseif(Auth::user()->role == 1)
+                                    	Role: &nbsp; Admin
+                                    @endif
+
+                                    </h3>
                                 </div>
                                 <div class="col-md-12 bg-info statcol pad-sm">
                                     <h3 class="htext1">Team: &nbsp; Web Development</h3>
@@ -58,10 +65,10 @@
                                     <h3 class="fatwhite htext1">You have <span class="numur">2 unread conversations!</span></h3>
                                 </div>
                                 <div class="col-md-12 bg-warning statcol pad-sm">
-                                    <h3 class="fatwhite htext1">You have &nbsp;<span class="numtr">19 tasks remaining!</span></h3>
+                                   <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numtr">19 tasks remaining!</span></a></h3>
                                 </div>
                                 <div class="col-md-12 bg-success statcol pad-sm">
-                                    <h3 class="fatwhite htext1">You have <span class="numct">28 completed tasks!</span></h3>
+                                   <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numct">28 completed tasks!</span></a></h3>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +141,7 @@
             </div>
             <!-- /.container -->
         </section>
-        
+
         @include('layouts.footer')
 
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>         

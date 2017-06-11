@@ -1,0 +1,33 @@
+
+
+#pbox1
+{
+    border: 1px solid black;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #85c994;
+}
+
+#pbox2
+{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #85c994;
+}
+
+html, body
+{
+    background-color: #244a6e;
+}
+
+#ephead
+{
+    color: #5fd32e;
+    font-weight: 800;
+    font-size: 4em;
+}
+

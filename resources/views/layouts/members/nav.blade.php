@@ -27,22 +27,22 @@
                                             <a href="/members" style="outline: none; cursor: inherit;">Home</a>
                                         </li>
                                         <li>
-                                            <a href="#" style="outline: none; cursor: inherit;">Administrator</a>
+                                            <a href="/admin" style="outline: none; cursor: inherit;">Administrator</a>
                                         </li>
                                         <li>
-                                            <a href="#" style="outline: none; cursor: inherit;">Edit Profile</a>
+                                            <a href="/eprofile" style="outline: none; cursor: inherit;">Edit Profile</a>
                                         </li>
                                         <li>
-                                            <a href="#" style="outline: none; cursor: inherit;">View Profile</a>
+                                            <a href="/profile/{{ Auth::user()->username }}" style="outline: none; cursor: inherit;">View Profile</a>
                                         </li>
                                         <li>
-                                            <a href="#" style="outline: none; cursor: inherit;">Messages</a>
+                                            <a href="/inbox" style="outline: none; cursor: inherit;">Messages</a>
                                         </li>
                                         <li>
                                             <a href="/tasks" style="outline: none; cursor: inherit;">Tasks</a>
                                         </li>
                                         <li>
-                                            <a href="#" style="outline: none; cursor: inherit;">Find Workmates</a>
+                                            <a href="/findmates" style="outline: none; cursor: inherit;">Find Workmates</a>
                                         </li>
                                         <li>
                                             <a href="/logout" style="outline: none; cursor: inherit;">Logout</a>

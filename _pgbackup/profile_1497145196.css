@@ -1,0 +1,73 @@
+
+
+.lstyle
+{
+    color: #2937d5;
+    font-weight: 800;
+}
+
+#pbox3
+{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #85c994;
+}
+
+#pbox4
+{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #85c994;
+}
+
+.astyle
+{
+    font-weight: 800;
+    color: #df551e;
+}
+
+.skillstyle
+{
+    color: #312fb3;
+    font-weight: 400;
+}
+
+.boxhead
+{
+    font-size: 5em;
+    font-weight: 600;
+    color: #812984;
+}
+
+.abstyle
+{
+    color: #2025d1;
+    font-weight: 800;
+    font-size: 2em;
+}
+
+@media (max-width:767px)
+{
+    .abstyle
+    {
+        font-size: 1.3em;
+    }
+    .boxhead
+    {
+        font-size: 3em;
+    }
+    .skillstyle
+    {
+        font-size: 2em;
+    }
+}
+
+body, html
+{
+    min-width: 320px;
+}
+

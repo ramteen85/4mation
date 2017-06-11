@@ -86,7 +86,7 @@
                                 <div class="icon"> 
                                     <span class="fa fa-hashtag" style="outline: none; cursor: inherit;"></span> 
                                 </div>                                 
-                                <h3 style="outline: none; cursor: inherit;" class="sectiontitle">rECEIVE AND COMPLETE TASKS</h3> 
+                                <h3 style="outline: none; cursor: inherit;" class="sectiontitle">RECEIVE AND COMPLETE TASKS</h3> 
                                 <p style="outline: none; cursor: inherit;">Employees are to use this system to log in and complete their tasks. A manager will post daily tasks and it is up to the employee to complete them and sign off on them. All tasks will appear on the task list on each employees accounts and are assigned to each individual employee.</p>
                             </div>                             
                         </div>                         

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -27,7 +28,34 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public static function getByUsername($val)
+    {
+        return User::where('username', $val) -> first();
+    }
+
+    public static function checkPassword($val, $val2)
+    {
+
+        $user = array(
+            'username' => $val,
+            'password' => $val2
+        );
+
+        $result = auth()->attempt($user);
+
+        return $result;
+    }
+
     public function getUsernameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getFirstnameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+    public function getLastnameAttribute($value)
     {
         return ucfirst($value);
     }

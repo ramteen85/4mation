@@ -1,0 +1,174 @@
+
+
+.exicon
+{
+    height: 100%;
+    width: 100%;
+    max-height: 150px;
+    max-width: 200px;
+}
+
+#ann_border
+{
+    border: 2px solid black;
+    background-color: #17275c;
+}
+
+.border1
+{
+    padding-bottom: 0;
+    height: auto;
+    border: 1px solid blue;
+}
+
+.feature-box
+{
+    background-color: #17275c !important;
+}
+
+.content-3-6
+{
+}
+
+.content-3-6 .feature-box
+{
+    background-color: #332364;
+}
+
+.white-text
+{
+    color: #ddc7c7 !important;
+}
+
+.statsbg
+{
+    background: transparent;
+}
+
+.stathead
+{
+}
+
+.bg-danger
+{
+    background-color: #841414;
+}
+
+.bg-info
+{
+    background-color: #6963c1;
+}
+
+.bg-success
+{
+    background-color: #23643b;
+}
+
+.bg-warning
+{
+    background-color: #ad6200;
+}
+
+.statcol
+{
+    margin-top: 1em;
+}
+
+.htext1
+{
+    color: #42d112 !important;
+    font-weight: 800;
+}
+
+.fatwhite
+{
+    color: white !important;
+    font-weight: 800;
+}
+
+.numct
+{
+    color: #ffd93c;
+    font-size: 1.4em;
+}
+
+.numtr
+{
+    font-size: 1.4em;
+    color: #3adfac;
+}
+
+.numur
+{
+    font-size: 1.4em;
+    color: #28c3cf;
+}
+
+.ipostn
+{
+}
+
+.usrtxt
+{
+    color: #e1680f;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+.timeagotext
+{
+    color: #c6cd1f;
+    font-weight: 500;
+}
+
+.apara
+{
+    color: gold !important;
+    font-weight: 400;
+}
+
+html, body
+{
+    min-width: 320px;
+    overflow: auto;
+    background: #244a6e;
+}
+
+@media (max-width:479px)
+{
+    .stathead
+    {
+        font-size: 2em;
+    }
+    .htext1
+    {
+        font-size: 0.8em;
+    }
+    .pad-sm
+    {
+        padding-bottom: 1px;
+    }
+    .aheader-sm
+    {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width:476px)
+{
+    .exhidsm
+    {
+        display: none;
+    }
+    .col-sm-12
+    {
+    }
+}
+
+@media (min-width:477px)
+{
+    .col-sm-10
+    {
+    }
+}
+

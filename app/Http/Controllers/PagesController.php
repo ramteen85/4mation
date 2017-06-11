@@ -10,29 +10,140 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\User;
 use DB;
+use Auth;
+Use Redirect;
 
 
 class PagesController extends Controller
 {
     public function index()
     {
-    	return view('index');
+    	if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            return Redirect::to('members');    
+        }
+    }
+    public function findmates()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            return view('layouts.findusers');    
+        }
     }
     public function members()
     {
-        return view('members');
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            return view('members');    
+        }
+
+        
+    }
+    public function inbox()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            return view('layouts.inbox');    
+        }
+    }
+    public function admin()
+    {
+        if (Auth::guest() || Auth::user()->role != 1) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            return view('layouts.admin');    
+        }
+    }
+
+
+    public function profile($usr)
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+
+            //find record by username
+
+            $user = User::getByUsername($usr);
+
+            return view('layouts.profile', compact('user'));    
+        }
+    }
+    public function eprofile()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            return view('layouts.eprofile');    
+        }
     }
     public function showTasks()
     {
-        return view('task');
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            return view('task');    
+        }
     }
     public function showLoginForm()
     {
-    	return view('login');
+    	if (Auth::guest()) 
+        {
+
+            return view('login');
+        }
+        else
+        {
+            return Redirect::to('members');    
+        }
     }
     public function showRegisterForm()
     {
-    	return view('register');
+    	if (Auth::guest()) 
+        {
+
+            return view('register');
+        }
+        else
+        {
+            return Redirect::to('members');    
+        }
     }
     public function logmein(Request $req)
     {

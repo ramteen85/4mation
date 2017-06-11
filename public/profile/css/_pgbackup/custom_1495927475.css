@@ -1,0 +1,87 @@
+
+
+/* Put your custom styles here */
+
+#brandimg
+{
+    border-radius: 68px;
+    height: 95px;
+    width: 85px;
+    margin-top: -11px;
+}
+
+#content-1-3
+{
+    background-color: #daeba2;
+}
+
+#content-1-1
+{
+    margin-top: -617px;
+}
+
+#mynameh1
+{
+    font-family: 'True Lies';
+    font-size: 67px;
+    font-weight: 700;
+    color: #006a8f;
+}
+
+#websubheader
+{
+    font-family: 'True Lies';
+    font-size: 37px;
+    color: #002a66;
+}
+
+.prince
+{
+    font-family: 'princeofpersia';
+}
+
+.longshot
+{
+    font-family: 'Nb Obese';
+    font-size: 16px;
+}
+
+.text-center
+{
+    text-align: center;
+}
+
+#header-1 .main-nav
+{
+    background-color: #322f38;
+}
+
+#header-1 .main-nav .nav .dropdown-menu
+{
+    background-color: #322f38;
+}
+
+#header-1 .main-nav .nav .dropdown-menu a:hover
+{
+    background-color: #9936a9;
+}
+
+.bg-deepocean
+{
+    background-color: #322f38 !important;
+}
+
+@media (max-width:319px)
+{
+@media (max-width:319px)
+{
+    body, html
+    {
+        min-width: 320px;
+        width: auto !important;
+        overflow: auto;
+    }
+}
+
+}
+
