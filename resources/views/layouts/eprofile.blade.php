@@ -39,83 +39,154 @@
                     <h3 id="ephead" class="editContent" style="outline: none; cursor: inherit;">Edit Profile</h3> 
                     <div class="row mt40 mb40"> 
                         <div id="pbox1" class="col-sm-12"> 
-                            <form action="/updateprofile"> 
+                            <form action="/updateprofile" method="POST"> 
                                 {{ csrf_field() }}
                                 <div class="col-sm-6"> 
-                                    <input type="text" class="form-control" placeholder="First Name" value="{{ Auth::user()->firstname }}"> 
+                                    <input type="text" class="form-control" placeholder="First Name" name="fname" value="{{ Auth::user()->firstname }}" required> 
                                 </div>                                 
                                 <div class="col-md-6 col-sm-6"> 
-                                    <input type="text" class="form-control" placeholder="Surname" value="{{ Auth::user()->lastname }}"> 
+                                    <input type="text" class="form-control" placeholder="Surname" name="lname" value="{{ Auth::user()->lastname }}" required> 
                                 </div>                                 
                                 <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
-                                    <input type="email" class="form-control" placeholder="Enter your E-mail" value="{{ Auth::user()->email }}" required> 
+                                    <input type="email" class="form-control" placeholder="Enter your E-mail" value="{{ Auth::user()->email }}" name="email" required> 
                                 </div>                                 
                                 <div class="col-md-12 col-sm-12"> 
-                                    <textarea name="message" class="form-control textarea" placeholder="Please tell us a bit about yourself...">{{ Auth::user()->about }}</textarea>                                     
+                                    <textarea name="aboutme" class="form-control textarea" placeholder="Please tell us a bit about yourself...">{{ Auth::user()->about }}</textarea>                                     
                                 </div>
                                 <div style="margin-bottom: 30px" class="col-md-12 col-sm-12">
-                                    <h1 style="text-align: center;">What programming languages do you know?</h1> 
+                                    <h1 style="text-align: center; font-weight: 800;">What programming languages do you know?</h1> 
                                 </div>
+                                
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp; PHP &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @if($skills[0] == 1)
+                                        <input name="cb1" class="control-label" type="checkbox" checked>&nbsp; &nbsp; PHP &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @else
+                                        <input name="cb1" class="control-label" type="checkbox">&nbsp; &nbsp; PHP &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
+
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;NodeJS &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @if($skills[1] == 1)
+                                        <input name="cb2" class="control-label" type="checkbox" checked>&nbsp; &nbsp; NodeJS &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @else
+                                        <input name="cb2" class="control-label" type="checkbox">&nbsp; &nbsp; NodeJS &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @endif
                                     </label>                                     
-                                </div>
+                                </div>                                  
+                                
+
+
+
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;C# &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @if($skills[2] == 1)
+                                        <input name="cb3" class="control-label" type="checkbox" checked>&nbsp; &nbsp;C# &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb3" class="control-label" type="checkbox"->&nbsp; &nbsp;C# &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
+
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;C/C++ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @if($skills[3] == 1)
+                                        <input name="cb4" class="control-label" type="checkbox" checked>&nbsp; &nbsp;C/C++ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb4" class="control-label" type="checkbox"->&nbsp; &nbsp;C/C++ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;Java &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @if($skills[4] == 1)
+                                        <input name="cb5" class="control-label" type="checkbox" checked>&nbsp; &nbsp;Java &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb5" class="control-label" type="checkbox"->&nbsp; &nbsp;Java &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+                                
+                              
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;Ruby &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @if($skills[5] == 1)
+                                        <input name="cb6" class="control-label" type="checkbox" checked>&nbsp; &nbsp;Ruby &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb6" class="control-label" type="checkbox"->&nbsp; &nbsp;Ruby &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;Javascript &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @if($skills[6] == 1)
+                                        <input name="cb7" class="control-label" type="checkbox" checked>&nbsp; &nbsp;JavaScript &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb7" class="control-label" type="checkbox"->&nbsp; &nbsp;JavaScript &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
+
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;ASP.NET &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @if($skills[7] == 1)
+                                        <input name="cb8" class="control-label" type="checkbox" checked>&nbsp; &nbsp;ASP.NET &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb8" class="control-label" type="checkbox"->&nbsp; &nbsp;ASP.NET &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
+                                
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;Python &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @if($skills[8] == 1)
+                                        <input name="cb9" class="control-label" type="checkbox" checked>&nbsp; &nbsp;Python &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb9" class="control-label" type="checkbox"->&nbsp; &nbsp;Python &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
+                                
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;Perl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @if($skills[9] == 1)
+                                        <input name="cb10" class="control-label" type="checkbox" checked>&nbsp; &nbsp;Perl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb10" class="control-label" type="checkbox"->&nbsp; &nbsp;Perl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
+
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;JQuery &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                        @if($skills[10] == 1)
+                                        <input name="cb11" class="control-label" type="checkbox" checked>&nbsp; &nbsp;Jquery &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb11" class="control-label" type="checkbox"->&nbsp; &nbsp;Jquery &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
                                 <div class="text-left col-sm-3">
                                     <label> 
-                                        <input class="control-label" type="checkbox" value="">&nbsp; &nbsp;Visual Basic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @if($skills[11] == 1)
+                                        <input name="cb12" class="control-label" type="checkbox" checked>&nbsp; &nbsp;Visual Basic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @else
+                                        <input name="cb12" class="control-label" type="checkbox"->&nbsp; &nbsp;Visual Basic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        @endif
                                     </label>                                     
                                 </div>
+
                                 <div class="col-sm-4 col-sm-offset-4"> 
                                     <button type="submit" class="form-control btn btn-success col-sm-7">Update Profile</button>                                     
                                 </div>                                 
@@ -212,7 +283,7 @@
                             <form action="/changepass" method="POST">
                                 {{ csrf_field() }}
                                 <div class="col-sm-12">
-                                    <h3>Change Your Password</h3> 
+                                    <h3 style="font-weight: 800;">Change Your Password</h3> 
                                 </div>                                 
                                 <div class="text-left col-sm-12 col-md-6">
                                     <input type="password" class="form-control" placeholder="Old Password..." name="oldpass" required> 

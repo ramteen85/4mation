@@ -9,9 +9,11 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\User;
+use App\Skill;
 use DB;
 use Auth;
 Use Redirect;
+use Carbon\Carbon;
 
 
 class PagesController extends Controller
@@ -90,11 +92,21 @@ class PagesController extends Controller
         else
         {
 
+
+
+            $skills = Skill::fetchAllSkills();
+
             //find record by username
 
             $user = User::getByUsername($usr);
 
-            return view('layouts.profile', compact('user'));    
+            $datetmp = $user->created_at;
+
+
+
+            $timeago = $user->created_at->diffForHumans();
+
+            return view('layouts.profile', compact('user', 'skills',   'timeago'));    
         }
     }
     public function eprofile()
@@ -106,7 +118,18 @@ class PagesController extends Controller
         }
         else
         {
-            return view('layouts.eprofile');    
+            
+            //get user id
+            $userid = Auth::user()->id;
+            
+            //check for skills
+
+            $skills = Skill::getByUserId($userid);
+
+
+
+
+            return view('layouts.eprofile', compact('skills'));    
         }
     }
     public function showTasks()

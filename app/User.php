@@ -28,6 +28,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function getDates()
+    {
+        return array('created_at', 'updated_at');
+    }
+
+
+
     public static function getByUsername($val)
     {
         return User::where('username', $val) -> first();
@@ -56,6 +64,10 @@ class User extends Authenticatable
         return ucfirst($value);
     }
     public function getLastnameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+    public function getEmailAttribute($value)
     {
         return ucfirst($value);
     }

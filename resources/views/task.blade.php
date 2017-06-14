@@ -36,7 +36,7 @@
 
         @include('layouts.members.nav')
 
-        <section id="cb-intro-2-5" class="cb-intro-block cb-intro-2-5" data-pg-collapsed>
+         <section id="cb-intro-2-5" class="cb-intro-block cb-intro-2-5">
             <div id="intro15" style="background-image: url('images/tech.png');"> 
                 <div class="container" style="background: black; opacity: 0.6"> 
                     <h3 class="editContent headerstyle taskh1" style="outline: none; cursor: inherit;">Your Tasks</h3> 
@@ -44,66 +44,72 @@
                 </div>                 
             </div>
         </section>
-        <section class="tasksheader" data-pg-collapsed>
+        <section class="tasksheader">
             <h1>Tasks Due</h1>
         </section>
-        <section id="cb-service-1-4" class="cb-service-block cb-service-1-4" data-pg-collapsed>
+        <section id="cb-service-1-4" class="cb-service-block cb-service-1-4">
             <div id="services4"> 
                 <div class="container"> 
                     <div class="row"> 
-                        <div class="col-md-4" data-pg-collapsed> 
+                        <div class="col-md-4 taskborder" data-pg-collapsed> 
                             <div class="services-box"> 
                                 <div class="icon">
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h3>
-                                <div class="col-xs-12" data-pg-collapsed>
+                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
+                                <h4>Issued By: Admin</h4>
+                                <h5>22 minutes ago</h5>
+                                <div class="col-xs-12">
                                     <button class="form-control btn btn-success">Check off 
                                         <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                                                          
+                                    </button>                                     
                                 </div>
-                                <div class="col-xs-12" data-pg-collapsed>
+                                <div class="col-xs-12">
                                     <button class="form-control btn btn-info">Checked 
                                         <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                                                          
+                                    </button>                                     
                                 </div>                                 
                                 <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
                             </div>                             
                         </div>
-                        <div class="col-md-4" data-pg-collapsed> 
+                        <div class="col-md-4 taskborder" data-pg-collapsed> 
                             <div class="services-box"> 
                                 <div class="icon">
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h3>
-                                <div class="col-xs-12" data-pg-collapsed>
+                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
+                                <h4>Issued By: Admin</h4>
+                                <h5>22 minutes ago</h5>
+                                <div class="col-xs-12">
                                     <button class="form-control btn btn-success">Check off 
                                         <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                                                          
+                                    </button>                                     
                                 </div>
-                                <div class="col-xs-12" data-pg-collapsed>
+                                <div class="col-xs-12">
                                     <button class="form-control btn btn-info">Checked 
                                         <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                                                          
+                                    </button>                                     
                                 </div>                                 
                                 <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
                             </div>                             
                         </div>
-                        <div class="col-md-4" data-pg-collapsed> 
+                        <div class="col-md-4 taskborder" data-pg-collapsed> 
                             <div class="services-box"> 
                                 <div class="icon">
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h3>
-                                <div class="col-xs-12" data-pg-collapsed>
+                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
+                                <h4>Issued By: Admin</h4>
+                                <h5>22 minutes ago</h5>
+                                <div class="col-xs-12">
                                     <button class="form-control btn btn-success">Check off 
                                         <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                                                          
+                                    </button>                                     
                                 </div>
-                                <div class="col-xs-12" data-pg-collapsed>
+                                <div class="col-xs-12">
                                     <button class="form-control btn btn-info">Checked 
                                         <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                                                          
+                                    </button>                                     
                                 </div>                                 
                                 <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
                             </div>                             
@@ -113,37 +119,43 @@
                 </div>                 
             </div>             
         </section>
-        <section class="tasksheader" data-pg-collapsed>
+        <section class="tasksheader">
             <h1>Recently completed Tasks</h1>
         </section>
-        <section id="cb-service-1-4" class="cb-service-block cb-service-1-4" data-pg-collapsed>
+        <section id="cb-service-1-4" class="cb-service-block cb-service-1-4">
             <div id="services4"> 
                 <div class="container"> 
                     <div class="row"> 
-                        <div class="col-md-4" data-pg-collapsed> 
+                        <div class="col-md-4 taskborder" data-pg-collapsed> 
                             <div class="services-box"> 
                                 <div class="icon">
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">Chocka Blocks</h3> 
+                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
+                                <h4>Issued By: Admin</h4>
+                                <h5>22 minutes ago</h5> 
                                 <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
                             </div>                             
                         </div>
-                        <div class="col-md-4" data-pg-collapsed> 
+                        <div class="col-md-4 taskborder" data-pg-collapsed> 
                             <div class="services-box"> 
                                 <div class="icon">
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">Chocka Blocks</h3> 
+                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
+                                <h4>Issued By: Admin</h4>
+                                <h5>22 minutes ago</h5> 
                                 <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
                             </div>                             
                         </div>
-                        <div class="col-md-4" data-pg-collapsed> 
+                        <div class="col-md-4 taskborder" data-pg-collapsed> 
                             <div class="services-box"> 
                                 <div class="icon">
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">Chocka Blocks</h3> 
+                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
+                                <h4>Issued By: Admin</h4>
+                                <h5>22 minutes ago</h5> 
                                 <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
                             </div>                             
                         </div>                         
@@ -152,6 +164,7 @@
                 </div>                 
             </div>             
         </section>
+        
 
         @include('layouts.footer')
 

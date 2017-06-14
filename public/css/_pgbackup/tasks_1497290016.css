@@ -44,7 +44,7 @@ body, html
     }
 }
 
-#services4 h2
+#services4 h3
 {
     color: #90e717;
 }
@@ -59,21 +59,5 @@ body, html
     color: #cf61e7;
     font-size: 1.3em;
     font-weight: 500;
-}
-
-.taskborder
-{
-    border: 1px solid grey;
-    padding-top: 20px;
-}
-
-#services4 h5
-{
-    color: #58bbaa;
-}
-
-#services4 h4
-{
-    color: #d94343;
 }
 

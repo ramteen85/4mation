@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Skill;
 use Auth;
 use Validator;
 use Hash;
@@ -11,6 +12,97 @@ use Hash;
 
 class RegistrationController extends Controller
 {
+    public function updateprofile()
+    {
+        // grab all information
+
+        $fname = request('fname');
+        $lname = request('lname');
+        $email = request('email');
+        $about = request('aboutme');
+
+        $checkboxes= [
+
+            request('cb1'), request('cb2'), request('cb3'),
+            request('cb4'), request('cb5'), request('cb6'),
+            request('cb7'), request('cb8'), request('cb9'),
+            request('cb10'), request('cb11'), request('cb12') 
+        ];
+
+        
+
+        //validate information
+
+        $rules = "";
+
+
+        if($email == Auth::user()->email)
+        {
+            $rules = array(
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email',
+
+            );
+        }
+        else
+        {
+            $rules = array(
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email|unique:users',
+
+            );
+        }
+
+        
+
+
+        $messages = array(
+            'fname.required'=>'Please enter your first name.',
+            'lname.required'=>'Please enter your last name.',
+            'email.required'=>'Please enter your Email Address.',
+            
+        );
+
+        $validation = \Illuminate\Support\Facades\Validator::make(request()->all(), $rules, $messages );
+
+         if (!$validation->passes()) 
+         {
+            //if validation fails return errors
+            return redirect('/eprofile')->withErrors($validation->errors());
+         }
+
+         
+
+        //validation passed - save data
+
+        //get username
+        $username = Auth::user()->username;
+
+        //get user object
+        $user = User::getByUsername($username);
+
+        //get basic details
+        $user->firstname = $fname;
+        $user->lastname = $lname;
+        $user->email = $email;
+        $user->about = $about;
+
+        //save data
+        $user->save();
+
+        //save checkboxes
+        Skill::setSkills($checkboxes, Auth::user()->id);          
+        
+
+        //refresh the page
+        return redirect('/eprofile');
+         
+
+
+    }
+
     public function changepass()
     {
         //validate form

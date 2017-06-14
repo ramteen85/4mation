@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-sm-6"> 
                                 <p><span class="lstyle">Tasks Completed:</span> <span class="astyle">34</span></p>
-                                <p class="astyle"><span class="lstyle">Registered:</span> <span>3 Years ago</span></p>
+                                <p class="astyle"><span class="lstyle">Registered:</span> <span>{{ $timeago }}</span></p>
                                 <p><span class="lstyle">Team:</span> <span class="astyle">Not Assigned</span></p>
                                 <p><span class="lstyle">User Type:</span> <span class="astyle">@if($user->role == 0)
                                         Employee
@@ -60,30 +60,14 @@
                                 <div class="col-sm-12">
                                     <h1 class="text-center boxhead">Skills</h1> 
                                 </div>
-                                <div class="col-sm-3">
-                                    <h1 class="text-center skillstyle">PHP</h1> 
-                                </div>
-                                <div class="col-sm-3">
-                                    <h1 class="text-center skillstyle">Javascript</h1> 
-                                </div>
-                                <div class="col-sm-3">
-                                    <h1 class="text-center skillstyle">Java</h1> 
-                                </div>
-                                <div class="col-sm-3">
-                                    <h1 class="text-center skillstyle">C++</h1> 
-                                </div>
-                                <div class="col-sm-3">
-                                    <h1 class="text-center skillstyle">C#</h1> 
-                                </div>
-                                <div class="col-sm-3">
-                                    <h1 class="text-center skillstyle">Python</h1> 
-                                </div>
-                                <div class="col-sm-3">
-                                    <h1 class="text-center skillstyle">ASP.NET</h1> 
-                                </div>
-                                <div class="col-sm-3">
-                                    <h1 class="text-center skillstyle">JQuery</h1> 
-                                </div>                                 
+                                
+                                @foreach($skills as $skill)
+                                    <div class="col-sm-3">
+                                        <h1 class="text-center skillstyle">{{ $skill->name }}</h1> 
+                                    </div>
+                                @endforeach
+
+                                                                
                             </div>                             
                         </div>
                         <div id="pbox3" class="col-sm-12">
