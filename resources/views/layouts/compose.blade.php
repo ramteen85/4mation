@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
         <meta name="description" content="My new website" />
-        <link rel="shortcut icon" href="/ico/favicon.png"> 
+        <link rel="shortcut icon" href="ico/favicon.png"> 
         <!-- Core CSS -->         
         <!-- Style Library -->         
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
@@ -33,9 +33,9 @@
         <link href="/css/tasks.css" rel="stylesheet" type="text/css">
         <link href="/css/messages.css" rel="stylesheet" type="text/css">
     </head>     
-    <body data-spy="scroll" data-target="nav" class="min">
-
+    <body data-spy="scroll" data-target="nav">
         @include('layouts.members.nav')
+
 
         <section id="cb-intro-2-5" class="cb-intro-block cb-intro-2-5" data-pg-collapsed>
             <div id="intro15" style="background-image: url('/images/tech.png');">
@@ -93,6 +93,9 @@
                 </div>                 
             </div>             
         </section>
+        
+        
+
         <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -106,7 +109,5 @@
         <script type="text/javascript" src="/components/pg.blocks/js/plugins.js"></script>
         <script type="text/javascript" src="/components/pg.blocks/js/bskit-scripts.js"></script>
     </body>
-    
-    @include('layouts.footer')
-      
+        
 </html>

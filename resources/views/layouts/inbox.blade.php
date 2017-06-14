@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
         <meta name="description" content="My new website" />
-        <link rel="shortcut icon" href="/ico/favicon.png"> 
+        <link rel="shortcut icon" href="ico/favicon.png"> 
         <!-- Core CSS -->         
         <!-- Style Library -->         
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
@@ -33,7 +33,7 @@
         <link href="/css/tasks.css" rel="stylesheet" type="text/css">
         <link href="/css/messages.css" rel="stylesheet" type="text/css">
     </head>     
-    <body data-spy="scroll" data-target="nav" class="min">
+    <body data-spy="scroll" data-target="nav">
 
         @include('layouts.members.nav')
 
@@ -45,7 +45,7 @@
             </div>
         </section>
         <section id="cb-service-1-4" class="cb-service-block cb-service-1-4 sectionmargin" data-pg-collapsed>
-            <div class="stripe gridheight col-xs-12 col-sm-12 col-md-4 body-sm">
+            <div class=" gridheight col-xs-12 col-sm-12 col-md-4 body-sm">
                 <div class="col-sm-12 borderbottom optionheight sm-optionsize sm-optionheight">
                     <a href="/messages/compose"><h3 class="titles optionsize">Compose</h3></a> 
                 </div>
@@ -59,7 +59,7 @@
                     <h3 class="titles optionsize">Announcements</h3> 
                 </div>                 
             </div>
-            <div class="gridheight col-xs-12 col-sm-12 col-md-8 overflowauto margin-sm min">
+            <div class="stripe gridheight col-xs-12 col-sm-12 col-md-8 overflowauto margin-sm min">
                 <div class="col-xs-12 margin-bot1 msgtitle-sm">
                     <h3 class="titles">Message</h3> 
                 </div>
@@ -93,6 +93,9 @@
                 </div>                 
             </div>             
         </section>
+
+        
+
         <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -107,6 +110,5 @@
         <script type="text/javascript" src="/components/pg.blocks/js/bskit-scripts.js"></script>
     </body>
     
-    @include('layouts.footer')
-      
+        @include('layouts.footer')     
 </html>
