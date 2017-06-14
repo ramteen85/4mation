@@ -59,13 +59,13 @@
             });
             </script>
         @endif
-
-
-
-
         
-
-
+        
+            
+            
+            
+            
+            
         
         @include('layouts.nav')
 
@@ -163,7 +163,7 @@
             <div id="contact2" style="background-image:url('images/contactform.jpg');"> 
                 <div class="container"> 
                     <h6 class="editContent" style="outline: none; cursor: inherit;">Contact us</h6> 
-                    <h3 class="editContent" style="outline: none; cursor: inherit;">Send us an e-mail</h3> 
+                    <h3 class="editContent" style="outline: none; cursor: inherit;">Leave us a message</h3> 
                     <div class="row mt40 mb40"> 
                         <div class="col-md-8 col-md-offset-2"> 
                             <form action="#"> 

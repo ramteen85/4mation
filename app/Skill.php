@@ -37,9 +37,9 @@ class Skill extends Model
 
     }
 
-    public static function fetchAllSkills()
+    public static function fetchAllSkills($usr)
     {
-    	return Skill::all();
+    	return Skill::where('user_id', User::getByUsername($usr)->id)->get();
     }
 
     public static function setSkills($checkboxes, $userid)

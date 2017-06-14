@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\User;
 use App\Skill;
+use App\Task;
 use DB;
 use Auth;
 Use Redirect;
@@ -94,7 +95,7 @@ class PagesController extends Controller
 
 
 
-            $skills = Skill::fetchAllSkills();
+            $skills = Skill::fetchAllSkills($usr);
 
             //find record by username
 
@@ -126,11 +127,20 @@ class PagesController extends Controller
 
             $skills = Skill::getByUserId($userid);
 
-
-
-
             return view('layouts.eprofile', compact('skills'));    
         }
+    }
+    public function checktask()
+    {
+        $boolval = request('boolval');
+        $taskid = request('taskid');
+
+        $task = Task::where('id', $taskid)->first();
+        $task->completed = $boolval;
+        $task->save();
+
+
+        return Redirect::back();
     }
     public function showTasks()
     {
@@ -141,7 +151,10 @@ class PagesController extends Controller
         }
         else
         {
-            return view('task');    
+            $tasks = Task::incompletetasks();
+            $tasks2 = Task::completedtasks();
+            
+            return view('task', compact('tasks', 'tasks2'));
         }
     }
     public function showLoginForm()

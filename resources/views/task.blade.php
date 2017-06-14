@@ -50,72 +50,41 @@
         <section id="cb-service-1-4" class="cb-service-block cb-service-1-4">
             <div id="services4"> 
                 <div class="container"> 
-                    <div class="row"> 
+                    
+
+                    @foreach($tasks as $task)
                         <div class="col-md-4 taskborder" data-pg-collapsed> 
                             <div class="services-box"> 
                                 <div class="icon">
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
-                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
-                                <h4>Issued By: Admin</h4>
-                                <h5>22 minutes ago</h5>
+                                <h2 class="editContent" style="outline: none; cursor: inherit;">{{ $task->title }}</h2>
+                                <h4>Issued By: <a href="/profile/{{ $task::getSenderById($task->issue_id) }}">{{ $task::getSenderById($task->issue_id) }}</a></h4>
+                                <h5>{{ $task->timeago() }}</h5>
                                 <div class="col-xs-12">
+                                    <form action="/checktask" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="boolval" value="1">
+                                    <input type="hidden" name="taskid" value="{{$task->id}}">
                                     <button class="form-control btn btn-success">Check off 
                                         <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                     
+                                    </button>
+                                    </form>        
                                 </div>
                                 <div class="col-xs-12">
-                                    <button class="form-control btn btn-info">Checked 
+                                    
+                                    <button style="display:none;" class="form-control btn btn-danger">Uncheck 
                                         <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                     
+                                    </button>
+                                                                        
                                 </div>                                 
-                                <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
+                                <p class="editContent" style="outline: none; cursor: inherit;">{{ $task->body }}</p> 
                             </div>                             
                         </div>
-                        <div class="col-md-4 taskborder" data-pg-collapsed> 
-                            <div class="services-box"> 
-                                <div class="icon">
-                                    <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
-                                </div>                                 
-                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
-                                <h4>Issued By: Admin</h4>
-                                <h5>22 minutes ago</h5>
-                                <div class="col-xs-12">
-                                    <button class="form-control btn btn-success">Check off 
-                                        <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                     
-                                </div>
-                                <div class="col-xs-12">
-                                    <button class="form-control btn btn-info">Checked 
-                                        <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                     
-                                </div>                                 
-                                <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
-                            </div>                             
-                        </div>
-                        <div class="col-md-4 taskborder" data-pg-collapsed> 
-                            <div class="services-box"> 
-                                <div class="icon">
-                                    <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
-                                </div>                                 
-                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
-                                <h4>Issued By: Admin</h4>
-                                <h5>22 minutes ago</h5>
-                                <div class="col-xs-12">
-                                    <button class="form-control btn btn-success">Check off 
-                                        <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                     
-                                </div>
-                                <div class="col-xs-12">
-                                    <button class="form-control btn btn-info">Checked 
-                                        <span class="glyphicon glyphicon-check"></span>
-                                    </button>                                     
-                                </div>                                 
-                                <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
-                            </div>                             
-                        </div>                         
-                    </div>
-                    <br> 
+                    @endforeach   
+                                                
+                    
+                    
                 </div>                 
             </div>             
         </section>
@@ -125,42 +94,38 @@
         <section id="cb-service-1-4" class="cb-service-block cb-service-1-4">
             <div id="services4"> 
                 <div class="container"> 
-                    <div class="row"> 
+                    
+                    @foreach($tasks2 as $task)
                         <div class="col-md-4 taskborder" data-pg-collapsed> 
                             <div class="services-box"> 
                                 <div class="icon">
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
-                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
-                                <h4>Issued By: Admin</h4>
-                                <h5>22 minutes ago</h5> 
-                                <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
+                                <h2 class="editContent" style="outline: none; cursor: inherit;">{{ $task->title }}</h2>
+                                <h4>Issued By: <a href="/profile/{{ $task::getSenderById($task->issue_id) }}">{{ $task::getSenderById($task->issue_id) }}</a></h4>
+                                <h5>{{ $task->timeago() }}</h5>
+                                <div class="col-xs-12">
+                                    
+                                    <button style="display: none;" class="form-control btn btn-success">Check off 
+                                        <span class="glyphicon glyphicon-check"></span>
+                                    </button>       
+                                                                  
+                                </div>
+                                <div class="col-xs-12">
+                                    <form action="/checktask" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="boolval" value="0" />
+                                    <input type="hidden" name="taskid" value="{{$task->id}}">
+                                    <button class="form-control btn btn-danger">Uncheck 
+                                        <span class="glyphicon glyphicon-check"></span>
+                                    </button>
+                                    </form>                                     
+                                </div>                                 
+                                <p class="editContent" style="outline: none; cursor: inherit;">{{ $task->body }}</p> 
                             </div>                             
                         </div>
-                        <div class="col-md-4 taskborder" data-pg-collapsed> 
-                            <div class="services-box"> 
-                                <div class="icon">
-                                    <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
-                                </div>                                 
-                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
-                                <h4>Issued By: Admin</h4>
-                                <h5>22 minutes ago</h5> 
-                                <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
-                            </div>                             
-                        </div>
-                        <div class="col-md-4 taskborder" data-pg-collapsed> 
-                            <div class="services-box"> 
-                                <div class="icon">
-                                    <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
-                                </div>                                 
-                                <h2 class="editContent" style="outline: none; cursor: inherit;">Clean the fridge</h2>
-                                <h4>Issued By: Admin</h4>
-                                <h5>22 minutes ago</h5> 
-                                <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
-                            </div>                             
-                        </div>                         
-                    </div>
-                    <br> 
+                    @endforeach
+                    
                 </div>                 
             </div>             
         </section>

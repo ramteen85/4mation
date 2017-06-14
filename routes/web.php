@@ -26,6 +26,7 @@ Route::get('inbox', 'PagesController@inbox');
 Route::get('findmates', 'PagesController@findmates');
 Route::post('/changepass', 'RegistrationController@changepass');
 Route::post('/updateprofile', 'RegistrationController@updateprofile');
+Route::post('/checktask', 'PagesController@checktask');
 
 
 
