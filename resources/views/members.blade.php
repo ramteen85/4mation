@@ -65,10 +65,10 @@
                                     <h3 class="fatwhite htext1">You have <span class="numur">2 unread conversations!</span></h3>
                                 </div>
                                 <div class="col-md-12 bg-warning statcol pad-sm">
-                                   <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numtr">19 tasks remaining!</span></a></h3>
+                                   <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numtr">{{ App\Task::countincompletetasks(Auth::user()->id) }} tasks remaining!</span></a></h3>
                                 </div>
                                 <div class="col-md-12 bg-success statcol pad-sm">
-                                   <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numct">28 completed tasks!</span></a></h3>
+                                   <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numct">{{ App\Task::countcompletetasks(Auth::user()->id) }} completed tasks!</span></a></h3>
                                 </div>
                             </div>
                         </div>
@@ -86,56 +86,24 @@
                     <hr>
                 </div>
                 <div style="border-top: 2px solid black;" class="row">
+                    
+                
+                   
+                    @foreach($announcements as $announcement)
+
                     <div class="border1 col-xs-12 col-sm-12 col-md-12">
                         <div class="ipstn ipostn col-sm-2 col-xs-12">
                             <img class="exicon" src="images/excl.png" />
                         </div>
                         <div style="height: 100%; word-wrap: break-word;" class="col-xs-12 col-sm-10">
-                            <h3 class="fatwhite aheader-sm">Tuesday Tennis!</h3>
-                            <h5>By <a href="#"><span class="usrtxt">User</span></a>, <span class="timeagotext">1 month ago..</span></h5>
-                            <p class="white-text apara">Tuesday tennis is on! We encourage all employees to meet every tuesday after work where a courtesy bus will be scheduled to take each of you to tennis practice. We hold round robin matches from the second hour onwards, and we finish up at 9pm.</p>
+                            <h3 class="fatwhite aheader-sm">{{ $announcement->title }}</h3>
+                            <h5>By <a href="/profile/{{ $announcement::getSenderById($announcement->issue_id) }}"><span class="usrtxt">{{$announcement::getSenderById($announcement->issue_id) }}</span></a>, <span class="timeagotext">{{ $announcement->timeago() }}</span></h5>
+                            <p class="white-text apara">{{ $announcement->body }}</p>
                         </div>
                     </div>
-                    <div class="border1 col-xs-12 col-sm-12 col-md-12">
-                        <div class="ipstn ipostn col-sm-2 col-xs-12">
-                            <img class="exicon" src="images/excl.png" />
-                        </div>
-                        <div style="height: 100%; word-wrap: break-word;" class="col-xs-12 col-sm-10">
-                            <h3 class="fatwhite aheader-sm">Tuesday Tennis!</h3>
-                            <h5>By <a href="#"><span class="usrtxt">User</span></a>, <span class="timeagotext">1 month ago..</span></h5>
-                            <p class="white-text apara">Tuesday tennis is on! We encourage all employees to meet every tuesday after work where a courtesy bus will be scheduled to take each of you to tennis practice. We hold round robin matches from the second hour onwards, and we finish up at 9pm.</p>
-                        </div>
-                    </div>
-                    <div class="border1 col-xs-12 col-sm-12 col-md-12">
-                        <div class="ipstn ipostn col-sm-2 col-xs-12">
-                            <img class="exicon" src="images/excl.png" />
-                        </div>
-                        <div style="height: 100%; word-wrap: break-word;" class="col-xs-12 col-sm-10">
-                            <h3 class="fatwhite aheader-sm">Tuesday Tennis!</h3>
-                            <h5>By <a href="#"><span class="usrtxt">User</span></a>, <span class="timeagotext">1 month ago..</span></h5>
-                            <p class="white-text apara">Tuesday tennis is on! We encourage all employees to meet every tuesday after work where a courtesy bus will be scheduled to take each of you to tennis practice. We hold round robin matches from the second hour onwards, and we finish up at 9pm.</p>
-                        </div>
-                    </div>
-                    <div class="border1 col-xs-12 col-sm-12 col-md-12">
-                        <div class="ipstn ipostn col-sm-2 col-xs-12">
-                            <img class="exicon" src="images/excl.png" />
-                        </div>
-                        <div style="height: 100%; word-wrap: break-word;" class="col-xs-12 col-sm-10">
-                            <h3 class="fatwhite aheader-sm">Tuesday Tennis!</h3>
-                            <h5>By <a href="#"><span class="usrtxt">User</span></a>, <span class="timeagotext">1 month ago..</span></h5>
-                            <p class="white-text apara">Tuesday tennis is on! We encourage all employees to meet every tuesday after work where a courtesy bus will be scheduled to take each of you to tennis practice. We hold round robin matches from the second hour onwards, and we finish up at 9pm.</p>
-                        </div>
-                    </div>
-                    <div class="border1 col-xs-12 col-sm-12 col-md-12">
-                        <div class="ipstn ipostn col-sm-2 col-xs-12">
-                            <img class="exicon" src="images/excl.png" />
-                        </div>
-                        <div style="height: 100%; word-wrap: break-word;" class="col-xs-12 col-sm-10">
-                            <h3 class="fatwhite aheader-sm">Tuesday Tennis!</h3>
-                            <h5>By <a href="#"><span class="usrtxt">User</span></a>, <span class="timeagotext">1 month ago..</span></h5>
-                            <p class="white-text apara">Tuesday tennis is on! We encourage all employees to meet every tuesday after work where a courtesy bus will be scheduled to take each of you to tennis practice. We hold round robin matches from the second hour onwards, and we finish up at 9pm.</p>
-                        </div>
-                    </div>
+
+                    @endforeach
+                    
                 </div>
                 <!-- /.row -->
             </div>

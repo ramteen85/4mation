@@ -30,6 +30,17 @@ class Task extends Model
     	return Task::where('completed', 1)->latest()->get();
     }
 
+    public static function countcompletetasks($uid)
+    {
+        return Task::where('completed', 1)->where('receiver_id', $uid)->count();
+    }
+
+    public static function countincompletetasks($uid)
+    {
+        return Task::where('completed', 0)->where('receiver_id', $uid)->count();
+    }
+
+
     public function timeAgo()
     {
     	return $this->created_at->diffForHumans();

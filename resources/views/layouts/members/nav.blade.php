@@ -14,7 +14,7 @@
                                 <span class="icon-bar"></span> 
                             </button>                             
                             <a class="navbar-brand" href="members" style="outline: none; cursor: inherit;">
-                                <img src="images/logo.png" alt="Logo" style="outline: none; cursor: inherit;">
+                                <img src="/images/logo.png" alt="Logo" style="outline: none; cursor: inherit;">
                             </a>                             
                         </div>                         
                         <!-- Collect the nav links, forms, and other content for toggling -->                         
@@ -36,7 +36,7 @@
                                             <a href="/profile/{{ Auth::user()->username }}" style="outline: none; cursor: inherit;">View Profile</a>
                                         </li>
                                         <li>
-                                            <a href="/inbox" style="outline: none; cursor: inherit;">Messages</a>
+                                            <a href="/messages/inbox" style="outline: none; cursor: inherit;">Messages</a>
                                         </li>
                                         <li>
                                             <a href="/tasks" style="outline: none; cursor: inherit;">Tasks</a>

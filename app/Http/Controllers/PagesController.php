@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Skill;
 use App\Task;
+use App\Announcement;
 use DB;
 use Auth;
 Use Redirect;
@@ -19,6 +20,11 @@ use Carbon\Carbon;
 
 class PagesController extends Controller
 {
+    public function compose()
+    {
+        return view('layouts.compose');
+    }
+
     public function index()
     {
     	if (Auth::guest()) 
@@ -52,7 +58,10 @@ class PagesController extends Controller
         }
         else
         {
-            return view('members');    
+            $announcements = Announcement::latest()->get();
+            $model = Task::find(1);
+            
+            return View('members',compact('announcements'));    
         }
 
         
@@ -202,7 +211,7 @@ class PagesController extends Controller
 
         //$users = "test";
 
-        return view('members');
+        return Redirect::to('/members'); 
     	
         
     }
