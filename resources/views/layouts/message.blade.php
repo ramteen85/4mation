@@ -43,7 +43,7 @@
         <section id="cb-intro-2-5" class="cb-intro-block cb-intro-2-5" data-pg-collapsed>
             <div id="intro15" style="background-image: url('/images/tech.png');">
                 <div class="container" style="background: black; opacity: 0.6"> 
-                    <h3 class="editContent headerstyle taskh1" style="outline: none; cursor: inherit;">From: {{ $message->getUsernameFromId($message->sender_id) }}</h3> 
+                    <h3 class="editContent headerstyle taskh1" style="outline: none; cursor: inherit;">From: {{ $message->getUsernameFromId($message->sender_id)->username }}</h3> 
                 </div>                 
             </div>
         </section>
@@ -66,15 +66,21 @@
                             </div>
                             <div style="height: auto;" class="col-xs-12">
                                 <div class="col-xs-hidden col-xs-3"> 
-</div>
-                                <div style="padding-top: 25px;" class="col-xs-12 col-sm-3">
-                                    <span class="label label-default msgread msgreadsm">Message Read</span> 
                                 </div>
+                                
+                                <div style="padding-top: 25px;" class="col-xs-12 col-sm-3">
+                                    @if($message->read == 1)
+                                    <span class="label label-default msgread msgreadsm">Message Read</span> 
+                                    @endif
+                                </div>
+                                
                                 <div class="col-xs-hidden col-xs-3"> 
-</div>
+                                </div>
+                                @if($flag == false)
                                 <div class="col-xs-12 col-sm-3">
-                                    <button style="width: 100%;" type="button" class="btn btn-info">Reply</button>                                     
-                                </div>                                 
+                                    <a style="width: 100%;" href="/messages/compose/{{ $message->getUsernameFromId($message->sender_id)->username }}" class="btn btn-info">Reply</a>                 
+                                </div>            
+                                @endif                     
                             </div>                             
                         </div>                         
                     </div>

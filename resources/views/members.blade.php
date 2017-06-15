@@ -61,9 +61,16 @@
                                 <div class="col-md-12 bg-info statcol pad-sm">
                                     <h3 class="htext1">Team: &nbsp; Web Development</h3>
                                 </div>
+                                @if($unread == 1)
                                 <div class="col-md-12 bg-danger statcol pad-sm">
-                                    <h3 class="fatwhite htext1">You have <span class="numur">2 unread conversations!</span></h3>
+                                    <h3 class="fatwhite htext1">You have <a href="/messages/inbox"><span class="numur">1 new message!!</span></a></h3>
                                 </div>
+                                @elseif($unread > 1)
+                                <div class="col-md-12 bg-danger statcol pad-sm">
+                                    <h3 class="fatwhite htext1">You have <a href="/messages/inbox"><span class="numur">{{ $unread }} new messages!!</span></a></h3>
+                                </div>
+
+                                @endif
                                 <div class="col-md-12 bg-warning statcol pad-sm">
                                    <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numtr">{{ App\Task::countincompletetasks(Auth::user()->id) }} tasks remaining!</span></a></h3>
                                 </div>
@@ -97,7 +104,7 @@
                         </div>
                         <div style="height: 100%; word-wrap: break-word;" class="col-xs-12 col-sm-10">
                             <h3 class="fatwhite aheader-sm">{{ $announcement->title }}</h3>
-                            <h5>By <a href="/profile/{{ $announcement::getSenderById($announcement->issue_id) }}"><span class="usrtxt">{{$announcement::getSenderById($announcement->issue_id) }}</span></a>, <span class="timeagotext">{{ $announcement->timeago() }}</span></h5>
+                            <h5>By <a href="/profile/{{ $announcement->getSenderFromId($announcement->issue_id)->username }}"><span class="usrtxt">{{$announcement::getSenderFromId($announcement->issue_id)->username }}</span></a>, <span class="timeagotext">{{ $announcement->timeago() }}</span></h5>
                             <p class="white-text apara">{{ $announcement->body }}</p>
                         </div>
                     </div>

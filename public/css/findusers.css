@@ -1,0 +1,64 @@
+
+
+#content11 .btn-default-dark-tiny
+{
+    top: -15px;
+}
+
+.srchh1
+{
+    position: relative;
+    top: 5px;
+}
+
+@media (max-width:991px)
+{
+    #content11 .btn-default-dark-tiny
+    {
+        top: 5px;
+    }
+}
+
+.bg-official
+{
+    background-color: #50616e;
+}
+
+.usrlabel
+{
+    font-size: 24px;
+}
+
+.resh1
+{
+    min-height: 125px;
+}
+
+.usrheader
+{
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.regheader
+{
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.border
+{
+    border: 1px solid blue;
+}
+
+.bguser
+{
+    background-color: #bf5a10;
+}
+
+.underlined-title h1
+{
+    color: #ffffff;
+    font-weight: 900;
+}
+

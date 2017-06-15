@@ -62,7 +62,7 @@
                         <span class="label label-default full-width text-center msglabels">To:</span> 
                     </div>
                     <div class="col-xs-8">
-                        <input name="msgto" type="text" class="full-width titlepadding msglabels"> 
+                        <input name="msgto" type="text" class="full-width titlepadding msglabels" value="{{ $usr }}"> 
                     </div>                     
                 </div>
                 <div class="col-xs-12 margin-bot1">

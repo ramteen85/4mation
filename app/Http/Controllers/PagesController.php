@@ -32,11 +32,24 @@ class PagesController extends Controller
         {
             $message = Message::getMessageById($msgid);
 
-            $message->read = 1;
+            if(Auth::user()->id == $message->recv_id)
+            {
+                $message->read = 1; 
+                $message->save();
+            }
 
-            $message->save();
+            $flag = "";
 
-            return View('layouts.message', compact('message'));    
+            if(Auth::user()->id == $message->sender_id)
+            {
+                $flag = true;
+            } 
+            else
+            {
+                $flag = false;
+            }
+
+            return View('layouts.message', compact('message', 'flag'));    
         }
     }
     public function compose()
@@ -48,7 +61,24 @@ class PagesController extends Controller
         }
         else
         {
-            return View('layouts.compose');    
+            $usr="";
+
+           
+            return view('layouts.compose', compact('usr'));    
+        }
+    }
+
+
+    public function compose2($usr)
+    {
+        if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            return View('layouts.compose', compact('usr'));    
         }
     }
 
@@ -87,8 +117,11 @@ class PagesController extends Controller
         {
             $announcements = Announcement::latest()->get();
             $model = Task::find(1);
+
+            //count number of unread messages
+            $unread = Message::findUnread(Auth::user()->id)->count();
             
-            return View('members',compact('announcements'));    
+            return View('members',compact('announcements', 'unread'));    
         }
 
         
@@ -162,7 +195,19 @@ class PagesController extends Controller
 
             $timeago = $user->created_at->diffForHumans();
 
-            return view('layouts.profile', compact('user', 'skills',   'timeago'));    
+            $flag = "";
+
+            if($user->id == Auth::User()->id)
+            {
+                $flag = true;
+            } 
+            else
+            {
+                $flag = false;
+            }
+
+
+            return view('layouts.profile', compact('user', 'skills', 'timeago', 'flag'));    
         }
     }
     public function eprofile()

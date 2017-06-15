@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\User;
 
 class Announcement extends Model
 {
@@ -11,10 +12,9 @@ class Announcement extends Model
         'title', 'body', 'issue_id', 'created_at', 'updated_at',
     ];
 
-    public static function getSenderById($sender_id)
+    public static function getSenderFromId($id)
     {
-
-    	return User::getUsernameById($sender_id);
+        return User::getUsernameById($id);
     }
 
     public function timeAgo()

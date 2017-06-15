@@ -73,7 +73,7 @@
                         <div id="pbox3" class="col-sm-12">
                             <div class="col-sm-12">
                                 <div class="col-sm-12">
-                                    <h1 class="text-center boxhead">About Ramteen</h1> 
+                                    <h1 class="text-center boxhead">About {{ $user->firstname }}</h1> 
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="col-md-12">
@@ -82,13 +82,16 @@
                                 </div>                                 
                             </div>                             
                         </div>
+
+                        @if($flag == false)
                         <div id="pbox4" class="col-sm-12 col-xs-12">
                             <div class="col-sm-12">
                                 <div class="col-sm-offset-4 col-sm-4 col-xs-6 col-xs-offset-3">
-                                    <button type="button" class="btn btn-info col-sm-12">Send Message</button>                                     
+                                    <a href="/messages/compose/{{ $user->username }}" class="btn btn-info col-sm-12">Send Message</a>                                     
                                 </div>                                 
                             </div>                             
-                        </div>                         
+                        </div>
+                        @endif                         
                     </div>                     
                 </div>                 
             </div>             

@@ -59,7 +59,7 @@
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
                                 <h2 class="editContent" style="outline: none; cursor: inherit;">{{ $task->title }}</h2>
-                                <h4>Issued By: <a href="/profile/{{ $task::getSenderById($task->issue_id) }}">{{ $task::getSenderById($task->issue_id) }}</a></h4>
+                                <h4>Issued By: <a href="/profile/{{ $task::getSenderById($task->issue_id)->username }}">{{ $task::getSenderById($task->issue_id)->username }}</a></h4>
                                 <h5>{{ $task->timeago() }}</h5>
                                 <div class="col-xs-12">
                                     <form action="/checktask" method="POST">
@@ -102,7 +102,7 @@
                                     <i class="fa fa-service fa-2x glyphicon glyphicon-list-alt"></i> 
                                 </div>                                 
                                 <h2 class="editContent" style="outline: none; cursor: inherit;">{{ $task->title }}</h2>
-                                <h4>Issued By: <a href="/profile/{{ $task::getSenderById($task->issue_id) }}">{{ $task::getSenderById($task->issue_id) }}</a></h4>
+                                <h4>Issued By: <a href="/profile/{{ $task::getSenderById($task->issue_id)->username }}">{{ $task::getSenderById($task->issue_id)->username }}</a></h4>
                                 <h5>{{ $task->timeago() }}</h5>
                                 <div class="col-xs-12">
                                     
