@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Skill;
 use App\Task;
+use App\Message;
 use App\Announcement;
 use DB;
 use Auth;
@@ -20,9 +21,35 @@ use Carbon\Carbon;
 
 class PagesController extends Controller
 {
+    public function readmsg($msgid)
+    {
+        if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            $message = Message::getMessageById($msgid);
+
+            $message->read = 1;
+
+            $message->save();
+
+            return View('layouts.message', compact('message'));    
+        }
+    }
     public function compose()
     {
-        return view('layouts.compose');
+        if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            return View('layouts.compose');    
+        }
     }
 
     public function index()
@@ -75,7 +102,26 @@ class PagesController extends Controller
         }
         else
         {
-            return view('layouts.inbox');    
+            //get all messages that belong to me which I havent deleted
+            $messages = Message::fetchInbox(Auth::user()->id);
+
+            return view('layouts.inbox', compact('messages'));    
+        }
+    }
+    public function sent()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            //get all messages that belong to me which I havent deleted
+            $messages = Message::fetchSent(Auth::user()->id);
+
+
+            return view('layouts.sent', compact('messages'));    
         }
     }
     public function admin()

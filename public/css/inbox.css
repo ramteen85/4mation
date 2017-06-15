@@ -1,0 +1,39 @@
+
+
+.read
+{
+    background-color: #eddfdf;
+}
+
+.unread
+{
+    background-color: #878787;
+    color: #f1e9f3;
+}
+
+.unreadtext
+{
+    font-weight: 800;
+    color: #32d5c2;
+}
+
+.unreadlink
+{
+    color: #2f0f6c;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.readtext
+{
+    font-weight: 800;
+    color: #bb6464;
+}
+
+.readlink
+{
+    font-weight: 800;
+    font-size: 20px;
+    color: #807a7a;
+}
+

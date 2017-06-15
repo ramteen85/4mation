@@ -1,0 +1,79 @@
+
+
+.tasksheader
+{
+    text-align: center;
+    color: #cb9393;
+}
+
+body, html
+{
+    background-color: #3a372c;
+    min-width: 320px;
+    overflow: auto;
+}
+
+.tasksheader h1
+{
+    color: #c3adad;
+    font-weight: 800;
+}
+
+#intro15 h3
+{
+    font-size: 6em;
+    color: #4fd123;
+}
+
+#intro15 p
+{
+    font-size: 3em;
+    font-weight: 900;
+    color: #4fd123;
+}
+
+@media (max-width:479px)
+{
+    #intro15 h3
+    {
+        font-size: 3em;
+    }
+    #intro15 p
+    {
+        font-size: 2em;
+    }
+}
+
+#services4 h2
+{
+    color: #90e717;
+}
+
+#services4 .services-box .icon
+{
+    background-color: #a5a42a;
+}
+
+#services4 p
+{
+    color: #cf61e7;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.taskborder
+{
+    border: 1px solid grey;
+    padding-top: 20px;
+}
+
+#services4 h5
+{
+    color: #58bbaa;
+}
+
+#services4 h4
+{
+    color: #d94343;
+}
+

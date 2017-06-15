@@ -23,9 +23,13 @@ Route::get('eprofile', 'PagesController@eprofile');
 Route::get('profile/{user}', 'PagesController@profile');
 Route::get('admin', 'PagesController@admin');
 Route::get('/messages/inbox', 'PagesController@inbox');
+Route::get('/messages/sent', 'PagesController@sent');
 Route::get('/messages/compose', 'PagesController@compose');
 Route::get('findmates', 'PagesController@findmates');
 Route::post('/changepass', 'RegistrationController@changepass');
 Route::post('/updateprofile', 'RegistrationController@updateprofile');
 Route::post('/checktask', 'PagesController@checktask');
-
+Route::post('/sendmsg', 'MessageController@send');
+Route::get('/messages/message/{msgid}', 'PagesController@readmsg');
+Route::post('/messages/deletereceiver/{msgid}', 'MessageController@delr');
+Route::post('/messages/deletesender/{msgid}', 'MessageController@dels');

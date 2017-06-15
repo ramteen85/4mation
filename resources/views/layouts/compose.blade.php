@@ -32,11 +32,11 @@
         <link rel="stylesheet" href="/components/pg.blocks/css/style-library-1.css">
         <link href="/css/tasks.css" rel="stylesheet" type="text/css">
         <link href="/css/messages.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script> 
     </head>     
     <body data-spy="scroll" data-target="nav">
+        <!-- logged in version of nav -->
         @include('layouts.members.nav')
-
-
         <section id="cb-intro-2-5" class="cb-intro-block cb-intro-2-5" data-pg-collapsed>
             <div id="intro15" style="background-image: url('/images/tech.png');">
                 <div class="container" style="background: black; opacity: 0.6"> 
@@ -44,31 +44,25 @@
                 </div>                 
             </div>
         </section>
-        <section id="cb-service-1-4" class="cb-service-block cb-service-1-4 sectionmargin" data-pg-collapsed>
-            <div class="stripe gridheight col-xs-12 col-sm-12 col-md-4 body-sm">
-                <div class="col-sm-12 borderbottom optionheight sm-optionsize sm-optionheight">
-                    <a href="/messages/compose"><h3 class="titles optionsize">Compose</h3></a> 
-                </div>
-                <div class="col-sm-12 borderbottom optionheight sm-optionsize sm-optionheight">
-                    <a href="/messages/inbox"><h3 class="titles optionsize">Inbox</h3></a> 
-                </div>
-                <div class="col-sm-12 borderbottom optionheight sm-optionsize sm-optionheight">
-                    <h3 class="titles optionsize">Tasks</h3> 
-                </div>
-                <div class="col-sm-12 borderbottom optionheight sm-optionsize sm-optionheight">
-                    <h3 class="titles optionsize">Announcements</h3> 
-                </div>                 
+        <section style="height: auto; bottom: 0;" id="cb-service-1-4">
+            <div class=" col-xs-12 col-sm-12 col-md-4 body-sm" data-pg-collapsed>
+                @include('layouts.msgsidemenu')                 
             </div>
-            <div class="gridheight col-xs-12 col-sm-12 col-md-8 overflowauto margin-sm min">
-                <div class="col-xs-12 margin-bot1 msgtitle-sm">
+            <div style="word-wrap: break-word;" class="margin-sm stripe col-xs-12 col-sm-12 col-md-8">
+                <form method="POST" action="/sendmsg">
+                {{ csrf_field() }}
+                <input type="hidden" name="msgfrom" value="{{ Auth::user()->username }}" />
+                <div style=""background: #282828; overflow: auto; height: 700px; margin-bottom: 20px;">
+                    <div class="col-xs-12 margin-bot1 msgtitle-sm">
                     <h3 class="titles">Message</h3> 
+                    </div>
                 </div>
                 <div class="col-xs-12 margin-bot1">
                     <div class="col-xs-4">
                         <span class="label label-default full-width text-center msglabels">To:</span> 
                     </div>
                     <div class="col-xs-8">
-                        <input class="full-width titlepadding msglabels"> 
+                        <input name="msgto" type="text" class="full-width titlepadding msglabels"> 
                     </div>                     
                 </div>
                 <div class="col-xs-12 margin-bot1">
@@ -76,12 +70,12 @@
                         <span class="label label-default full-width text-center msglabels">Subject:</span> 
                     </div>
                     <div class="col-xs-8">
-                        <input class="full-width titlepadding msglabels"> 
+                        <input type="text" name="subject" class="full-width titlepadding msglabels"> 
                     </div>                     
                 </div>
                 <div class="col-xs-12 margin-bot1">
                     <div class="col-xs-12">
-                        <textarea style="resize: none; " class="full-width gridheight bodypadding"></textarea>                         
+                        <textarea style="resize: none;" name="body" class="full-width gridheight bodypadding"></textarea>                         
                     </div>                     
                 </div>
                 <div class="col-xs-12 margin-bot1">
@@ -90,11 +84,102 @@
                             <span class="glyphicon glyphicon-envelope"></span> Send
                         </button>                         
                     </div>                     
-                </div>                 
-            </div>             
+                </div>
+                </form>  
+            </div>                 
+                       
         </section>
-        
-        
+
+
+        <div class="modal fade" id="getError" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">~~ Password Error ~~</h4>
+             </div>
+             <div class="modal-body">
+                 <p>{{$errors->first()}}</p>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+             </div>
+           </div>
+          </div>
+        </div>
+
+
+        <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">~~ Success! ~~</h4>
+             </div>
+             <div class="modal-body">
+                 <p>Your message has been sent!</p>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+             </div>
+           </div>
+          </div>
+        </div>
+
+
+        <div class="modal fade" id="getError2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">~~ Password Error ~~</h4>
+             </div>
+             <div class="modal-body">
+                 <p>User does not exist!</p>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+             </div>
+           </div>
+          </div>
+        </div>
+
+         @if(count($errors))
+            @foreach($errors->all() as $error)
+                
+                
+                <script>
+                    $(function() {
+                        $("#getError").modal('show');
+
+
+                    });
+                </script>
+            @endforeach
+
+        @endif
+
+
+        @if($flash = session('msgsent'))
+            <script>
+                    $(function() {
+                        $("#success").modal('show');
+
+
+                    });
+                </script>
+        @endif
+
+
+        @if($flash = session('usernotthere'))
+            <script>
+                    $(function() {
+                        $("#getError2").modal('show');
+
+
+                    });
+                </script>
+        @endif
+
+
+        @include('layouts.footer')
 
         <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
@@ -109,5 +194,4 @@
         <script type="text/javascript" src="/components/pg.blocks/js/plugins.js"></script>
         <script type="text/javascript" src="/components/pg.blocks/js/bskit-scripts.js"></script>
     </body>
-        
 </html>

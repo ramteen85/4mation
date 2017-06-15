@@ -34,14 +34,51 @@ class User extends Authenticatable
         return array('created_at', 'updated_at');
     }
 
+    public static function getIdByUsername($uname)
+    {
+        return User::where('username', $uname) -> first() -> id;
+    }
+
     public static function getUserById($uid)
     {
         return User::where('id', $uid) -> first();
     }
 
+   
+
+    public static function UserExistsById($uid)
+    {
+        $test = User::where('id', $uid) -> first();
+
+        if($test == null)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+
+    }
+
+    public static function UserExistsByName($uname)
+    {
+        $test = User::where('username', $uname) -> first();
+
+        if($test == null)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+
+    }
+
     public static function getUsernameById($uid)
     {
-        return User::where('id', $uid) -> first() -> username;
+        return User::where('id', $uid) -> first();
     }
 
     public static function getByUsername($val)
