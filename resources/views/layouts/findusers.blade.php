@@ -63,9 +63,10 @@
                             <h3 class="editContent" style="outline: none; cursor: inherit;">Search for workmates</h3> 
                         </div>                         
                         <div class="col-md-6"> 
-                            <form action="#"> 
-                                <input type="text" placeholder="Search for a friend..." class="form-control"> 
-                                <a href="#" class="btn btn-default-dark-tiny">Search</a> 
+                            <form action="/searchusers" method="POST">
+                                {{ csrf_field() }} 
+                                <input name="query" type="text" placeholder="Search for a friend..." class="form-control"> 
+                                <button type="submit" class="btn btn-default-dark-tiny">Search</button> 
                             </form>                             
                         </div>                         
                     </div>                     
@@ -78,36 +79,46 @@
                     <h1 class="lblwhite">Results</h1>
                     <hr>
                 </div>
+
+                @if(isset($final))
+
+                @for($count = 0; $count < count($final); $count++)
+
+
                 <div class="col-md-4 bg-official bguser" data-pg-collapsed>
                     <div class="bg-official col-sm-12 border" data-pg-collapsed>
                         <header class="resh1 price-block bg-official">
-                            <h1 style="text-align: center;" class="usrheader">Username</h1>
-                            <h5 style="text-align: center;" class="regheader">Registered: 10 mins ago</h5>
+                            <a href="/profile/{{ $final[$count]->username }}"><h1 style="text-align: center;" class="usrheader">{{ $final[$count]->username }}</h1></a>
+                            <h5 style="text-align: center;" class="regheader">Registered: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($final[$count]->created_at->date))->diffForHumans() }}</h5>
                             <!-- /.price -->
-                            <button type="button" class="btn btn-success col-xs-12">Message</button>
+                            <a href="/messages/compose/{{ $final[$count]->username }}" class="btn btn-success col-xs-12">Message</a>
                         </header>                         
                     </div>                     
                 </div>
+                
+                @endfor
+                @endif
+
+
+                @if(isset($users))
+
+                @foreach($users as $user)
+
+
                 <div class="col-md-4 bg-official bguser" data-pg-collapsed>
                     <div class="bg-official col-sm-12 border" data-pg-collapsed>
                         <header class="resh1 price-block bg-official">
-                            <h1 style="text-align: center;" class="usrheader">Username</h1>
-                            <h5 style="text-align: center;" class="regheader">Registered: 10 mins ago</h5>
+                            <a href="/profile/{{ $user->username }}"><h1 style="text-align: center;" class="usrheader">{{ $user->username }}</h1></a>
+                            <h5 style="text-align: center;" class="regheader">Registered: {{ $user->created_at->diffForHumans() }}</h5>
                             <!-- /.price -->
-                            <button type="button" class="btn btn-success col-xs-12">Message</button>
+                            <a href="/messages/compose/{{ $user->username }}" class="btn btn-success col-xs-12">Message</a>
                         </header>                         
                     </div>                     
                 </div>
-                <div class="col-md-4 bg-official bguser" data-pg-collapsed>
-                    <div class="bg-official col-sm-12 border" data-pg-collapsed>
-                        <header class="resh1 price-block bg-official">
-                            <h1 style="text-align: center;" class="usrheader">Username</h1>
-                            <h5 style="text-align: center;" class="regheader">Registered: 10 mins ago</h5>
-                            <!-- /.price -->
-                            <button type="button" class="btn btn-success col-xs-12">Message</button>
-                        </header>                         
-                    </div>                     
-                </div>
+                
+                @endforeach
+                @endif
+
                 <!-- /.row -->
             </div>
             <!-- /.container -->

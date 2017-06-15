@@ -29,6 +29,8 @@ class User extends Authenticatable
     ];
 
 
+    
+
     public function getDates()
     {
         return array('created_at', 'updated_at');

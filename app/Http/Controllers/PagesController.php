@@ -94,6 +94,115 @@ class PagesController extends Controller
             return Redirect::to('members');    
         }
     }
+    public function search()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            //search for users
+
+            $query = request('query');
+
+            $words = explode(' ', $query);
+
+            $users = new User();
+
+            $arr_results = array();
+
+            $final = array();
+
+            if(isset($query) && $query != "" && $query != null)
+            {
+                
+                foreach($words as $word)
+                {
+                    
+                    $data = User::where('username', 'LIKE', '%'. $word . '%')
+                    -> get();
+                    foreach($data as $key => $value)
+                    {
+                        if (!array_key_exists($key, $final)) {
+                            $arr_results[] = ['id' => $value->id, 'username' => $value->username, 'created_at' => $value->created_at ];
+                        }
+                    }
+                }
+
+                $final = array_merge($arr_results);
+
+                foreach($words as $word)
+                {
+                    
+                    $data = User::where('firstname', 'LIKE', '%'. $word . '%')
+                    -> get();
+                    foreach($data as $key => $value)
+                    {
+                        if (!array_key_exists($key, $final)) {
+                            $arr_results[] = ['id' => $value->id, 'username' => $value->username, 'created_at' => $value->created_at ];
+                        }
+                        
+                    }
+                }
+
+                $final = array_merge($arr_results);
+
+                foreach($words as $word)
+                {
+                    
+                    $data = User::where('lastname', 'LIKE', '%'. $word . '%')
+                    -> get();
+                    foreach($data as $key => $value)
+                    {
+                        if (!array_key_exists($key, $final)) {
+                            $arr_results[] = ['id' => $value->id, 'username' => $value->username, 'created_at' => $value->created_at ];
+                        }
+                        
+                    }
+                }
+
+                $final = array_merge($arr_results);
+
+                foreach($words as $word)
+                {
+                    
+                    $data = User::where('email', 'LIKE', '%'. $word . '%')
+                    -> get();
+                    foreach($data as $key => $value)
+                    {
+                        if (!array_key_exists($key, $final)) {
+                            $arr_results[] = ['id' => $value->id, 'username' => $value->username, 'created_at' => $value->created_at ];
+                        }
+                        
+                    }
+                }
+
+                $final = array_merge($arr_results);
+
+
+                $users = null;
+
+                $final = json_decode(json_encode($final));
+
+                
+
+                return view('layouts.findusers', compact('final')); 
+        
+            }
+            else
+            {
+                $users = User::all();
+               
+                return view('layouts.findusers', compact('users')); 
+            }
+            
+
+
+               
+        }
+    }
     public function findmates()
     {
         if (Auth::guest()) 
@@ -103,7 +212,11 @@ class PagesController extends Controller
         }
         else
         {
-            return view('layouts.findusers');    
+            //search for users
+
+            $users = User::all();
+
+            return view('layouts.findusers', compact('users'));    
         }
     }
     public function members()

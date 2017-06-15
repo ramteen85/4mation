@@ -45,6 +45,9 @@
                                             <a href="/findmates" style="outline: none; cursor: inherit;">Find Workmates</a>
                                         </li>
                                         <li>
+                                            <a href="/getteams" style="outline: none; cursor: inherit;">View Teams</a>
+                                        </li>
+                                        <li>
                                             <a href="/logout" style="outline: none; cursor: inherit;">Logout</a>
                                         </li>
                                     </ul>                                     

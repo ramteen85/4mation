@@ -34,3 +34,4 @@ Route::get('/messages/message/{msgid}', 'PagesController@readmsg');
 Route::post('/messages/deletereceiver/{msgid}', 'MessageController@delr');
 Route::post('/messages/deletesender/{msgid}', 'MessageController@dels');
 Route::get('/messages/compose/{username}', 'PagesController@compose2');
+Route::post('/searchusers', 'PagesController@search');
