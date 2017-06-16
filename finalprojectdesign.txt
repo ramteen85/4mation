@@ -5,8 +5,9 @@ User Characteristics:
 The Administrator is a super user and he has complete control over all activities the can be performed.
 The administrator can 
 
+- view and delete system emails
 - View, edit, or delete Employees, teams and task details.
-- send messages out to everyone all at once, privately or people of a specific team
+- send messages out to everyone all at once, privately
 - assign employees to a specific team
 - make another employee an administrator (password required)
 - revoke administrator privelages from an employee (password required)
