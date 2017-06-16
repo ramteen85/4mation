@@ -1,0 +1,46 @@
+
+
+.bgblue
+{
+    background: #425cbb;
+}
+
+.teamheader
+{
+    margin-bottom: 90px;
+    color: white;
+    font-weight: 900;
+    font-size: 4em;
+}
+
+.nameheader
+{
+    color: #2dd12a;
+    font-weight: bold;
+}
+
+.nameheadersize
+{
+    font-size: 4em;
+}
+
+.namebg
+{
+    color: #27cbb0;
+}
+
+#content4 .feautures-box
+{
+    background-color: #6e2211;
+}
+
+@media (max-width:1199px)
+{
+    #content4 .feautures-box
+    {
+        padding-left: 0;
+        width: 267px;
+        min-width: 267px;
+    }
+}
+

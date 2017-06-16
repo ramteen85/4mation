@@ -5,7 +5,7 @@ User Characteristics:
 The Administrator is a super user and he has complete control over all activities the can be performed.
 The administrator can 
 
-- View, edit, create, or delete Employees, teams and task details.
+- View, edit, or delete Employees, teams and task details.
 - send messages out to everyone all at once, privately or people of a specific team
 - assign employees to a specific team
 - make another employee an administrator (password required)
@@ -16,58 +16,64 @@ The administrator can
 - fill in their profiles
 - view and check off tasks
 - send private messages to everyone
+- view teams
 
 
 Functional Requirements:
 
-- Home page
+- Home page (fix e-mail sender on front page)
 
 First page of the website. Contains company information and email form.
 All users can proceed to either log in, or register from here.
 
-- Sign in page
+- Sign in page (done)
 
 all admins and employees can sign in to their accounts here.
 
-- registration page
+- registration page (done)
 
 all new employees must register here
 
-- Members area
+- Members area (needs one more team slot)
 
 the page every user sees when they first log in. all public announcements will appear here.
 
-- edit profile area
+- edit profile area (done - except for delete account option)
 
-all users can edit or delete their own profile on this page
+all users can view or delete their own profile on this page 
 
-- view profile area
+- view profile area (done except for team slot)
 
-all users can view each other's profiles on this page
+all users can view each other's profiles on this page 
 
-- task area
+- task area (done)
 
 all users can view and check off their tasks on this page
 
-- inbox page
+- inbox page (done)
 
-all users can view a list their conversations here
+all users can view a list their messages here
 
-- compose message page
+- compose message page (done - needs ajax autofill)
 
 all users can send messages to other users on this page
-
-- read message page
+/
+*- read message page (done)
 
 all users can read their actual messages on this page
 
-- admin page
+
+- team page (not started)
+
+here a user can view all the teams, each member of each team and also click their profiles
+
+
+
+- admin page (not started)
 
 visible and accessible to admins only. admins on this page can choose to:
 - set tasks to specific employees
 - cancel tasks
-- change employee details
-- create a new employee
 - promote / demote an employee with admin rights
 - fire an employeee
 - assign employees to a team
@@ -76,4 +82,4 @@ visible and accessible to admins only. admins on this page can choose to:
 - view all employees in a certain team
 - view all employees skilled in particular programming languages 
 - view total number of employees
-- view total number of employees on each team    
+7 view total number of employees on each team    4

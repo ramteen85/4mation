@@ -59,7 +59,7 @@
                                     </h3>
                                 </div>
                                 <div class="col-md-12 bg-info statcol pad-sm">
-                                    <h3 class="htext1">Team: &nbsp; Web Development</h3>
+                                    <h3 class="htext1">Team: &nbsp; {{ \App\User::find(Auth::user()->id)->team->first()->name }}</h3>
                                 </div>
                                 @if($unread == 1)
                                 <div class="col-md-12 bg-danger statcol pad-sm">

@@ -23,6 +23,8 @@ Route::get('eprofile', 'PagesController@eprofile');
 Route::get('profile/{user}', 'PagesController@profile');
 Route::get('admin', 'PagesController@admin');
 Route::get('/messages/inbox', 'PagesController@inbox');
+Route::get('/getteams', 'PagesController@teams');
+Route::get('/getplayers/{id}', 'PagesController@players');
 Route::get('/messages/sent', 'PagesController@sent');
 Route::get('/messages/compose', 'PagesController@compose');
 Route::get('findmates', 'PagesController@findmates');

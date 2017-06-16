@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Team;
 
 class User extends Authenticatable
 {
@@ -29,7 +29,10 @@ class User extends Authenticatable
     ];
 
 
-    
+    public function team()
+    {
+        return $this->belongsToMany(Team::class);
+    }
 
     public function getDates()
     {

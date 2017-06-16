@@ -13,6 +13,7 @@ use App\Skill;
 use App\Task;
 use App\Message;
 use App\Announcement;
+use App\Team;
 use DB;
 use Auth;
 Use Redirect;
@@ -66,6 +67,53 @@ class PagesController extends Controller
            
             return view('layouts.compose', compact('usr'));    
         }
+    }
+
+
+    public function teams()
+    {
+        $teams = Team::get()->all();
+
+       
+
+        
+
+        
+
+        if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            
+
+            return view('layouts.team', compact('teams'));    
+        }  
+    }
+
+    public function players($teamid = null)
+    {
+
+        if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            $team = Team::find($teamid);
+            $users = null;
+            $users = $team->users;
+
+            
+
+            return view('layouts.players', compact('users', 'team'));    
+        }  
+
+
+     
     }
 
 

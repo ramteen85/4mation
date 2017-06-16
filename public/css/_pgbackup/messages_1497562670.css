@@ -1,0 +1,126 @@
+
+
+.titles
+{
+    color: #e9d172;
+    font-weight: 800;
+    font-size: 3em;
+    text-align: center;
+}
+
+.stripe
+{
+    border-right: 2px solid gold;
+}
+
+.gridheight
+{
+    height: 54vh;
+}
+
+.borderbottom
+{
+    border-bottom: 1px solid gold;
+}
+
+.optionsize
+{
+    font-size: 2em;
+}
+
+.optionheight
+{
+    height: 25%;
+}
+
+@media (max-width:767px)
+{
+    .margin-sm
+    {
+        margin-top: 134px;
+    }
+}
+
+.full-width
+{
+    width: 100%;
+}
+
+.text-center
+{
+    text-align: center;
+    font-size: 1em;
+    margin-left: 35%;
+}
+
+.margin-bot1
+{
+    margin-bottom: 34px;
+}
+
+.overflowauto
+{
+    overflow: auto;
+}
+
+.sectionmargin
+{
+    margin-top: 10px;
+}
+
+.titlepadding
+{
+    padding: 2px;
+    font-weight: bold;
+}
+
+.bodypadding
+{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media (max-width:479px)
+{
+    .sm-optionsize
+    {
+        font-size: 1em;
+    }
+    .sm-optionheight
+    {
+        height: 3em;
+    }
+    .body-sm
+    {
+        height: 31vh;
+        margin-bottom: -101px;
+    }
+    .msgtitle-sm
+    {
+        font-size: 0.6em;
+    }
+    .msglabels
+    {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width:319px)
+{
+    .margin-sm
+    {
+        margin-top: 100px;
+    }
+    .btn-sm
+    {
+        font-weight: 800;
+    }
+}
+
+.min
+{
+    min-width: 320px;
+    height: 100%;
+}
+

@@ -1,0 +1,17 @@
+
+
+@media (max-width:479px)
+{
+    .msgreadsm
+    {
+        background-color: #f70606;
+        font-size: 12px;
+    }
+}
+
+.msgread
+{
+    background-color: #e32a2a;
+    font-size: 20px;
+}
+

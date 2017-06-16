@@ -45,9 +45,9 @@
                                 <h2><span class="lstyle">E-Mail:</span> <span class="astyle">{{ $user->email }}</span></h2> 
                             </div>
                             <div class="col-sm-6"> 
-                                <p><span class="lstyle">Tasks Completed:</span> <span class="astyle">34</span></p>
+                                <p><span class="lstyle">Tasks Completed:</span> <span class="astyle">{{ App\Task::countcompletetasks(Auth::user()->id) }}</span></p>
                                 <p class="astyle"><span class="lstyle">Registered:</span> <span>{{ $timeago }}</span></p>
-                                <p><span class="lstyle">Team:</span> <span class="astyle">Not Assigned</span></p>
+                                <p><span class="lstyle">Team:</span> <span class="astyle">{{ \App\User::find(Auth::user()->id)->team->first()->name }}</span></p>
                                 <p><span class="lstyle">User Type:</span> <span class="astyle">@if($user->role == 0)
                                         Employee
                                     @elseif($user->role == 1)
