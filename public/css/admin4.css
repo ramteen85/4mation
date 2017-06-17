@@ -1,0 +1,37 @@
+
+
+.panelbglge
+{
+    background: white;
+}
+
+.wellbg
+{
+    border-top: none;
+    background: transparent !important;
+    border: none;
+}
+
+.colsize
+{
+    background: white;
+    height: 2126px;
+    margin-top: 36px;
+}
+
+@media (max-width:767px)
+{
+    .titlesm
+    {
+        font-size: 2em;
+    }
+    .bigtitlesm
+    {
+        font-size: 1em;
+    }
+    .bgsm
+    {
+        background: white;
+    }
+}
+

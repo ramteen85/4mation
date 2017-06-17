@@ -44,31 +44,9 @@ $("#testimonials").owlCarousel({
 	});
 });
 	
-/* skills2 */	
-$(function() {
-	$('.chart').easyPieChart({
-    	scaleColor: "#62b151",
-    	lineWidth: 20,
-    	lineCap: 'butt',
-    	barColor: '#62b151',
-    	trackColor:	"#ecf0f1",
-    	size: 160,
-    	animate: 500
-	});
-});
+
 	
-/* skills3 */
-$(function() {
-	$('.chart2').easyPieChart({
-    	scaleColor: "#e74c3c",
-    	lineWidth: 20,
-    	lineCap: 'butt',
-    	barColor: '#e74c3c',
-    	trackColor:	"#282828",
-    	size: 160,
-    	animate: 500
-	});
-});
+
 	
 /* navigation2 */
 $(function() {
