@@ -38,3 +38,5 @@ Route::post('/messages/deletesender/{msgid}', 'MessageController@dels');
 Route::get('/messages/compose/{username}', 'PagesController@compose2');
 Route::post('/searchusers', 'PagesController@search');
 Route::get('/admin', 'AdminController@inbox');
+Route::get('/admin/users', 'AdminController@users');
+Route::get('/admin/tasks', 'AdminController@tasks');

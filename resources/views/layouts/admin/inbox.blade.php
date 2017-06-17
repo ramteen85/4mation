@@ -20,28 +20,13 @@
         <link href="css/plugins.css" rel="stylesheet">
         <link href="css/blocks.css" rel="stylesheet">
         <link href="css/custom.css" rel="stylesheet">
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
-        <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->         
+           
         <link rel="stylesheet" href="components/pg.chocka-blocks/css/cb-style.css">
         <link rel="stylesheet" href="components/pg.chocka-blocks/css/owl.carousel.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400">
         <link href="css/eprofile.css" rel="stylesheet" type="text/css">
         <link href="css/profile.css" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-
-
-
-
 
 
         <!-- Core CSS -->         
@@ -75,52 +60,21 @@
             <div class="container">
                 <div class="row">
                     <h1 id="adminheader" class="header-radius">Admin Panel</h1>
-                    <div class="col-md-3">
-                        <div style="text-align: center;" class="well">
-                            <strong>ADMIN OPTIONS</strong> 
-                        </div>
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">Pages<span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span></a></h4>
-                                </div>
-                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
-                                    <div class="panel-body">
-                                        <div style="text-align: center;" class="list-group">
-                                            <div class="col-xs-12">
-                                                <a href="http://">Admin Inbox</a> 
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <a href="http://">User Options</a> 
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <a href="http://">Tasks/Announcements</a> 
-                                            </div>                                             
-                                        </div>
-                                        <!-- List Group End Here -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- first Panel start Here -->                             
-                            <!-- first Panel End Here -->
-                            <!-- second Panel start Here -->                             
-                            <!-- second Panel End Here -->
-                            <!-- third  Panel start Here -->                             
-                            <!-- third Panel End Here -->
-                            <!-- fouth Panel start Here -->                             
-                            <!-- fouth Panel End Here -->
-                            <!-- Fifth Panel start Here -->
-                            <!-- Fifth Panel End Here -->
-                        </div>
-                    </div>
-                    <!-- /.sidebar column end here -->
+                    
+                    @include('layouts.admin.sidebar')
+
                     <div class="col-md-9">
                         <div style="height: auto; min-height: 500px;" class="well wellpbot">
                             <div class="list-group">
                                 <div href="#" class="list-group-item active  titlebox">
                                     <div class="col-xs-12 titlebox" style="height:auto;">
                                         <h4 class="list-group-item-heading spacer-10 text-center">Admin Mail</h4>
-                                        <p class="list-group-item-text">Welcome to the mail section of the admin page. Here is where all the mail arrives from the front page. Anyone as long as they have Admin access levels, can view and delete these messages. Any incoming messages will appear below.</p>
+                                        <p class="list-group-item-text">Welcome to the mail section of the admin page. Here is where all the mail arrives from the front page. Anyone as long as they have Admin access levels, can view and delete these messages. Any incoming messages will appear below.
+                                        
+                                        <br /><br />
+                                        - See "Pages" for more options.
+
+                                        </p>
                                     </div>
                                 </div>
                                 <hr>

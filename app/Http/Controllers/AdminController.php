@@ -32,4 +32,33 @@ class AdminController extends Controller
             return view('layouts.admin.inbox');
         }
     }
+
+    public function users()
+    {
+         if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            return view('layouts.admin.useroptions');
+        }
+    }
+
+    public function tasks()
+    {
+         if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            return view('layouts.admin.tasks');
+        }
+    }
 }
+
+
+    
