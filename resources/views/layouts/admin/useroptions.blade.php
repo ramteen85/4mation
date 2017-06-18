@@ -14,7 +14,7 @@
         <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="/css/font-awesome.min.css" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet">              
+                      
         <link href="/css/style-library-1.css" rel="stylesheet">
         <link href="/css/plugins.css" rel="stylesheet">
         <link href="/css/blocks.css" rel="stylesheet">
@@ -52,7 +52,7 @@
         <link href="/css/custom.css" rel="stylesheet" type="text/css">
         <link href="/css/admin2.css" rel="stylesheet" type="text/css">
         <link href="/css/admin3.css" rel="stylesheet" type="text/css">
-        <script type="/text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     </head>     
             
         <body data-spy="scroll" data-target="nav" class="bodybg">
@@ -82,8 +82,95 @@
                                         </div>
                                         <div class="col-md-6 col-xs-12 topspacesm col-sm-6" data-pg-id="111">
                                             <div class="col-xs-12" data-pg-id="112"> 
-                                                <input id="forminput00" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail" data-pg-id="113" />
-                                            </div>                                             
+                                                <input id="forminput00" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="113" />
+                                                <div style="background: white;" id="usrlist"></div>
+                                            </div>
+
+                                            <script>
+
+                                                                                   
+                                            
+
+                                            $('#forminput00').keyup(function(){
+
+                                                if($(this).val())
+                                                {
+                                                    $.ajax({
+                                                      url: "/usrsearch",
+                                                      type: 'get',
+                                                      dataType: "json",
+                                                      //default: Intelligent Guess (Other values: xml, json, script, or html)'
+                                                      data: {
+                                                        _method: 'PUT',
+                                                       search: $('#forminput00').val(),
+                                                        _token:     '{{ csrf_token() }}'
+                                                      },
+                                                      success: function(data)
+                                                      {
+                                                        $('#usrlist').fadeIn();
+                                                        $('#usrlist').html("");
+
+                                                        
+
+                                                        var filter = [];
+
+                                                        $.each(data, function(index,jsonObject){
+                                                                $.each(jsonObject, function(key,val){
+
+
+                                                                    //get rid of duplicates
+                                                                    if(key === 'username')
+                                                                    {
+                                                                        if($.inArray(val, filter) == -1)
+                                                                        {
+                                                                            filter.push(val);
+
+                                                                            
+
+                                                                            
+                                                                        }
+
+                                                                    }
+                                                                });
+
+                                                                
+                                                                
+                                                             });
+
+                                                        var tmp = '<ul class="usrlist">';
+
+
+                                                        for (var i = 0; i < filter.length; ++i) {
+                                                            
+                                                            tmp += "<li class='ulist'>" + filter[i] + "</li>";
+                                                        }
+
+
+                                                        
+
+                                                        tmp += "</ul>";
+
+                                                        
+                                                        $('#usrlist').append(tmp);
+
+                                                        tmp ="";                                             
+
+
+                                                      }
+                                                    })
+                                                }
+                                                else
+                                                {
+                                                    $('#usrlist').html("");
+                                                    $('#usrlist').fadeOut();
+                                                }
+
+                                                   
+                                            });
+
+                                            
+
+                                            </script>                                             
                                         </div>
                                         <div class="col-md-3 col-sm-3 col-xs-8 col-xs-offset-2 col-sm-offset-0" data-pg-id="114">
                                             <a href="#" style="top:15px" class="col-xs-12 btn btn-danger" data-pg-id="115">Delete</a> 
@@ -97,7 +184,7 @@
                                         </div>
                                         <div class="col-sm-6 col-xs-12 topspacesm" data-pg-id="120">
                                             <div class="col-xs-12" data-pg-id="121"> 
-                                                <input id="forminput01" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail" data-pg-id="122" />
+                                                <input id="forminput01" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" />
                                             </div>                                             
                                         </div>
                                         <div class="col-xs-8 col-xs-offset-2 col-sm-3 col-sm-offset-0" data-pg-id="123">
@@ -112,7 +199,7 @@
                                         </div>
                                         <div class="col-sm-6 col-xs-12" data-pg-id="129">
                                             <div class="col-xs-12" data-pg-id="130"> 
-                                                <input id="forminput02" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail" class="marginlge" data-pg-id="131" />
+                                                <input id="forminput02" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" class="marginlge" data-pg-id="131" />
                                             </div>                                             
                                         </div>
                                         <div class="col-xs-8 col-sm-3 col-xs-offset-2 col-sm-offset-0" data-pg-id="132">
@@ -128,7 +215,7 @@
                                         <div class="col-xs-12" data-pg-id="138">
                                             <div class="col-sm-4 col-xs-12" data-pg-id="139">
                                                 <div class="col-xs-12" style="margin-top: 32px" data-pg-id="140">
-                                                    <input id="forminput00" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail" data-pg-id="141" /> 
+                                                    <input id="forminput00" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="141" /> 
                                                 </div>                                                 
                                             </div>
                                             <div class="col-sm-4 col-xs-12" data-pg-id="142">
@@ -202,13 +289,29 @@
 
 
 
-        <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script> 
-        <script type="text/javascript" src="../js/bootstrap.min.js"></script>    
-        <script type="text/javascript" src="../js/plugins.js"></script>
+        
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>    
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="/js/plugins.js"></script>
         <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="../js/bskit-scripts.js"></script>     
-        <script type="text/javascript" src="../components/pg.chocka-blocks/js/cb-main.js"></script>
-       
-        <script type="text/javascript" src="../components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>            
+        <script type="text/javascript" src="/js/bskit-scripts.js"></script>     
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>
+
+        <script>
+
+
+                $(document).on('click', "li", function() {
+                    //var liId = $(this).parent("li").attr("id");
+                   
+                    $('#forminput00').val($(this).text());
+                    $('.usrlist').fadeOut();
+
+                  
+                });
+
+               
+
+        </script>
+                
         </body>         
     </html>

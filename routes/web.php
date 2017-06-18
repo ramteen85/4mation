@@ -44,3 +44,7 @@ Route::post('/sendemail', [
     'uses' => 'AdminController@email',
     'as' => 'sendemail'
 ]);
+Route::get('/usrsearch', [
+    'uses' => 'AdminController@ajaxuser',
+    'as' => 'usrsearch'
+]);

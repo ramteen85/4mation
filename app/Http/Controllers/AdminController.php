@@ -38,6 +38,119 @@ class AdminController extends Controller
         }
     }
 
+
+    public function ajaxuser()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+            //all good find users
+        
+            $query = request('search');
+
+            $words = explode(' ', $query);
+
+            $arr_results = array();
+
+            $final = array();
+
+            //check
+
+            if(isset($query) && $query != "" && $query != null)
+            {
+                
+                foreach($words as $word)
+                {
+                    
+                    $data = User::where('username', 'LIKE', '%'. $word . '%')
+                    -> get();
+                    foreach($data as $key => $value)
+                    {
+                        if (!array_key_exists($key, $final)) {
+                            $arr_results[] = ['id' => $value->id, 'username' => $value->username, 'created_at' => $value->created_at ];
+                        }
+                    }
+                }
+
+                $final = array_merge($arr_results);
+
+                foreach($words as $word)
+                {
+                    
+                    $data = User::where('firstname', 'LIKE', '%'. $word . '%')
+                    -> get();
+                    foreach($data as $key => $value)
+                    {
+                        if (!array_key_exists($key, $final)) {
+                            $arr_results[] = ['id' => $value->id, 'username' => $value->username, 'created_at' => $value->created_at ];
+                        }
+                        
+                    }
+                }
+
+                $final = array_merge($arr_results);
+
+                foreach($words as $word)
+                {
+                    
+                    $data = User::where('lastname', 'LIKE', '%'. $word . '%')
+                    -> get();
+                    foreach($data as $key => $value)
+                    {
+                        if (!array_key_exists($key, $final)) {
+                            $arr_results[] = ['id' => $value->id, 'username' => $value->username, 'created_at' => $value->created_at ];
+                        }
+                        
+                    }
+                }
+
+                $final = array_merge($arr_results);
+
+                foreach($words as $word)
+                {
+                    
+                    $data = User::where('email', 'LIKE', '%'. $word . '%')
+                    -> get();
+                    foreach($data as $key => $value)
+                    {
+                        if (!array_key_exists($key, $final)) {
+                            $arr_results[] = ['id' => $value->id, 'username' => $value->username, 'created_at' => $value->created_at ];
+                        }
+                        
+                    }
+                }
+
+                $final = array_merge($arr_results);
+
+
+               
+
+                $final = json_decode(json_encode($final));
+
+                
+
+                return Response::json($final);
+        
+            }
+
+
+            
+
+            }
+        
+    }
+
+
     public function email()
     {     
 
