@@ -2,10 +2,11 @@
 <html lang="en" style="height:100%;">
     <head> 
         <meta charset="utf-8"> 
-        <title>Pinegrow Bootstrap Blocks</title>
+        <title>4Mation | Staff Management System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
         <meta name="description" content="My new website" />
+       
         <link rel="shortcut icon" href="ico/favicon.png"> 
         <!-- Core CSS -->         
         <!-- Style Library -->         
@@ -34,31 +35,7 @@
 
          
 
-        <div class="modal fade" id="getCodeModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-             <div class="modal-content">
-             <div class="modal-header">
-                 <h4 class="modal-title">Registration Notification</h4>
-             </div>
-             <div class="modal-body">
-                 <p><strong>Thanks for registering! You may now sign in.</p>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
-             </div>
-           </div>
-          </div>
-        </div> 
-
-        @if($flash = session('regd'))
-            <script>
-            $(function() {
-                $("#getCodeModal2").modal('show');
-
-
-            });
-            </script>
-        @endif
+        
         
         
             
@@ -166,34 +143,71 @@
                     <h3 class="editContent" style="outline: none; cursor: inherit;">Leave us a message</h3> 
                     <div class="row mt40 mb40"> 
                         <div class="col-md-8 col-md-offset-2"> 
-                            <form action="#"> 
+                            <form id="form" action="/sendemail" method="POST"> 
+                            {{ csrf_field() }}
                                 <div class="col-md-6"> 
-                                    <input type="text" class="form-control" placeholder="Your Name"> 
+                                    <input type="text" id="first" class="form-control" placeholder="Your Name" name="firstname" required /> 
                                 </div>                                 
                                 <div class="col-md-6"> 
-                                    <input type="text" class="form-control" placeholder="Surname"> 
+                                    <input type="text" id="last" class="form-control" placeholder="Surname" name="surname" required /> 
                                 </div>                                 
                                 <div class="col-md-6"> 
-                                    <input type="email" class="form-control" placeholder="Email *" required=""> 
+                                    <input type="email" id="email" class="form-control" placeholder="Email" name="email" required /> 
                                 </div>                                 
                                 <div class="col-md-6"> 
-                                    <input type="text" class="form-control" placeholder="Subject"> 
+                                    <input type="text" id="subject" class="form-control" placeholder="Subject" name="subject" /> 
                                 </div>                                 
                                 <div class="col-md-12"> 
-                                    <textarea name="message" class="form-control textarea" placeholder="Message"></textarea>                                     
+                                    <textarea id="message" name="message" class="form-control textarea" placeholder="Message" name="message"></textarea>                      
                                 </div>                                 
                                 <div class="text-center mb20"> 
-                                    <a href="#" class="btn btn-default-green">Send Message</a> 
+                                    
+                                    <button type="button" class="confirm btn btn-default-green">Send Message</button> 
+                                    
                                 </div>                                 
                             </form>                             
                         </div>                         
                     </div>                     
                 </div>                 
             </div>             
-        </section>
+        </section>        
+
+        @if($flash = session('regd'))
+            <script>
+            $(function() {
+               
+                $('.modal-body').html("Thanks for registering! You may now sign in.");
+                $('#getCodeModal2').modal('show');
+
+            });
+            </script>
+        @endif
+
+
+
+        @if(count($errors))
+            @foreach($errors->all() as $error)
+                
+                
+                <script>
+                    $(function() {
+                        $('.modal-body').html({{$errors->first()}});
+                        $('#getCodeModal').modal('show');
+
+
+                    });
+                </script>
+            @endforeach
+
+        @endif
+
+        
 
         @include('layouts.footer')
-               
+        
+        
+
+
         <script type="text/javascript" src="js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>
@@ -201,6 +215,162 @@
         <script type="text/javascript" src="js/bskit-scripts.js"></script>         
         <script type="text/javascript" src="components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="components/pg.chocka-blocks/js/cb-main.js"></script>         
+        <script type="text/javascript" src="components/pg.chocka-blocks/js/cb-main.js"></script>    
+        <script src="/js/jquery.confirm.js"></script>  
+        <script>
+
+      
+
+            function sendEmail()
+            {
+                var first = $("#first").val();
+                var last = $("#last").val();
+                var email = $("#email").val();
+                var subject = $("#subject").val();
+                var message = $("#message").val();
+
+
+
+
+                $.post(
+                    $( "#form" ).prop( 'action' ),
+                    {
+                        "_token": $( "#form" ).find( 'input[name=_token]' ).val(),
+                        "firstname": first,
+                        "surname": last,
+                        "email": email,
+                        "subject": subject,
+                        "message": message
+                    },
+                    function( data ) 
+                    {
+                        //do something with data/response returned by server
+                        
+                        try 
+                        {
+                          if(data.ok) 
+                          {
+                            $('.modal-body').html(data.ok);
+                            $('#getCodeModal').modal('show');
+                          }
+                        } 
+                        catch(e) 
+                        {
+
+                        }
+                        
+                        try 
+                        {
+                            if(data.errors.firstname)   
+                            {
+                                $('.modal-body').html(data.errors.firstname);
+                                $('#getCodeModal').modal('show');
+                            }  
+                        }
+                         catch(e) {}
+
+                        
+
+                        try {
+                            if(data.errors.surname)   
+                            {
+                                $('.modal-body').html(data.errors.surname);
+                                $('#getCodeModal').modal('show');
+                            }  
+                        
+                        } catch(e) {}
+                    
+
+
+                        try {
+                            if(data.errors.email)   
+                            {
+                                $('.modal-body').html(data.errors.email);
+                                $('#getCodeModal').modal('show');
+                            }  
+                        
+                        } catch(e) {}
+
+
+                        try {
+                            if(data.errors.subject)   
+                            {
+                                $('.modal-body').html(data.errors.subject);
+                                $('#getCodeModal').modal('show');
+                            }  
+                        
+                        } catch(e) {}
+                        
+                        try {
+                            if(data.errors.message)   
+                            {
+                                $('.modal-body').html(data.errors.message);
+                                $('#getCodeModal').modal('show');
+                            }  
+                        
+                        } catch(e) {}
+                        
+
+                    },
+                    'json'
+                );
+
+    
+
+             
+            }
+
+            $(".confirm").confirm({
+                text: "Send Email?",
+                title: "Email Confirmation",
+                confirm: function(button) 
+                {
+                    //send email
+                    sendEmail();
+                },
+                cancel: function(button) {
+                    // nothing to do
+                },
+                confirmButton: "Yes",
+                cancelButton: "No",
+                post: true,
+                confirmButtonClass: "btn-danger",
+                cancelButtonClass: "btn-default",
+                dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+            });
+        </script>  
+
+        <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">~~ ERROR ~~</h4>
+             </div>
+             <div class="modal-body">
+                 <p id="custmodal"></p>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+             </div>
+           </div>
+          </div>
+        </div> 
+
+        <div class="modal fade" id="getCodeModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">Registration Notification</h4>
+             </div>
+             <div class="modal-body">
+                 <p><strong>Thanks for registering! You may now sign in.</p>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+             </div>
+           </div>
+          </div>
+        </div> 
+
     </body>     
 </html>

@@ -17,7 +17,19 @@ class Message extends Model
 
     public static function findUnread($rid)
     {
-        return Message::where('recv_id', $rid)->where('read', 0)->latest();
+        $test = Message::where('recv_id', $rid)->where('read', 0)->latest();
+
+        if($test)
+        {
+            return $test;
+        }
+        else
+        {
+            $test = [];
+            return null;
+        }
+        
+        
     }
 
     public static function fetchInbox($uid)

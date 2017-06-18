@@ -26,9 +26,11 @@
                                         <li>
                                             <a href="/members" style="outline: none; cursor: inherit;">Home</a>
                                         </li>
+                                        @if(Auth::user()->role == 1)
                                         <li>
                                             <a href="/admin" style="outline: none; cursor: inherit;">Administrator</a>
                                         </li>
+                                        @endif
                                         <li>
                                             <a href="/eprofile" style="outline: none; cursor: inherit;">Edit Profile</a>
                                         </li>

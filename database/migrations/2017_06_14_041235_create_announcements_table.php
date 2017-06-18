@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use DB;
 
 class CreateAnnouncementsTable extends Migration
 {
@@ -20,6 +21,14 @@ class CreateAnnouncementsTable extends Migration
             $table->integer('issue_id');
             $table->timestamps();
         });
+
+       DB::table('announcements')->insert(
+            array(
+                'title' => "The System is alive!",                
+                'body' => "The Employee Management System has been created! Have fun!",
+                'issue_id', 1
+            )
+        );
     }
 
     /**

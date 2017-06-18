@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use DB;
 
 class CreateTeamsTable extends Migration
 {
@@ -18,6 +19,13 @@ class CreateTeamsTable extends Migration
             $table->string('name', 32);
             $table->string('description', 100);            
         });
+
+        DB::table('teams')->insert(
+            array(
+                'name' => 'Not Assigned',                
+                'description' => 'This is a default Team' 
+            )
+        );
     }
 
     /**

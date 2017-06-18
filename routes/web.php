@@ -40,3 +40,7 @@ Route::post('/searchusers', 'PagesController@search');
 Route::get('/admin', 'AdminController@inbox');
 Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/tasks', 'AdminController@tasks');
+Route::post('/sendemail', [
+    'uses' => 'AdminController@email',
+    'as' => 'sendemail'
+]);

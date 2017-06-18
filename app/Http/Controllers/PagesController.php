@@ -280,9 +280,15 @@ class PagesController extends Controller
             $model = Task::find(1);
 
             //count number of unread messages
+
+
             $unread = Message::findUnread(Auth::user()->id)->count();
+
+
+            return View('members',compact('announcements', 'unread'));  
             
-            return View('members',compact('announcements', 'unread'));    
+            
+               
         }
 
         
@@ -412,8 +418,8 @@ class PagesController extends Controller
         }
         else
         {
-            $tasks = Task::incompletetasks();
-            $tasks2 = Task::completedtasks();
+            $tasks = Task::incompletetasks(Auth::user()->id);
+            $tasks2 = Task::completedtasks(Auth::user()->id);
             
             return view('task', compact('tasks', 'tasks2'));
         }

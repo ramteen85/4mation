@@ -78,6 +78,9 @@
                                     </div>
                                 </div>
                                 <hr>
+
+                                @foreach($emails as $email)
+
                                 <div style="height: 280px;" class="list-group-item active  msgheight">
                                     <div class="media col-md-4">
                                         <figure class="pull-left picposition">
@@ -85,56 +88,21 @@
                                         </figure>
                                     </div>
                                     <div class="col-md-5">
-                                        <h4 class="list-group-item-heading spacer-10 subcenter">Message Subject</h4>
-                                        <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum. </p>
+                                        <h4 class="list-group-item-heading spacer-10 subcenter">{{ $email->subject}}</h4>
+                                        <p class="list-group-item-text"> {{ $email->message }} </p>
                                     </div>
                                     <div class="col-md-3 text-center">
-                                        <h3 class="h3margin h3m1">Ramteen</h3>
+                                        <h3 class="h3margin h3m1">{{ $email->firstname }}</h3>
                                         <h3 class="h3margin">Taheri</h3>
-                                        <h6 style="font-size:13px" class="h3margin h3m1">happinin@gmail.com</h6>
+                                        <h6 style="font-size:13px" class="h3margin h3m1">{{ $email->email }}</h6>
                                         <button type="button" class="btn btn-danger btn-md btn-block">Delete</button>
-                                        <p class="dater">Sent: 20/07/1985</p>
+                                        <p class="dater">{{ $email->created_at->diffForHumans() }} </p>
                                     </div>
                                 </div>
                                 <hr>
-                                <div style="height: 280px;" class="list-group-item active  msgheight">
-                                    <div class="media col-md-4">
-                                        <figure class="pull-left picposition">
-                                        <img class="media-object img-rounded img-responsive imgcenter" src="/images/envelope.gif" alt="placehold.it/350x250">
-                                        </figure>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h4 class="list-group-item-heading spacer-10 subcenter">Message Subject</h4>
-                                        <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum. </p>
-                                    </div>
-                                    <div class="col-md-3 text-center">
-                                        <h3 class="h3margin h3m1">Ramteen</h3>
-                                        <h3 class="h3margin">Taheri</h3>
-                                        <h6 style="font-size:13px" class="h3margin h3m1">happinin@gmail.com</h6>
-                                        <button type="button" class="btn btn-danger btn-md btn-block">Delete</button>
-                                        <p class="dater">Sent: 20/07/1985</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div style="height: 280px;" class="list-group-item active  msgheight">
-                                    <div class="media col-md-4">
-                                        <figure class="pull-left picposition">
-                                        <img class="media-object img-rounded img-responsive imgcenter" src="/images/envelope.gif" alt="placehold.it/350x250">
-                                        </figure>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h4 class="list-group-item-heading spacer-10 subcenter">Message Subject</h4>
-                                        <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum. </p>
-                                    </div>
-                                    <div class="col-md-3 text-center">
-                                        <h3 class="h3margin h3m1">Ramteen</h3>
-                                        <h3 class="h3margin">Taheri</h3>
-                                        <h6 style="font-size:13px" class="h3margin h3m1">happinin@gmail.com</h6>
-                                        <button type="button" class="btn btn-danger btn-md btn-block">Delete</button>
-                                        <p class="dater">Sent: 20/07/1985</p>
-                                    </div>
-                                </div>
-                                <hr>
+
+                                @endforeach
+                                
                             </div>
                         </div>
                     </div>

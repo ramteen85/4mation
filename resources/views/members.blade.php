@@ -9,12 +9,7 @@
         <meta name="description" content="My new website" />
         <link rel="shortcut icon" href="ico/favicon.png"> 
         <!-- Core CSS -->         
-        <!-- Style Library -->         
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
-        <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->         
+            
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
@@ -102,14 +97,37 @@
                                 <div class="col-md-12 bg-danger statcol pad-sm">
                                     <h3 class="fatwhite htext1">You have <a href="/messages/inbox"><span class="numur">{{ $unread }} new messages!!</span></a></h3>
                                 </div>
+                                @endif
+                                
+                                @if( App\Task::countincompletetasks(Auth::user()->id) > 0)
+
+                                    <div class="col-md-12 bg-warning statcol pad-sm">
+                                       <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numtr">{{ App\Task::countincompletetasks(Auth::user()->id) }} tasks remaining!</span></a></h3>
+                                    </div>
+                                @elseif(App\Task::countcompletetasks(Auth::user()->id) == 0)
+
+                                    <div class="col-md-12 bg-warning statcol pad-sm">
+                                       <h3 class="fatwhite htext1"><a href="tasks"><span class="numtr">You have not been assigned any Tasks.</span></a></h3>
+                                    </div>
+
 
                                 @endif
-                                <div class="col-md-12 bg-warning statcol pad-sm">
-                                   <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numtr">{{ App\Task::countincompletetasks(Auth::user()->id) }} tasks remaining!</span></a></h3>
-                                </div>
+
+
+                                @if( App\Task::countcompletetasks(Auth::user()->id) > 0)
+
                                 <div class="col-md-12 bg-success statcol pad-sm">
                                    <h3 class="fatwhite htext1">You have <a href="tasks"><span class="numct">{{ App\Task::countcompletetasks(Auth::user()->id) }} completed tasks!</span></a></h3>
                                 </div>
+                                
+                                @elseif(App\Task::countcompletetasks(Auth::user()->id) == 0)
+                
+                                    <div class="col-md-12 bg-success statcol pad-sm">
+                                   <h3 class="fatwhite htext1"><a href="tasks">You have not completed any Tasks.</a></h3>
+                                </div>
+
+                                @endif
+
                             </div>
                         </div>
                     </div>

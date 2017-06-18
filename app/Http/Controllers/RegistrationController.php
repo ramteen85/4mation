@@ -8,6 +8,7 @@ use App\Skill;
 use Auth;
 use Validator;
 use Hash;
+use DB;
 
 
 class RegistrationController extends Controller
@@ -182,20 +183,34 @@ class RegistrationController extends Controller
 			'firstname' => request('firstname'),
 			'lastname' => request('lastname'),
 			'email' => request('email'),
-			'about' => '',
+			'about' => '<< Tell us about yourself >>',
 			'role' => 0,
 			'password' => request('password')
 		]);
+
+        //get new user id
+
+        $userteam = User::getIdByUsername(request('username'));
+
+
+        //assign user to a default team
+
+
+        DB::table('team_user')->insertGetId([
+            'user_id'      => $userteam,
+            'team_id'      => 1
+            
+        ]);
+
+
 
 
     	//log user in
     	//auth()->login($user);
 
-    	$user->get();
+    	//$user->get();
 
-    	//send email - not complete
-
-
+    	
     	//flash session and redirect
 
     	session()->flash('regd', 'ok');

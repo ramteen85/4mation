@@ -18,6 +18,8 @@ class CreateSkillsTable extends Migration
             $table->string('name', 32);
             $table->integer('user_id');            
         });
+
+        
     }
 
     /**

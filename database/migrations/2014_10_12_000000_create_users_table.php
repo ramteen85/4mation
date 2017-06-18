@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use DB;
 
 class CreateUsersTable extends Migration
 {
@@ -25,6 +26,21 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        //create and save user (demo purposes)
+
+    
+        DB::table('users')->insert(
+            array(
+                'username' => 'admin',
+                'firstname' => 'admin',
+                'lastname' => 'admin',
+                'email' => 'admin@admin.com',
+                'about' => '<< I am the main Administrator >>',
+                'role' => 1,
+                'password' => 'demo'
+            )
+        );
     }
 
     /**

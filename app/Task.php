@@ -20,14 +20,14 @@ class Task extends Model
     	return User::getUsernameById($sender_id);
     }
 
-    public static function incompletetasks()
+    public static function incompletetasks($uid)
     {
-    	return Task::where('completed', 0)->latest()->get();
+    	return Task::where('completed', 0)->where('receiver_id',$uid)->latest()->get();
     }
 
-    public static function completedtasks()
+    public static function completedtasks($uid)
     {
-    	return Task::where('completed', 1)->latest()->get();
+    	return Task::where('completed', 1)->where('receiver_id',$uid)->latest()->get();
     }
 
     public static function countcompletetasks($uid)

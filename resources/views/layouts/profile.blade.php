@@ -2,7 +2,7 @@
 <html lang="en" style="height:100%;">
     <head> 
        <meta charset="utf-8"> 
-        <title>Pinegrow Bootstrap Blocks</title>
+        <title>View Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
         <meta name="description" content="My new website" />
@@ -100,13 +100,13 @@
         @include('layouts.footer')
 
         
-        <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>         
-        <script type="text/javascript" src="../js/bootstrap.min.js"></script>         
-        <script type="text/javascript" src="../js/plugins.js"></script>
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
+        <script type="text/javascript" src="/js/plugins.js"></script>
         <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="../js/bskit-scripts.js"></script>         
-        <script type="text/javascript" src="../components/pg.chocka-blocks/js/cb-main.js"></script>
-        <script type="text/javascript" src="../components/pg.chocka-blocks/js/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="../components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
+        <script type="text/javascript" src="/js/bskit-scripts.js"></script>         
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
     </body>     
 </html>
