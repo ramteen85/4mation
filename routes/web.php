@@ -41,6 +41,9 @@ Route::get('/admin', 'AdminController@inbox');
 Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/tasks', 'AdminController@tasks');
 Route::post('/delemail', 'AdminController@delemail');
+Route::post('/postannouncement', 'AdminController@announcement');
+
+Route::post('/createtask', 'AdminController@createtask');
 
 Route::post('/sendemail', [
     'uses' => 'AdminController@email',

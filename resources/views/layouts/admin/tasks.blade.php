@@ -53,7 +53,7 @@
         <link href="/css/admin2.css" rel="stylesheet" type="text/css">
         <link href="/css/admin3.css" rel="stylesheet" type="text/css">
         <link href="/css/admin4.css" rel="stylesheet" type="text/css">
-        <script type="/text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     </head>     
             
         <body data-spy="scroll" data-target="nav" class="bodybg">
@@ -81,11 +81,11 @@
                                         </div>
                                         <div class="col-xs-12 labelsm">
                                             <div class="col-sm-4 col-xs-12">
-                                                <h1 class="delh titlesm bigtitlesm">To:</h1> 
+                                                <h1 class="delh titlesm bigtitlesm">Task ID:</h1> 
                                             </div>
                                             <div class="col-sm-8 col-xs-12 marginlge">
                                                 <div class="col-xs-12 col-sm-12">
-                                                    <input id="forminput00" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail"> 
+                                                    <input type="text" style="width: 100%; height: 40px;" placeholder="Enter Task ID"> 
                                                 </div>                                                 
                                             </div>                                             
                                         </div>
@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="col-sm-8 col-xs-12">
                                                 <div class="col-xs-12">
-                                                    <input id="forminput00" style="width: 100%; height: 40px;" placeholder="    << Task Title >>" class="marginlge" /> 
+                                                    <input style="width: 100%; height: 40px;" placeholder="    << Task Title >>" class="marginlge" /> 
                                                 </div>                                                 
                                             </div>                                             
                                         </div>
@@ -114,7 +114,10 @@
                                     </section>
                                 </section>
                                 <section class="panelbg margin30">
+
                                     <section style="padding-bottom: 30px" class="col-xs-12 panelbg margin30">
+                                        <form id="input00" action="/createtask" method="POST">
+                                        {{ csrf_field() }}
                                         <div class="text-center col-xs-12">
                                             <h1 class="delh">Create a Task</h1> 
                                         </div>
@@ -124,7 +127,7 @@
                                             </div>
                                             <div class="col-sm-8 col-xs-12">
                                                 <div class="col-xs-12">
-                                                    <input id="forminput00" style="width: 100%; height: 40px;" placeholder="Enter a task title..." class="marginlge" /> 
+                                                    <input name="title" style="width: 100%; height: 40px;" placeholder="Enter a task title..." class="marginlge" /> 
                                                 </div>                                                 
                                             </div>                                             
                                         </div>
@@ -134,23 +137,28 @@
                                             </div>
                                             <div class="col-sm-8 col-xs-12">
                                                 <div class="col-xs-12">
-                                                    <input id="forminput00" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail" class="marginlge"> 
+                                                    <input id="forminput00" name="to_user" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail" class="marginlge"> 
+                                                    <div style="" id="usrlist"></div>
                                                 </div>                                                 
                                             </div>                                             
                                         </div>
+
                                         <div class="col-xs-12 text-center">
                                             <h1 class="delh labelsm">Details</h1> 
                                         </div>
                                         <div class="col-xs-12 text-center">
-                                            <textarea style="width: 100%; height: 100px;" placeholder="Enter a task description..."></textarea>                                             
+                                            <textarea name="description" style="width: 100%; height: 100px;" placeholder="Enter a task description..."></textarea>                                             
                                         </div>
                                         <div class="col-xs-12 text-center">
-                                            <button type="button" class="btn btn-success">Create</button>                                             
+                                            <button type="submit" class="btn btn-success">Create</button>                                             
                                         </div>
+                                        </form>
                                     </section>
                                 </section>
                                 <section class="panelbg margin30">
                                     <section style="padding-bottom: 30px" class="col-xs-12 panelbg margin30">
+                                    <form action="/postannouncement" method="POST">
+                                    {{ csrf_field() }}
                                         <div class="text-center col-xs-12">
                                             <h1 class="delh labelsm">Post Announcement</h1> 
                                         </div>
@@ -160,19 +168,20 @@
                                             </div>
                                             <div class="col-sm-8 col-xs-12">
                                                 <div class="col-xs-12">
-                                                    <input id="forminput00" style="width: 100%; height: 40px;" placeholder="  << Announcement Title >>  " class="marginlge" /> 
+                                                    <input name="title" style="width: 100%; height: 40px;" placeholder="  << Announcement Title >>  " class="marginlge" /> 
                                                 </div>                                                 
-                                            </div>                                             
+                                        </div>                                             
                                         </div>
                                         <div class="col-xs-12 text-center">
                                             <h1 class="delh">Message</h1> 
                                         </div>
                                         <div class="col-xs-12 text-center">
-                                            <textarea style="width: 100%; height: 100px;" placeholder="  << Announcement Message >>  "></textarea>                                             
+                                            <textarea name="body" style="width: 100%; height: 100px"; placeholder=" << Place Announcement Message >> "></textarea>                                             
                                         </div>
                                         <div class="col-xs-12 text-center">
-                                            <button type="button" class="btn btn-info">Post</button>                                             
+                                            <button type="submit" class="btn btn-info">Post</button>                                             
                                         </div>
+                                        </form>
                                     </section>
                                 </section>
                             </div>
@@ -180,22 +189,192 @@
                     </div>
                 </div>
             </div>
+
+
+            @if($flash = session('posted'))
+            <script>
+            $(function() {
+               
+                $('.modal-body').html("Your Announcement has been posted!");
+                $('#getCodeModal2').modal('show');
+
+            });
+            </script>
+        @endif
+
+         @if($flash = session('tasked'))
+            <script>
+            $(function() {
+               
+                $('.modal-body').html("Your task has been Assigned!");
+                $('#getCodeModal2').modal('show');
+
+            });
+            </script>
+        @endif
+
+        @if(count($errors))
+            @foreach($errors->all() as $error)
+                
+                
+            <script>
+                $(function() {
+                   
+                    $('.modal-body').html("{{ $error }}");
+                    $('#getCodeModal2').modal('show');
+
+                });
+            </script>
+            @endforeach
+
+        @endif
         
+
+        <div class="modal fade" id="getCodeModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-lg">
+                 <div class="modal-content">
+                 <div class="modal-header">
+                     <h4 class="modal-title">~~ Announcement Notification ~~</h4>
+                 </div>
+                 <div class="modal-body">
+                     <p id="custmodal"></p>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+                 </div>
+               </div>
+              </div>
+        </div> 
         
 
            @include('layouts.footer')
 
+        
 
 
+         
+          
 
 
-        <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script> 
-        <script type="text/javascript" src="../js/bootstrap.min.js"></script>    
-        <script type="text/javascript" src="../js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="../js/bskit-scripts.js"></script>     
-        <script type="text/javascript" src="../components/pg.chocka-blocks/js/cb-main.js"></script>
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
        
-        <script type="text/javascript" src="../components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>            
+        
+        <script type="text/javascript" src="/js/plugins.js"></script>
+        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="/js/bskit-scripts.js"></script>     
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>
+        <script src="/js/jquery.confirm.js"></script> 
+
+        <script> 
+
+        $('#forminput00').keyup(function(){
+
+
+
+        if($(this).val())
+        {
+            $.ajax({
+              url: "/usrsearch",
+              type: 'get',
+              dataType: "json",
+              //default: Intelligent Guess (Other values: xml, json, script, or html)'
+              data: {
+                _method: 'PUT',
+               search: $('#forminput00').val(),
+                _token:     '{{ csrf_token() }}'
+              },
+              success: function(data)
+              {
+                
+                $('#usrlist').html("");
+                
+
+                
+
+                var filter = [];
+
+                $.each(data, function(index,jsonObject){
+                    $.each(jsonObject, function(key,val){
+
+
+                        //get rid of duplicates
+                        if(key === 'username')
+                        {
+                            if($.inArray(val, filter) == -1)
+                            {
+                                filter.push(val); 
+
+
+                                
+                            }
+
+                        }
+                    });
+
+                
+                
+                });
+
+                var tmp = '<ul class="usrlist">';
+
+
+                for (var i = 0; i < filter.length; ++i) {
+                    
+                    tmp += "<li class='ulist'>" + filter[i] + "</li>";
+                }
+
+
+                
+
+                tmp += "</ul>";
+
+                
+                $('#usrlist').append(tmp);
+                $('#usrlist').fadeIn();
+
+                tmp ="";
+                filter = [];                                             
+
+
+              }
+            });
+        }
+        else
+        {
+            $('#usrlist').html("");
+            $('#usrlist').fadeOut();
+        }
+
+           
+        }); 
+
+
+
+
+             $(document).on('click', "li", function(e) {
+                //var liId = $(this).parent("li").attr("id");
+                $('.usrlist4').fadeOut();
+                $('.usrlist3').fadeOut();
+                $('.usrlist2').fadeOut();
+                $('.usrlist').fadeOut();
+
+                
+                
+            
+                if($('#forminput00').val().length > 0)
+                {
+                    $('#forminput00').val($(this).text());
+                }
+                
+
+              
+            });
+
+      
+        </script>
+
+       
         </body>         
     </html>

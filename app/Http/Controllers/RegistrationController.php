@@ -108,10 +108,6 @@ class RegistrationController extends Controller
     {
         //validate form
 
-
-
-
-
          $messages = array(
             'oldpass.required'=>'Your current password is required.',
             'newpass.required'=>'You must enter a new password.'

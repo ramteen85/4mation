@@ -155,6 +155,127 @@ class AdminController extends Controller
     }
 
 
+    public function createtask()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+
+            //validate form
+
+             $messages = array(
+                'title.required'=>'You must enter a title.',
+                'to_user.required'=>'You must enter a username.',
+                'description.required'=>'You must enter a task description.',
+            );
+
+
+
+            $rules = array(
+                'title' => 'required',
+                'to_user' => 'required',
+                'description' => 'required'
+            );
+
+
+
+             $validation = \Illuminate\Support\Facades\Validator::make(request()->all(), $rules, $messages );
+
+             if (!$validation->passes()) 
+             {
+                return redirect('/admin/tasks')->withErrors($validation->errors());
+             }
+
+             //validation has passed
+           
+
+
+            //check user exists
+            $username = request('to_user');
+            $flag = User::UserExistsByName($username);
+            $id = User::getIdByUsername($username);
+
+            if($flag == 0)
+            {
+                session()->flash('nouser', 'ok');
+                //user does not exist
+                return redirect('/admin/tasks')->withErrors('user doesnt exist');
+            }
+
+            //user does exist
+
+
+            //create task
+
+            
+
+            $task = Task::create([ 
+                'title' => request('title'),                
+                'body' => request('description'),
+                'receiver_id' => $id,
+                'issue_id' => Auth::user()->id,
+                'completed' => 0
+            ]);
+
+            //success
+
+            session()->flash('tasked', 'ok');
+
+
+
+            return Redirect::back();
+
+        }
+    }
+
+    public function Announcement()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+            $title = request('title');
+            $body = request('body');
+
+            $issue_id = Auth::user()->id;
+
+
+
+            Announcement::create([ 
+            'title' => $title,
+            'body' => $body,            
+            'issue_id' => $issue_id
+            ]);
+
+            session()->flash('posted', 'ok');
+
+            return redirect('/admin/tasks');
+
+        }
+
+
+    }
+
+
     public function delemail()
     {
         if (Auth::guest()) 
