@@ -39,6 +39,8 @@ class AdminController extends Controller
     }
 
 
+
+
     public function ajaxuser()
     {
         if (Auth::guest()) 
@@ -130,10 +132,12 @@ class AdminController extends Controller
                     }
                 }
 
+
+                //$arr_results = array_unique($arr_results);
                 $final = array_merge($arr_results);
 
+                
 
-               
 
                 $final = json_decode(json_encode($final));
 
@@ -148,6 +152,192 @@ class AdminController extends Controller
 
             }
         
+    }
+
+
+    public function delemail()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            
+            $id = request('id');
+
+
+
+            //all good
+
+            $email = Email::find($id);
+
+            $email->delete();
+
+
+            return Redirect::back();
+        }
+    }
+
+    public function grantuser()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+            if(!request('username'))
+            {
+                //if username has no value
+                return Response::json( array(
+                    
+                'grantfail' => "Username field is blank!"
+                ) );
+            }
+
+
+            $username = request('username');
+            //check user exists
+            $flag = User::UserExistsByName($username);
+
+            if($flag == 0)
+            {
+                //user does not exist
+                return Response::json( array(
+                    
+                'grantfail' => "The user does not exist!"
+                ) );
+            }
+
+            //user does exist
+
+            //get id
+            $id = User::getIdByUsername($username);
+
+            
+
+            //check if user is already an admin
+
+            $flag = User::isAdmin($id);
+
+           
+            //if so, send back an alert
+            if($flag == true)
+            {
+                //user does not exist
+                return Response::json( array(
+                    
+                'grantfail' => "This user is already an administrator!"
+                ) );
+            }
+            else if ($flag == false) 
+            {
+                   //if not, promote
+
+                   $user = User::find($id);
+
+                   $user->role = 1;
+
+                   $user->save();
+
+                   //user does not exist
+                    return Response::json( array(
+                        
+                    'grantsuccess' => "The user has been successfully promoted!"
+                    ) ); 
+            }
+
+            
+
+            
+        }
+    }
+
+
+    public function deluser()
+    {
+        if ( Session::token() !== request( '_token' ) ) {
+            return Response::json( array(
+                'msg' => 'Invalid Authorization Token'
+            ) );
+        } 
+
+        if(!request('username'))
+        {
+            //if username has no value
+            return Response::json( array(
+                
+            'delfail' => "Username field is blank!"
+            ) );
+        }
+
+
+        $username = request('username');
+        //check user exists
+        $flag = User::UserExistsByName($username);
+
+        if($flag == 0)
+        {
+            //user does not exist
+            return Response::json( array(
+                
+            'delfail' => "The user does not exist!"
+            ) );
+        }
+        //user does exist
+
+        
+        $id = User::getIdByUsername($username);
+
+        
+
+        
+        //wipe team
+        DB::table('team_user')->where('user_id', $id)->delete();
+
+        //wipe tasks
+        DB::table('tasks')->where('issue_id', $id)->delete();
+        DB::table('tasks')->where('receiver_id', $id)->delete();
+
+        //wipe skills
+        DB::table('skills')->where('user_id', $id)->delete();
+
+        //wipe messages
+        DB::table('messages')->where('sender_id', $id)->delete();
+        DB::table('messages')->where('recv_id', $id)->delete();
+
+        //find and delete username 
+
+        $flag = User::deleteByUsername($username);
+
+        if($flag == 0)
+        {
+            //delete failed
+
+
+            return Response::json( array(
+                
+            'delfail' => "Account delete failed!"
+            ) );
+        }
+        else if($flag == 1)
+        {
+            //delete successful
+            return Response::json( array(
+                
+            'delsuccess' => "Account deleted successfully!"
+            ) );
+        }  
+
     }
 
 

@@ -276,6 +276,9 @@ class PagesController extends Controller
         }
         else
         {
+
+            $announcements ="";
+            $unread = 0;
             $announcements = Announcement::latest()->get();
             $model = Task::find(1);
 

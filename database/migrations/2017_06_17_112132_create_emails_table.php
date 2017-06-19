@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use DB;
+
 
 class CreateEmailsTable extends Migration
 {
@@ -24,15 +24,7 @@ class CreateEmailsTable extends Migration
             $table->timestamps();        
         });
 
-       DB::table('emails')->insert(
-            array(
-                'firstname' => 'Administrator',                
-                'lastname' => 'Administrator',
-                'email' => 'admin@4mation.com',
-                'subject' => 'Welcome to the admin panel!',
-                'message' => 'This is an example message. Your emails will arrive here and all admins will be able to view them.',
-            )
-        );
+       
     }
 
     /**

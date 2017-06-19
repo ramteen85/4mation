@@ -40,11 +40,25 @@ Route::post('/searchusers', 'PagesController@search');
 Route::get('/admin', 'AdminController@inbox');
 Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/tasks', 'AdminController@tasks');
+Route::post('/delemail', 'AdminController@delemail');
+
 Route::post('/sendemail', [
     'uses' => 'AdminController@email',
     'as' => 'sendemail'
 ]);
+
+Route::post('/usrdelete', [
+    'uses' => 'AdminController@deluser',
+    'as' => 'usrdelete'
+]);
+
+
 Route::get('/usrsearch', [
     'uses' => 'AdminController@ajaxuser',
     'as' => 'usrsearch'
+]);
+
+Route::post('/usrgrant', [
+    'uses' => 'AdminController@grantuser',
+    'as' => 'usrgrant'
 ]);

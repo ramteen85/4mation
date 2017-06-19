@@ -82,6 +82,8 @@
                                 @foreach($emails as $email)
 
                                 <div style="height: 280px;" class="list-group-item active  msgheight">
+                                <form action="/delemail" method="POST">
+                                    {{ csrf_field() }}
                                     <div class="media col-md-4">
                                         <figure class="pull-left picposition">
                                         <img class="media-object img-rounded img-responsive imgcenter" src="/images/envelope.gif" alt="placehold.it/350x250">
@@ -95,9 +97,12 @@
                                         <h3 class="h3margin h3m1">{{ $email->firstname }}</h3>
                                         <h3 class="h3margin">Taheri</h3>
                                         <h6 style="font-size:13px" class="h3margin h3m1">{{ $email->email }}</h6>
-                                        <button type="button" class="btn btn-danger btn-md btn-block">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-md btn-block">Delete</button>
                                         <p class="dater">{{ $email->created_at->diffForHumans() }} </p>
                                     </div>
+                                    <input type="hidden" value="{{ $email->id }}" name="id" />
+
+                                    </form>
                                 </div>
                                 <hr>
 

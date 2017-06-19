@@ -12,6 +12,8 @@ class Announcement extends Model
         'title', 'body', 'issue_id', 'created_at', 'updated_at',
     ];
 
+
+
     public static function getSenderFromId($id)
     {
         return User::getUsernameById($id);
@@ -19,6 +21,10 @@ class Announcement extends Model
 
     public function timeAgo()
     {
-    	return $this->created_at->diffForHumans();
+        if($this->created_at->diffForHumans())
+        {
+            return $this->created_at->diffForHumans();    
+        }
+    	
     }
 }

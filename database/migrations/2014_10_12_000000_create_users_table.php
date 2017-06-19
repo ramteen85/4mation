@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use DB;
+
 
 class CreateUsersTable extends Migration
 {
@@ -38,9 +38,12 @@ class CreateUsersTable extends Migration
                 'email' => 'admin@admin.com',
                 'about' => '<< I am the main Administrator >>',
                 'role' => 1,
-                'password' => 'demo'
+                'password' => bcrypt('demo'),
+                "created_at" => \Carbon\Carbon::now(),
+                "updated_at" => \Carbon\Carbon::now()
             )
         );
+        
     }
 
     /**

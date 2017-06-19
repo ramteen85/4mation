@@ -30,19 +30,7 @@
         <link href="css/custom.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>  
     </head>     
-    <body data-spy="scroll" data-target="nav">
-        
-
-         
-
-        
-        
-        
-            
-            
-            
-            
-            
+    <body data-spy="scroll" data-target="nav">   
         
         @include('layouts.nav')
 

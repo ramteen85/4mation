@@ -155,7 +155,7 @@
                         </div>
                         <div style="height: 100%; word-wrap: break-word;" class="col-xs-12 col-sm-10">
                             <h3 class="fatwhite aheader-sm">{{ $announcement->title }}</h3>
-                            <h5>By <a href="/profile/{{ $announcement->getSenderFromId($announcement->issue_id)->username }}"><span class="usrtxt">{{$announcement::getSenderFromId($announcement->issue_id)->username }}</span></a>, <span class="timeagotext">{{ $announcement->timeago() }}</span></h5>
+                            <h5>By <a href="/profile/{{ $announcement->getSenderFromId($announcement->issue_id)->username }}"><span class="usrtxt">{{$announcement::getSenderFromId($announcement->issue_id)->username }}</span></a>, <span class="timeagotext">{{ $announcement->created_at->diffForHumans() }}</span></h5>
                             <p class="white-text apara">{{ $announcement->body }}</p>
                         </div>
                     </div>

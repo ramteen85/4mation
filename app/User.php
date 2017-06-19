@@ -19,6 +19,8 @@ class User extends Authenticatable
         'name', 'email', 'password', 'firstname', 'lastname', 'username', 'role', 'about',
     ];
 
+    
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -27,6 +29,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
 
 
     public function team()
@@ -39,9 +43,30 @@ class User extends Authenticatable
         return array('created_at', 'updated_at');
     }
 
+    public static function isAdmin($id)
+    {
+        $user = User::where('id', $id) -> first();
+        
+        if($user->role == 0)
+        {
+            return false;
+        }
+        else if($user->role == 1)
+        {
+            return true;
+        }
+    }
+
     public static function getIdByUsername($uname)
     {
-        return User::where('username', $uname) -> first() -> id;
+        if($uname)
+        {
+            return User::where('username', $uname) -> first() -> id;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public static function getUserById($uid)
@@ -49,7 +74,28 @@ class User extends Authenticatable
         return User::where('id', $uid) -> first();
     }
 
+    
    
+
+    public static function deleteByUsername($user)
+    {
+        
+
+
+        try {
+            $test = User::where('username', $user) -> first();
+            $test->delete();
+
+            return 1;
+        }
+
+        catch (\Exception $e) { 
+
+            return 0;
+
+        }
+
+    }
 
     public static function UserExistsById($uid)
     {

@@ -13,6 +13,7 @@ class Task extends Model
         'title', 'body', 'issue_id', 'receiver_id', 'completed', 'created_at', 'updated_at',
     ];
 
+    public $timestamps = true;
 
     public static function getSenderById($sender_id)
     {

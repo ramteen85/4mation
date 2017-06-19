@@ -1,5 +1,4 @@
 
-
 .list-group-item:first-child
 {
     height: 268px;
@@ -118,3 +117,33 @@
     }
 }
 
+#usrlist, #usrlist2, #usrlist3, #usrlist4
+{
+    position: absolute;
+    margin: 0;
+    z-index: 100;
+    width: 92%;
+    background: white;
+    left: 17px;
+}
+
+.usrlist, .usrlist2, .usrlist3, .usrlist4
+{
+    padding-left: 0;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+
+}
+
+.ulist, .ulist2, .ulist3, .ulist4
+{
+    padding: 10px;
+    margin: 0;
+}
+
+.ulist:hover, .ulist2:hover, .ulist3:hover, .ulist4:hover
+{
+    background: #bed5d3;
+}
