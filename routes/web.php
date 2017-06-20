@@ -44,6 +44,24 @@ Route::post('/delemail', 'AdminController@delemail');
 Route::post('/postannouncement', 'AdminController@announcement');
 
 Route::post('/createtask', 'AdminController@createtask');
+Route::post('/createteam', 'AdminController@createteam');
+Route::post('/delteam', 'AdminController@delteam');
+
+
+
+Route::get('/getteams2', function() {
+
+    
+    $teams = \App\Team::all();
+
+	return View::make('layouts.admin.teamlist', compact('teams'));
+});
+
+Route::post('/assignteam', [
+    'uses' => 'AdminController@assignteam',
+    'as' => '/assignteam'
+]);
+
 
 Route::post('/sendemail', [
     'uses' => 'AdminController@email',
@@ -64,4 +82,10 @@ Route::get('/usrsearch', [
 Route::post('/usrgrant', [
     'uses' => 'AdminController@grantuser',
     'as' => 'usrgrant'
+]);
+
+
+Route::post('/usrrevoke', [
+    'uses' => 'AdminController@revokeuser',
+    'as' => 'usrrevoke'
 ]);

@@ -117,7 +117,7 @@
     }
 }
 
-#usrlist, #usrlist2, #usrlist3, #usrlist4
+#usrlist, #usrlist2, #usrlist3, #usrlist4, #usrlist5, #usrlist0
 {
     position: absolute;
     margin: 0;
@@ -127,7 +127,7 @@
     left: 17px;
 }
 
-.usrlist, .usrlist2, .usrlist3, .usrlist4
+.usrlist, .usrlist2, .usrlist3, .usrlist4, .usrlist5, .usrlist5
 {
     padding-left: 0;
     text-align: center;
@@ -137,13 +137,13 @@
 
 }
 
-.ulist, .ulist2, .ulist3, .ulist4
+.ulist, .ulist2, .ulist3, .ulist4, .ulist0
 {
     padding: 10px;
     margin: 0;
 }
 
-.ulist:hover, .ulist2:hover, .ulist3:hover, .ulist4:hover
+.ulist:hover, .ulist2:hover, .ulist3:hover, .ulist4:hover, .ulist5:hover, .ulist0:hover
 {
     background: #bed5d3;
 }

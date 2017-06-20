@@ -86,7 +86,7 @@
                                             </div>
                                             <div class="col-md-6 col-xs-12 topspacesm col-sm-6" data-pg-id="111">
                                                 <div class="col-xs-12" data-pg-id="112"> 
-                                                    <input name="usrname" id="forminput00" type="text" style="width: 100%;  height: 40px;" placeholder="Search for a user" data-pg-id="113" />
+                                                    <input name="usrname" id="forminput01" type="text" style="width: 100%;  height: 40px;" placeholder="Search for a user" data-pg-id="113" />
                                                     <div style="" id="usrlist"></div>
                                                 </div>
                                                  
@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="col-sm-6 col-xs-12 topspacesm" data-pg-id="120">
                                             <div class="col-xs-12" data-pg-id="121"> 
-                                                <input id="forminput01" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
+                                                <input id="forminput02" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
                                                 <div id="usrlist2"></div>
                                             </div>                                             
                                         </div>
@@ -118,18 +118,22 @@
                                 </section>
                                 <section class="panelbg margin30 delbgsm" data-pg-id="125">
                                     <section class="col-xs-12 panelbg margin30" data-pg-id="126">
+                                        <form id="formrevoke" action="/usrrevoke" method="POST">
+                                            {{ csrf_field() }}
                                         <div class="col-sm-3 col-xs-12 labelsm" data-pg-id="127">
+                                        
                                             <h1 class="delh labelsize1" data-pg-id="128">Demote:</h1> 
                                         </div>
-                                        <div class="col-sm-6 col-xs-12" data-pg-id="129">
+                                        <div class="col-sm-6 col-xs-12 topspacesm" data-pg-id="129">
                                             <div class="col-xs-12" data-pg-id="130"> 
-                                                <input id="forminput02" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" class="marginlge" data-pg-id="131" />
+                                                <input id="forminput03" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
                                                 <div id="usrlist3"></div>
                                             </div>                                             
                                         </div>
                                         <div class="col-xs-8 col-sm-3 col-xs-offset-2 col-sm-offset-0" data-pg-id="132">
-                                            <a href="#" style="top:15px" class="col-xs-12 btn btn-danger" data-pg-id="133">Revoke</a> 
+                                            <button style="top:15px" class="confirm4 col-xs-12 btn btn-danger" data-pg-id="133">Revoke</button> 
                                         </div>
+                                        </form>
                                     </section>
                                 </section>
                                 <section class="panelbg margin30" data-pg-id="134">
@@ -138,28 +142,30 @@
                                             <h1 class="delh" data-pg-id="137">Team Selection</h1> 
                                         </div>
                                         <div class="col-xs-12" data-pg-id="138">
+                                        <form id="assignform" action="/assignteam" method="POST">
+                                            {{ csrf_field() }}
                                             <div class="col-sm-4 col-xs-12" data-pg-id="139">
                                                 <div class="col-xs-12" style="margin-top: 32px" data-pg-id="140">
-                                                    <input id="forminput03" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="141" />
-                                                    <div id="usrlist4"></div> 
+                                                    <input id="forminput00" type="text" style="width: 100%; height: 40px;" name="username" placeholder="Search for a user" data-pg-id="141" />
+                                                    <div id="usrlist0"></div> 
                                                 </div>                                                 
                                             </div>
                                             <div class="col-sm-4 col-xs-12" data-pg-id="142">
                                                 <div class="col-xs-12 marginlge" data-pg-id="143">
-                                                    <select id="forminput04" style="width: 100%; height: 40px;" class="marginsm" data-pg-id="144"> 
+                                                    <select id="assignselect" name="teamid" style="width: 100%; height: 40px;" class="teamselect marginsm" data-pg-id="144"> 
                                                         <option selected="selected" data-pg-id="145">Select a Team</option>
-                                                        <option data-pg-id="146">Team 1</option>
-                                                        <option data-pg-id="147">Team 2</option>
-                                                        <option data-pg-id="148">Team 3</option>
-                                                        <option data-pg-id="149">Team 4</option>
-                                                        <option data-pg-id="150">Team 5</option>
-                                                        <option data-pg-id="151">Team 6</option>
+                                                        @foreach($teams as $team)
+                                                            @if($team->name !== "Not Assigned")
+                                                                <option value="{{ $team->id }}" class="{{ $team->id }}" data-pg-id="146">{{ $team->name }}</option>
+                                                            @endif
+                                                        @endforeach
                                                     </select>                                                     
                                                 </div>                                                 
                                             </div>
                                             <div class="col-sm-4 col-xs-12" data-pg-id="152">
-                                                <a href="#" style="top:15px" class="col-xs-12 btn btn-info" data-pg-id="153">Assign team</a> 
-                                            </div>                                             
+                                                <button type="button" style="top:15px" class="col-xs-12 btn btn-info confirm6" data-pg-id="153">Assign team</a> 
+                                            </div>  
+                                         </form>                                              
                                         </div>
                                         <div class="col-xs-12" data-pg-id="154">
                                             <hr data-pg-id="155" /> 
@@ -168,39 +174,51 @@
                                             <div class="col-sm-4 col-xs-12 labelsm" data-pg-id="157">
                                                 <h1 class="delh labelsize1" data-pg-id="158">Delete Team</h1> 
                                             </div>
+                                            <form id="delteamform" action="/delteam" method="POST">
+                                            {{ csrf_field() }}
                                             <div class="col-sm-4 col-xs-12" data-pg-id="159">
                                                 <div class="col-xs-12" data-pg-id="160">
-                                                    <select id="forminput05" style="width: 100%; height: 40px;" class="marginlge" data-pg-id="161"> 
-                                                        <option selected="selected" data-pg-id="162">Select a Team</option>
-                                                        <option data-pg-id="163">Team 1</option>
-                                                        <option data-pg-id="164">Team 2</option>
-                                                        <option data-pg-id="165">Team 3</option>
-                                                        <option data-pg-id="166">Team 4</option>
-                                                        <option data-pg-id="167">Team 5</option>
-                                                        <option data-pg-id="168">Team 6</option>
-                                                    </select>                                                     
+                                                    <select id="teamselect1" style="width: 100%; height: 40px;" class="teamselect marginlge" data-pg-id="161"> 
+                                                        <option value ="notselected" selected="selected" data-pg-id="162">Select a Team</option>
+                                                        @foreach($teams as $team)
+                                                            @if($team->name !== "Not Assigned")
+                                                            <option class="{{ $team->id }}" value="{{ $team->id }}" data-pg-id="146">{{ $team->name }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+
+                                    <!-- $( "#myselect" ).val(); for ID and $( "#myselect option:selected" ).text(); for text --> 
+
+                                                   
                                                 </div>                                                 
                                             </div>
                                             <div class="col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2" data-pg-id="169">
-                                                <a href="#" style="top:15px" class="col-xs-12 btn btn-danger" data-pg-id="170">Delete</a> 
-                                            </div>                                             
+                                                <button type="button" style="top:15px" class="confirm5 col-xs-12 btn btn-danger" data-pg-id="170">Delete</button> 
+                                            </div>  
+                                            </form>                                           
                                         </div>
                                         <div class="col-xs-12" data-pg-id="171">
                                             <hr data-pg-id="172" /> 
                                         </div>
-                                        <div class="col-xs-12" data-pg-id="173">
+                                        
                                             <div class="col-sm-4 col-xs-12 labelsm" data-pg-id="174">
                                                 <h1 class="delh labelsize1" data-pg-id="175">Create Team</h1> 
                                             </div>
+                                            <form id="formcreateteam" method="POST" action="/createteam">
+                                            {{ csrf_field() }}
                                             <div class="col-sm-4 col-xs-12 marginlge" data-pg-id="176">
                                                 <div class="col-xs-12" data-pg-id="177"> 
-                                                    <input type="text" id="forminput00" style="width: 100%; height: 40px;" placeholder="  << Enter Team Name >>  " data-pg-id="178" />
+                                                    <input type="text" style="width: 100%; height: 40px;" placeholder="  << Enter Team Name >>  " id="tname" data-pg-id="178" />
                                                 </div>                                                 
                                             </div>
                                             <div class="col-sm-4 col-sm-offset-0 col-xs-12" data-pg-id="179">
-                                                <a href="#" style="top:15px" class="col-xs-12 btn btn-info" data-pg-id="180">Create team</a> 
-                                            </div>                                             
-                                        </div>
+                                                <input type="text" id="tdesc" style="width: 100%; height: 40px;" placeholder="  << Enter Team Description >>  " data-pg-id="178" />
+                                            </div>
+                                            <div class="col-sm-4 col-sm-offset-0 col-xs-12" data-pg-id="179">
+                                                <button type="button" style="top:15px" class="confirm3 col-xs-12 btn btn-info" data-pg-id="180">Create team</button> 
+                                            </div>
+                                            </form>                                             
+                                        
                                     </section>
                                 </section>
                             </div>
@@ -230,6 +248,7 @@
 
         
         <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
        
         
@@ -242,15 +261,79 @@
         <script>
 
 
+         function fireRevoke()
+         {
+            alert("works");
+            
+
+            var username = "";
+
+            if($('#forminput03').val().length > 0)
+            {
+                username = $('#forminput03').val();
+            }
+
+
+            //do ajax
+            
+
+            $.post(
+                $( "#formrevoke" ).prop( 'action' ),
+                {
+                    "_token": $( "#formrevoke" ).find( 'input[name=_token]' ).val(),
+                    "username": username
+                },
+                function( data ) 
+                {
+                    //do something with data/response returned by server
+                    
+                    $('#usrlist3').html("");
+                
+                    try 
+                    {
+                      if(data.grantsuccess) 
+                      {
+                        $('.modal-body').html(data.grantsuccess);
+                        $('#ErrorModal').modal('show');
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e.getMessage());
+                    }
+
+                    try 
+                    {
+                      if(data.grantfail) 
+                      {
+                        
+                        $('.modal-body').html(data.grantfail);
+                        $('#ErrorModal').modal('show');
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e.getMessage());
+                    }
+
+                                  
+
+                },
+                'json'
+            );
+        }
+
+
+
         function firePromote()
         {
             
 
             var username = "";
 
-            if($('#forminput01').val().length > 0)
+            if($('#forminput02').val().length > 0)
             {
-                username = $('#forminput01').val();
+                username = $('#forminput02').val();
             }
 
 
@@ -303,14 +386,16 @@
             );
         }
 
+
+
         function fireDelete1()
         {
             var username = "";
             
 
-            if($('#forminput00').val().length > 0)
+            if($('#forminput01').val().length > 0)
             {
-                username = $('#forminput00').val();
+                username = $('#forminput01').val();
             }
             
 
@@ -365,6 +450,357 @@
 
 
         }
+
+        /*
+        $(".tmodal").on("hidden.bs.modal", function () {
+            // put your default event here
+            setTimeout(function(){location.reload()}, 2000);
+        });
+        */
+
+        function fireTeamDelete()
+        {
+            //$( "#selectteam1" ).val(); for ids text() for texts
+
+            var id = $( "#teamselect1 option:selected" ).val();
+            var text = $( "#teamselect1  option:selected" ).text();
+
+
+            //do ajax
+            
+
+            $.post(
+                $( "#delteamform" ).prop( 'action' ),
+                {
+                    "_token": $( "#delteamform" ).find( 'input[name=_token]' ).val(),
+                    "id": id,
+                    "text": text
+                },
+                function( data ) 
+                {
+                    //do something with data/response returned by server
+                    
+                   
+                
+                    try 
+                    {
+                      if(data.tsuccess) 
+                      {
+                        $('.modal-body').html(data.tsuccess);
+                        $('#ErrorModal').modal('show');
+
+                        $('select').load("/getteams2");
+
+
+
+
+
+
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e.getMessage());
+                    }
+
+                    try 
+                    {
+                      if(data.tfail) 
+                      {
+                        
+                        $('.modal-body').html(data.tfail);
+                        $('#ErrorModal').modal('show');
+
+
+
+
+
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e.getMessage());
+                    }
+
+                                  
+
+                },
+                'json'
+            );
+            
+
+        }
+
+
+        function fireTeamAssign()
+        {
+            var user = $('#forminput00').val();
+            var teamid = $('#assignselect option:selected').val();
+            var team = $('#assignselect option:selected').text();
+
+
+
+            $.post(
+                $('#assignform').prop( 'action' ),
+                {
+                    "_token": $('#assignform').find( 'input[name=_token]' ).val(),
+                    "username": user,
+                    "teamid": teamid,
+                    "team": team
+                },
+                function( data ) 
+                {
+                    //do something with data/response returned by server
+                    
+                  
+                
+                    try 
+                    {
+                      if(data.grantsuccess) 
+                      {
+                        $('.modal-body').html(data.grantsuccess);
+                        $('#ErrorModal').modal('show');
+
+                        
+                        $('#forminput03').val("");
+
+                        $('select').load("/getteams2");
+
+
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e);
+                    }
+                    
+                    try 
+                    {
+                      if(data.granttfail) 
+                      {
+                        
+                        $('.modal-body').html(data.granttfail);
+                        $('#ErrorModal').modal('show');
+
+
+
+
+
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e.getMessage());
+                    }
+
+
+                    try 
+                    {
+                      if(data.errors) 
+                      {
+                        if(data.errors.username)
+                        {
+                            $('.modal-body').html(data.errors.username);
+                            $('#ErrorModal').modal('show');
+                        }
+                        else if(data.errors.team)
+                        {
+                            $('.modal-body').html(data.errors.team);
+                            $('#ErrorModal').modal('show');
+                        }
+                        else if(data.errors.teamid)
+                        {
+                            $('.modal-body').html(data.errors.teamid);
+                            $('#ErrorModal').modal('show');
+                        }
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e.getMessage());
+                    }
+        
+
+                },
+                'json'
+            );
+
+
+
+        }
+
+
+        //#formcreateteam
+
+         function fireCreateTeam()
+        {
+            var tname = "";
+            var tdesc = "";
+            
+
+          
+            tname = $('#tname').val();
+            tdesc = $('#tdesc').val();
+            
+
+
+            //do ajax
+            
+
+            $.post(
+                $( "#formcreateteam" ).prop( 'action' ),
+                {
+                    "_token": $( "#formcreateteam" ).find( 'input[name=_token]' ).val(),
+                    "tname": tname,
+                    "tdesc": tdesc
+                },
+                function( data ) 
+                {
+                    //do something with data/response returned by server
+                    
+                    $('#usrlist').html("");
+                
+                    try 
+                    {
+                      if(data.tsuccess) 
+                      {
+                        $('.modal-body').html(data.tsuccess);
+                        $('#ErrorModal').modal('show');
+
+                        
+                        $('#tname').val("");
+                        $('#tdesc').val("");
+
+                        //update team lists
+
+
+                         $('select').load("/getteams2");
+
+
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e);
+                    }
+
+                    try 
+                    {
+                      if(data.tfail) 
+                      {
+                        
+                        $('.modal-body').html(data.tfail);
+                        $('#ErrorModal').modal('show');
+
+
+
+
+
+                      }
+                    } 
+                    catch(e) 
+                    {
+                        alert("an error occurred: " + e.getMessage());
+                    }
+
+                                  
+
+                },
+                'json'
+            );
+
+
+        }
+
+
+
+
+        $(".confirm6").confirm({
+                text: "Assign user to team?",
+                title: "Team Confirmation",
+                confirm: function(button) 
+                {
+                    //send email
+                    fireTeamAssign();
+                },
+                cancel: function(button) {
+                    // nothing to do
+                },
+                confirmButton: "Yes",
+                cancelButton: "No",
+                post: true,
+                confirmButtonClass: "btn-danger",
+                cancelButtonClass: "btn-info",
+                dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+        });
+
+
+
+
+
+        $(".confirm5").confirm({
+                text: "Delete Selected Team?",
+                title: "Team Confirmation",
+                confirm: function(button) 
+                {
+                    //send email
+                    fireTeamDelete();
+                },
+                cancel: function(button) {
+                    // nothing to do
+                },
+                confirmButton: "Yes",
+                cancelButton: "No",
+                post: true,
+                confirmButtonClass: "btn-danger",
+                cancelButtonClass: "btn-info",
+                dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+        });
+
+
+
+
+        $(".confirm4").confirm({
+                text: "Revoke users admin privelages?",
+                title: "Admin Confirmation",
+                confirm: function(button) 
+                {
+                    //send email
+                    fireRevoke();
+                },
+                cancel: function(button) {
+                    // nothing to do
+                },
+                confirmButton: "Yes",
+                cancelButton: "No",
+                post: true,
+                confirmButtonClass: "btn-danger",
+                cancelButtonClass: "btn-info",
+                dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+        });
+
+
+
+
+         $(".confirm3").confirm({
+                text: "You are about to create a new team. Are you satisfied with the team name and description?",
+                title: "Team Confirmation",
+                confirm: function(button) 
+                {
+                    //send email
+                    fireCreateTeam();
+                },
+                cancel: function(button) {
+                    // nothing to do
+                },
+                confirmButton: "Yes",
+                cancelButton: "No",
+                post: true,
+                confirmButtonClass: "btn-danger",
+                cancelButtonClass: "btn-info",
+                dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+        });
+
 
 
         $(".confirm2").confirm({
@@ -423,7 +859,7 @@
 
         */
 
-        $('#forminput03').keyup(function(){
+         $('#forminput02').keyup(function(){
 
 
 
@@ -436,13 +872,13 @@
               //default: Intelligent Guess (Other values: xml, json, script, or html)'
               data: {
                 _method: 'PUT',
-               search: $('#forminput03').val(),
+               search: $('#forminput02').val(),
                 _token:     '{{ csrf_token() }}'
               },
               success: function(data)
               {
                 
-                $('#usrlist4').html("");
+                $('#usrlist2').html("");
                 
 
                 
@@ -471,12 +907,12 @@
                 
                 });
 
-                var tmp = '<ul class="usrlist4">';
+                var tmp = '<ul class="usrlist2">';
 
 
                 for (var i = 0; i < filter.length; ++i) {
                     
-                    tmp += "<li class='ulist4'>" + filter[i] + "</li>";
+                    tmp += "<li class='ulist2'>" + filter[i] + "</li>";
                 }
 
 
@@ -485,8 +921,8 @@
                 tmp += "</ul>";
 
                 
-                $('#usrlist4').append(tmp);
-                $('#usrlist4').fadeIn();
+                $('#usrlist2').append(tmp);
+                $('#usrlist2').fadeIn();
 
                 tmp ="";
                 filter = [];                                             
@@ -497,8 +933,90 @@
         }
         else
         {
-            $('#usrlist4').html("");
-            $('#usrlist4').fadeOut();
+            $('#usrlist2').html("");
+            $('#usrlist2').fadeOut();
+        }
+
+           
+         });
+
+
+        $('#forminput03').keyup(function(){
+
+
+
+        if($(this).val())
+        {
+            $.ajax({
+              url: "/usrsearch",
+              type: 'get',
+              dataType: "json",
+              //default: Intelligent Guess (Other values: xml, json, script, or html)'
+              data: {
+                _method: 'PUT',
+               search: $('#forminput03').val(),
+                _token:     '{{ csrf_token() }}'
+              },
+              success: function(data)
+              {
+                
+                $('#usrlist3').html("");
+                
+
+                
+
+                var filter = [];
+
+                $.each(data, function(index,jsonObject){
+                    $.each(jsonObject, function(key,val){
+
+
+                        //get rid of duplicates
+                        if(key === 'username')
+                        {
+                            if($.inArray(val, filter) == -1)
+                            {
+                                filter.push(val); 
+
+
+                                
+                            }
+
+                        }
+                    });
+
+                
+                
+                });
+
+                var tmp = '<ul class="usrlist3">';
+
+
+                for (var i = 0; i < filter.length; ++i) {
+                    
+                    tmp += "<li class='ulist3'>" + filter[i] + "</li>";
+                }
+
+
+                
+
+                tmp += "</ul>";
+
+                
+                $('#usrlist3').append(tmp);
+                $('#usrlist3').fadeIn();
+
+                tmp ="";
+                filter = [];                                             
+
+
+              }
+            })
+        }
+        else
+        {
+            $('#usrlist3').html("");
+            $('#usrlist3').fadeOut();
         }
 
            
@@ -610,87 +1128,6 @@
               success: function(data)
               {
                 
-                $('#usrlist2').html("");
-                
-
-                
-
-                var filter = [];
-
-                $.each(data, function(index,jsonObject){
-                    $.each(jsonObject, function(key,val){
-
-
-                        //get rid of duplicates
-                        if(key === 'username')
-                        {
-                            if($.inArray(val, filter) == -1)
-                            {
-                                filter.push(val); 
-
-
-                                
-                            }
-
-                        }
-                    });
-
-                
-                
-                });
-
-                var tmp = '<ul class="usrlist2">';
-
-
-                for (var i = 0; i < filter.length; ++i) {
-                    
-                    tmp += "<li class='ulist2'>" + filter[i] + "</li>";
-                }
-
-
-                
-
-                tmp += "</ul>";
-
-                
-                $('#usrlist2').append(tmp);
-                $('#usrlist2').fadeIn();
-
-                tmp ="";
-                filter = [];                                             
-
-
-              }
-            })
-        }
-        else
-        {
-            $('#usrlist2').html("");
-            $('#usrlist2').fadeOut();
-        }
-
-           
-        });
-
-        $('#forminput00').keyup(function(){
-
-
-
-        if($(this).val())
-        {
-            $.ajax({
-              url: "/usrsearch",
-              type: 'get',
-              dataType: "json",
-              //default: Intelligent Guess (Other values: xml, json, script, or html)'
-              data: {
-                _method: 'PUT',
-               search: $('#forminput00').val(),
-                _token:     '{{ csrf_token() }}'
-              },
-              success: function(data)
-              {
-                
                 $('#usrlist').html("");
                 
 
@@ -742,12 +1179,93 @@
 
 
               }
-            });
+            })
         }
         else
         {
             $('#usrlist').html("");
             $('#usrlist').fadeOut();
+        }
+
+           
+        });
+
+        $('#forminput00').keyup(function(){
+
+
+
+        if($(this).val())
+        {
+            $.ajax({
+              url: "/usrsearch",
+              type: 'get',
+              dataType: "json",
+              //default: Intelligent Guess (Other values: xml, json, script, or html)'
+              data: {
+                _method: 'PUT',
+               search: $('#forminput00').val(),
+                _token:     '{{ csrf_token() }}'
+              },
+              success: function(data)
+              {
+                
+                $('#usrlist0').html("");
+                
+
+                
+
+                var filter = [];
+
+                $.each(data, function(index,jsonObject){
+                    $.each(jsonObject, function(key,val){
+
+
+                        //get rid of duplicates
+                        if(key === 'username')
+                        {
+                            if($.inArray(val, filter) == -1)
+                            {
+                                filter.push(val); 
+
+
+                                
+                            }
+
+                        }
+                    });
+
+                
+                
+                });
+
+                var tmp = '<ul class="usrlist0">';
+
+
+                for (var i = 0; i < filter.length; ++i) {
+                    
+                    tmp += "<li class='ulist0'>" + filter[i] + "</li>";
+                }
+
+
+                
+
+                tmp += "</ul>";
+
+                
+                $('#usrlist0').append(tmp);
+                $('#usrlist0').fadeIn();
+
+                tmp ="";
+                filter = [];                                             
+
+
+              }
+            });
+        }
+        else
+        {
+            $('#usrlist0').html("");
+            $('#usrlist0').fadeOut();
         }
 
            
@@ -762,17 +1280,36 @@
 
             $(document).on('click', "li", function(e) {
                 //var liId = $(this).parent("li").attr("id");
+                $('.usrlist5').fadeOut();
                 $('.usrlist4').fadeOut();
                 $('.usrlist3').fadeOut();
                 $('.usrlist2').fadeOut();
                 $('.usrlist').fadeOut();
+                $('.usrlist0').fadeOut();
 
+                 /*
                 
-                
+                if($('#forminput04').val().length > 0)
+                {
+                    $('#forminput04').val($(this).text());
+                    //this might be a bug was 3 now 4
+
+
+                }
+
+                 */
                 if($('#forminput03').val().length > 0)
                 {
                     $('#forminput03').val($(this).text());
+                
+                    
+                   
+
+
                 }
+
+               
+
                 else if($('#forminput02').val().length > 0)
                 {
                     $('#forminput02').val($(this).text());
@@ -785,6 +1322,8 @@
                 {
                     $('#forminput00').val($(this).text());
                 }
+
+               
                 
 
               

@@ -103,7 +103,7 @@
                                             <h1 class="delh titlesm">Details</h1> 
                                         </div>
                                         <div class="col-xs-12 text-center">
-                                            <textarea style="width: 100%; height: 100px;" placeholder="  << Task Description >>"></textarea>                                             
+                                            <textarea style="width: 100%; height: 100px;" placeholder="  << Task Description >>" disabled></textarea>                                             
                                         </div>
                                         <div class="text-center col-xs-6 btnleftxs">
                                             <button type="button" class="btn btn-danger">Delete</button>                                             

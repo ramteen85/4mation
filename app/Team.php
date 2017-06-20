@@ -9,8 +9,10 @@ use App\User;
 class Team extends Model
 {
     protected $fillable = [
-        'name', 'description',
+        'name', 'description'
     ];
+
+    public $timestamps = false;
 
     public function users()
     {

@@ -155,6 +155,10 @@ class AdminController extends Controller
     }
 
 
+
+
+
+
     public function createtask()
     {
         if (Auth::guest()) 
@@ -301,6 +305,220 @@ class AdminController extends Controller
         }
     }
 
+    public function assignteam()
+    {
+        if (Auth::guest()) 
+        {
+           return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+
+            $username = request('username');
+            $teamid = request('teamid');
+            $team = request('team');
+
+
+
+            //validate form (incomplete)
+
+             $messages = array(
+                'username.required'=>'You must enter a username.',
+                'teamid.required'=>'Team Identification is required.',
+                'team.required'=>'Team Name is required.',
+            );
+
+
+
+            $rules = array(
+                'username' => 'required',
+                'teamid' => 'required',
+                'team' => 'required'
+            );
+
+
+             //validation needs to match ajax
+             $validation = \Illuminate\Support\Facades\Validator::make(request()->all(), $rules, $messages );
+
+             if (!$validation->passes()) 
+             {
+                return Response::json( array(                
+                'errors' => $validation->errors()
+                ));
+             }
+
+             //validation has passed
+
+             //get user id
+             $user_id = User::getIdByUsername($username);
+
+
+             //delete user record from team_user database
+             $deltmp = DB::table('team_user')->where('user_id', $user_id);
+
+             $deltmp->delete();
+
+             if($deltmp)
+             {
+                //delete successful
+                //create new record
+
+            
+
+
+                $teamtmp = DB::table('team_user')->insert(
+                array(
+                    'team_id' => $teamid,                
+                    'user_id' => $user_id
+                ));  
+
+                //check errors
+
+                if($teamtmp)
+                {
+                    //insert successful
+                    //send response
+
+                    //return error response
+                    return Response::json( array(
+                    
+                    'grantsuccess' => "User has successfully been assigned to the team!"
+                    ) );
+
+
+                }
+                else
+                {
+                    //insert failed (error handling go to default team)
+                    $teamtmp = DB::table('team_user')->insert(
+                    array(
+                        'team_id' => 1,                
+                        'user_id' => $userid
+                    ));  
+
+                    //return error response
+                    return Response::json( array(
+                    
+                    'grantfail' => "Critical database error! You may have to handle the record manually..."
+                    ) );
+
+                }
+
+
+                
+
+             }
+             else 
+             {
+                //delete fail
+                //return errors
+
+                //return error response
+                return Response::json( array(
+                
+                'grantfail' => "Team Switch Failed. Please try again later."
+                ) );
+             }
+
+            
+
+        }
+    }
+
+
+
+    public function revokeuser()
+    {
+
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+
+            if(!request('username'))
+            {
+                //if username has no value
+                return Response::json( array(
+                    
+                'grantfail' => "Username field is blank!"
+                ) );
+            }
+
+             $username = request('username');
+            //check user exists
+            $flag = User::UserExistsByName($username);
+
+            if($flag == 0)
+            {
+                //user does not exist
+                return Response::json( array(
+                    
+                'grantfail' => "The user does not exist!"
+                ) );
+            }
+
+
+
+            //user does exist
+
+            //get id
+            $id = User::getIdByUsername($username);
+
+            
+
+            //check if user is already an admin
+
+            $flag = User::isAdmin($id);
+
+           
+            //if so, send back an alert
+            if($flag == true)
+            {
+                $user = User::find($id);
+
+                $user->role = 0;
+
+                $user->save();
+
+                //user does not exist
+                return Response::json( array(
+                    
+                'grantsuccess' => "The user has been successfully demoted!"
+                ) ); 
+            }
+            else if ($flag == false) 
+            {
+                //is not an admin
+
+                  
+                //user is an admin
+                return Response::json( array(
+                    
+                'grantfail' => "This user is already an employee!"
+                ) );                   
+            }
+
+
+
+
+        }
+    }
+
     public function grantuser()
     {
         if (Auth::guest()) 
@@ -380,6 +598,159 @@ class AdminController extends Controller
             
 
             
+        }
+    }
+
+
+    public function createteam()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+            if(!request('tname'))
+            {
+                //if team name has no value
+                return Response::json( array(
+                    
+                'tfail' => "Enter a Team Name."
+                ) );
+            }
+
+
+            if(!request('tdesc'))
+            {
+                //if team description has no value
+                return Response::json( array(
+                    
+                'tfail' => "Enter a Team description."
+                ) );
+            }
+
+
+            //check to see team name doesnt exist
+
+            $tname = request('tname');
+            $tdesc = request('tdesc');
+
+
+            $teamtmp = Team::where('name', $tname)->first();
+
+            if($teamtmp !== null)
+            {
+                //team exists
+                return Response::json( array(
+                    
+                    'tfail' => "Team name already exists. If you wish to re-create it, delete it first!"
+                ) );
+            }
+
+
+            //all good
+
+            $teamcreate = Team::create([ 
+            'name' => $tname,
+            'description' => $tdesc
+            
+        ]);
+
+            
+
+            if($teamcreate !== null)
+            {
+                return Response::json( array(
+                    
+                    'tsuccess' => "Team created successfully!",
+                    'update' => Team::all(),
+                    'extra' => $tname,
+                    'extraid' => Team::where('name', $tname)->first()->id
+                ) );
+
+            }
+            else
+            {
+                return Response::json( array(
+                    
+                    'tfail' => "Team creation failed :["
+                ) );
+            }
+
+        }
+    }
+
+    
+
+
+    public function delteam()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+            if(request('id') == 'notselected')
+            {
+                //if team has not been selected
+                return Response::json( array(
+                    
+                'tfail' => "Select a Team."
+                ) );
+            }
+
+
+            
+
+
+            //get id and team text
+
+            $id = request('id');
+            $text = request('text');
+
+
+            $teamtmp = Team::find($id);
+
+            if($teamtmp === null)
+            {
+                //team exists
+                return Response::json( array(
+                    
+                    'tfail' => "Team does not exist!"
+                ) );
+            }
+
+
+            //all good
+
+
+            //switch all members of that team to "not assigned"
+
+
+            //delete team
+            $teamtmp->delete();
+
+            return Response::json( array(
+                    
+                    'tsuccess' => "Team Deleted!"
+                ) );
+
+
         }
     }
 
@@ -557,9 +928,13 @@ class AdminController extends Controller
         }
         else
         {
-            return view('layouts.admin.useroptions');
+            $teams = Team::all();
+
+            return view('layouts.admin.useroptions', compact('teams'));
         }
     }
+
+
 
     public function tasks()
     {
