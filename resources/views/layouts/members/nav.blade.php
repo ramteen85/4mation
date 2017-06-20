@@ -13,7 +13,7 @@
                                 <span class="icon-bar"></span> 
                                 <span class="icon-bar"></span> 
                             </button>                             
-                            <a class="navbar-brand" href="members" style="outline: none; cursor: inherit;">
+                            <a class="navbar-brand" href="/members" style="outline: none; cursor: inherit;">
                                 <img src="/images/logo.png" alt="Logo" style="outline: none; cursor: inherit;">
                             </a>                             
                         </div>                         

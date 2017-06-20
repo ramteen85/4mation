@@ -39,7 +39,177 @@ class AdminController extends Controller
     }
 
 
+    public function updeltask()
+    {
+        if (Auth::guest()) 
+        {
 
+            return Redirect::guest('/');
+        }
+        else
+        {
+            $taskid = request('taskidselector');
+            $tasktitle = request('tasktitleselector');
+            $taskdesc = request('taskdescselector');
+
+
+            $rules = array(
+            'taskidselector' => 'required',
+            'tasktitleselector' => 'required',
+            'taskdescselector' => 'required',
+
+            );
+
+            $messages = array(
+            'taskidselector.required'=>'Task id cannot be blank.',
+            'tasktitleselector.required'=>'Task title cannot be blank.',
+            'taskdescselector.required'=>'Task description cannot be blank.',
+            
+            );
+
+            $validation = \Illuminate\Support\Facades\Validator::make(request()->all(), $rules, $messages );
+
+            if (!$validation->passes()) 
+            {
+                //if validation fails return errors
+                return redirect('/admin/tasks')->withErrors($validation->errors());
+            }
+       
+            $tasktemp = Task::where('id', $taskid)->first();
+            $tasktemp->title = $tasktitle;
+            $tasktemp->body = $taskdesc;
+            $tasktemp->save();
+
+
+
+            //refresh the page
+            return redirect('/admin/tasks');       
+               
+        }
+    }
+    
+
+
+
+     public function ajaxid()
+     {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+            //all good check id
+        
+            $taskid = request('taskid');
+            $title = request('title');
+            $desc = request('desc');
+
+
+
+            //validate form
+
+             $messages = array(
+                'taskid.required'=>'You must enter a task id',
+                
+            );
+
+
+
+            $rules = array(
+                'taskid' => 'required'
+                
+            );
+
+
+
+             $validation = \Illuminate\Support\Facades\Validator::make(request()->all(), $rules, $messages );
+
+             if (!$validation->passes()) 
+             {
+                //validation failed - send negative signal
+
+                return Response::json( array(
+                    'lock' => 'negative signal'
+                ) );
+
+
+             }
+
+             //validation has passed 
+
+             //check id against database
+
+             $tasktmp = Task::where('id', $taskid)->first();
+
+
+             
+
+             if($tasktmp !== null)
+             {
+                //if match, send positive signal
+
+                return Response::json( array(
+                    'unlock' => 'positive signal',
+                    'title' => $tasktmp->title,
+                    'desc' => $tasktmp->body
+                ) );
+
+             }
+             else
+             {
+                //else send negative signal
+                return Response::json( array(
+                    'lock' => 'negative signal'
+                ) );
+             }
+
+       }
+
+    }
+
+    public function taskdel()
+    {
+        if (Auth::guest()) 
+        {
+
+            return Redirect::guest('/');
+        }
+        else
+        {
+            if ( Session::token() !== request( '_token' ) ) {
+                return Response::json( array(
+                    'msg' => 'Invalid Authorization Token'
+                ) );
+            }
+
+            $taskid = request('taskid');
+            $task = Task::where('id',$taskid);
+
+
+            $task->delete();
+
+            if($task === null)
+            {
+                return Response::json( array(
+                    'grantfail' => 'Delete failed. Try again later.'
+                ) );
+            }
+            else
+            {
+                return Response::json( array(
+                    'grantsuccess' => 'Task Successfully Deleted!'
+                ) );
+            }
+        } 
+    }
 
     public function ajaxuser()
     {

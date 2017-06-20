@@ -147,3 +147,7 @@
 {
     background: #bed5d3;
 }
+
+input[type="text"]:disabled {
+    background: #dddddd;
+}

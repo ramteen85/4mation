@@ -20,6 +20,7 @@ Route::post('register', 'RegistrationController@create');
 Route::get('/logout', 'PagesController@destroy');
 Route::get('/members', 'PagesController@members');
 Route::get('eprofile', 'PagesController@eprofile');
+
 Route::get('profile/{user}', 'PagesController@profile');
 //Route::get('admin', 'PagesController@admin');
 Route::get('/messages/inbox', 'PagesController@inbox');
@@ -30,6 +31,7 @@ Route::get('/messages/compose', 'PagesController@compose');
 Route::get('findmates', 'PagesController@findmates');
 Route::post('/changepass', 'RegistrationController@changepass');
 Route::post('/updateprofile', 'RegistrationController@updateprofile');
+Route::post('/selecttask', 'AdminController@updeltask');
 Route::post('/checktask', 'PagesController@checktask');
 Route::post('/sendmsg', 'MessageController@send');
 Route::get('/messages/message/{msgid}', 'PagesController@readmsg');
@@ -77,6 +79,16 @@ Route::post('/usrdelete', [
 Route::get('/usrsearch', [
     'uses' => 'AdminController@ajaxuser',
     'as' => 'usrsearch'
+]);
+
+Route::get('/taskdel', [
+    'uses' => 'AdminController@taskdel',
+    'as' => 'usrsearch'
+]);
+
+Route::get('/idcheck', [
+    'uses' => 'AdminController@ajaxid',
+    'as' => 'idcheck'
 ]);
 
 Route::post('/usrgrant', [

@@ -79,13 +79,15 @@
                                         <div class="text-center col-xs-12">
                                             <h1 class="delh">Select a Task</h1> 
                                         </div>
+                                        <form id="updeltaskform" action="/selecttask" method="POST">
+                                        {{ csrf_field() }}
                                         <div class="col-xs-12 labelsm">
                                             <div class="col-sm-4 col-xs-12">
                                                 <h1 class="delh titlesm bigtitlesm">Task ID:</h1> 
                                             </div>
                                             <div class="col-sm-8 col-xs-12 marginlge">
                                                 <div class="col-xs-12 col-sm-12">
-                                                    <input type="text" style="width: 100%; height: 40px;" placeholder="Enter Task ID"> 
+                                                    <input id="taskidselector" name="taskidselector" type="text" style="width: 100%; height: 40px;" placeholder="Enter Task ID"> 
                                                 </div>                                                 
                                             </div>                                             
                                         </div>
@@ -95,7 +97,7 @@
                                             </div>
                                             <div class="col-sm-8 col-xs-12">
                                                 <div class="col-xs-12">
-                                                    <input style="width: 100%; height: 40px;" placeholder="    << Task Title >>" class="marginlge" /> 
+                                                    <input id="tasktitleselector" name="tasktitleselector" style="width: 100%; height: 40px;" placeholder="    << Task Title >>" class="marginlge" disabled /> 
                                                 </div>                                                 
                                             </div>                                             
                                         </div>
@@ -103,14 +105,15 @@
                                             <h1 class="delh titlesm">Details</h1> 
                                         </div>
                                         <div class="col-xs-12 text-center">
-                                            <textarea style="width: 100%; height: 100px;" placeholder="  << Task Description >>" disabled></textarea>                                             
+                                            <textarea id="taskdescselector" name="taskdescselector" style="width: 100%; height: 100px;" placeholder="  << Task Description >>" disabled></textarea>                                             
                                         </div>
                                         <div class="text-center col-xs-6 btnleftxs">
-                                            <button type="button" class="btn btn-danger">Delete</button>                                             
+                                            <button id="taskdel" type="button" class="btn btn-danger conf-del" disabled>Delete</button>                                             
                                         </div>
                                         <div class="text-center col-xs-6 btnleftxs">
-                                            <button type="button" class="btn btn-success">Update</button>                                             
+                                            <button id="taskup" type="submit" class="btn btn-success" disabled>Update</button>                                             
                                         </div>
+                                        </form>
                                     </section>
                                 </section>
                                 <section class="panelbg margin30">
@@ -268,6 +271,165 @@
         <script src="/js/jquery.confirm.js"></script> 
 
         <script> 
+
+
+
+        function fireDeleteTask()
+        {
+            //fire off ajax to delete the task!
+
+            $.ajax(
+            {
+
+
+                  url: "/taskdel",
+                  type: 'get',
+                  dataType: "json",
+                  //default: Intelligent Guess (Other values: xml, json, script, or html)'
+                  data: {
+                            _method: 'PUT',
+                            taskid: $('#taskidselector').val(),
+                            _token: '{{ csrf_token() }}'
+                  },
+                  success: function(data)
+                  {
+                    
+                            if(data.grantsuccess)
+                            {
+                                //unlock boxes and buttons
+                              
+                                 $('.modal-body').html(data.grantsuccess);
+                                 $('#ErrorModal').modal('show');
+                                 //lock boxes and buttons
+                                    $('#tasktitleselector').prop('disabled',true);
+                                    $('#taskdescselector').prop('disabled',true);
+                                    $('#taskdel').prop('disabled',true);
+                                    $('#taskup').prop('disabled',true);
+
+                                    $('#tasktitleselector').val("");
+                                    $('#taskdescselector').val("");
+                                    $('#taskidselector').val("");
+
+
+                            }   
+                            if(data.grantfail)
+                            {
+                                //lock boxes and buttons
+                               
+
+                                 $('.modal-body').html(data.grantfail);
+                                 $('#ErrorModal').modal('show');
+
+                                 //lock boxes and buttons
+                                    $('#tasktitleselector').prop('disabled',true);
+                                    $('#taskdescselector').prop('disabled',true);
+                                    $('#taskdel').prop('disabled',true);
+                                    $('#taskup').prop('disabled',true);
+
+                                    $('#tasktitleselector').val("");
+                                    $('#taskdescselector').val("");
+
+                            }                          
+
+
+                  }
+            });
+
+
+        }
+
+
+
+        $(".conf-del").confirm({
+            text: "Delete Task?",
+            title: "Team Confirmation",
+            confirm: function(button) 
+            {
+                //send email
+                fireDeleteTask();
+            },
+            cancel: function(button) {
+                // nothing to do
+            },
+            confirmButton: "Yes",
+            cancelButton: "No",
+            post: true,
+            confirmButtonClass: "btn-danger",
+            cancelButtonClass: "btn-info",
+            dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+        });
+
+
+        $('#taskidselector').keyup(function(){
+
+            if($(this).val())
+            {
+
+               
+
+
+                $.ajax(
+                {
+
+
+                      url: "/idcheck",
+                      type: 'get',
+                      dataType: "json",
+                      //default: Intelligent Guess (Other values: xml, json, script, or html)'
+                      data: {
+                                _method: 'PUT',
+                                taskid: $('#taskidselector').val(),
+                                _token: '{{ csrf_token() }}'
+                      },
+                      success: function(data)
+                      {
+                        
+                                if(data.unlock)
+                                {
+                                    //unlock boxes and buttons
+                                    $('#tasktitleselector').prop('disabled',false);
+                                    $('#taskdescselector').prop('disabled',false);
+                                    $('#taskdel').prop('disabled',false);
+                                    $('#taskup').prop('disabled',false);
+
+                                    $('#tasktitleselector').val(data.title);
+                                    $('#taskdescselector').val(data.desc);
+
+
+
+                                }   
+                                if(data.lock)
+                                {
+                                    //lock boxes and buttons
+                                    $('#tasktitleselector').prop('disabled',true);
+                                    $('#taskdescselector').prop('disabled',true);
+                                    $('#taskdel').prop('disabled',true);
+                                    $('#taskup').prop('disabled',true);
+
+                                    $('#tasktitleselector').val("");
+                                    $('#taskdescselector').val("");
+
+
+
+                                }                          
+
+
+                      }
+                });
+            }
+            else
+            {
+                //lock boxes and buttons
+                $('#tasktitleselector').prop('disabled',true);
+                $('#taskdescselector').prop('disabled',true);
+                $('#taskdel').prop('disabled',true);
+                $('#taskup').prop('disabled',true);
+
+                $('#tasktitleselector').val("");
+                $('#taskdescselector').val("");
+            }
+
+        });
 
         $('#forminput00').keyup(function(){
 

@@ -35,3 +35,15 @@
     }
 }
 
+
+input:disabled {
+    background: #8b8b8b;
+}
+
+textarea:disabled {
+    background: #8b8b8b;
+}
+
+.btn.disabled, .btn[disabled] {
+    background: #a59494;
+}

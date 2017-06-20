@@ -86,7 +86,7 @@
                                             </div>
                                             <div class="col-md-6 col-xs-12 topspacesm col-sm-6" data-pg-id="111">
                                                 <div class="col-xs-12" data-pg-id="112"> 
-                                                    <input name="usrname" id="forminput01" type="text" style="width: 100%;  height: 40px;" placeholder="Search for a user" data-pg-id="113" />
+                                                    <input autocomplete="off" name="usrname" id="forminput01" type="text" style="width: 100%;  height: 40px;" placeholder="Search for a user" data-pg-id="113" />
                                                     <div style="" id="usrlist"></div>
                                                 </div>
                                                  
@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="col-sm-6 col-xs-12 topspacesm" data-pg-id="120">
                                             <div class="col-xs-12" data-pg-id="121"> 
-                                                <input id="forminput02" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
+                                                <input autocomplete="off" id="forminput02" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
                                                 <div id="usrlist2"></div>
                                             </div>                                             
                                         </div>
@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="col-sm-6 col-xs-12 topspacesm" data-pg-id="129">
                                             <div class="col-xs-12" data-pg-id="130"> 
-                                                <input id="forminput03" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
+                                                <input autocomplete="off" id="forminput03" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
                                                 <div id="usrlist3"></div>
                                             </div>                                             
                                         </div>
@@ -146,7 +146,7 @@
                                             {{ csrf_field() }}
                                             <div class="col-sm-4 col-xs-12" data-pg-id="139">
                                                 <div class="col-xs-12" style="margin-top: 32px" data-pg-id="140">
-                                                    <input id="forminput00" type="text" style="width: 100%; height: 40px;" name="username" placeholder="Search for a user" data-pg-id="141" />
+                                                    <input autocomplete="off"  id="forminput00" type="text" style="width: 100%; height: 40px;" name="username" placeholder="Search for a user" data-pg-id="141" />
                                                     <div id="usrlist0"></div> 
                                                 </div>                                                 
                                             </div>
@@ -208,11 +208,11 @@
                                             {{ csrf_field() }}
                                             <div class="col-sm-4 col-xs-12 marginlge" data-pg-id="176">
                                                 <div class="col-xs-12" data-pg-id="177"> 
-                                                    <input type="text" style="width: 100%; height: 40px;" placeholder="  << Enter Team Name >>  " id="tname" data-pg-id="178" />
+                                                    <input type="text" style="width: 100%; height: 40px;" autocomplete="off" placeholder="  << Enter Team Name >>  " id="tname" data-pg-id="178" />
                                                 </div>                                                 
                                             </div>
                                             <div class="col-sm-4 col-sm-offset-0 col-xs-12" data-pg-id="179">
-                                                <input type="text" id="tdesc" style="width: 100%; height: 40px;" placeholder="  << Enter Team Description >>  " data-pg-id="178" />
+                                                <input autocomplete="off" type="text" id="tdesc" style="width: 100%; height: 40px;" placeholder="  << Enter Team Description >>  " data-pg-id="178" />
                                             </div>
                                             <div class="col-sm-4 col-sm-offset-0 col-xs-12" data-pg-id="179">
                                                 <button type="button" style="top:15px" class="confirm3 col-xs-12 btn btn-info" data-pg-id="180">Create team</button> 
