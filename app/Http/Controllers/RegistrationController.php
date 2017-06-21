@@ -170,6 +170,7 @@ class RegistrationController extends Controller
 			'email' => request('email'),
 			'about' => '<< Tell us about yourself >>',
 			'role' => 0,
+            'intro' => 0,
 			'password' => request('password')
 		]);
 

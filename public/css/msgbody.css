@@ -15,3 +15,42 @@
     font-size: 20px;
 }
 
+.shadecleanup
+{
+	background: black; 
+	opacity: 0.6
+}
+
+.hab0
+{
+	height: auto; 
+	bottom: 0;
+}
+
+.difftouch
+{
+	background: white; 
+	height: 700px; 
+	overflow:auto; 
+	margin-bottom: 20px;
+}
+
+.msgbodycleanup
+{
+	overflow: auto; 
+	height: 42vh; 
+	width: 100%; 
+	resize: none;
+}
+.ha
+{
+	height: auto;
+}
+.pt25
+{
+	padding-top: 25px;
+}
+.fw
+{
+	width: 100%;
+}

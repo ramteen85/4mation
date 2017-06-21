@@ -5,30 +5,30 @@
         <title>4Mation | Staff Management System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
-        <meta name="description" content="My new website" />
-       
-        <link rel="shortcut icon" href="ico/favicon.png"> 
+        <meta name="description" content="Employee Management System for 4mation Technologies" />
+               
         <!-- Core CSS -->         
         <!-- Style Library -->         
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->         
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+        <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="css/style-library-1.css" rel="stylesheet" type="text/css">
-        <link href="css/plugins.css" rel="stylesheet" type="text/css">
-        <link href="css/blocks.css" rel="stylesheet" type="text/css">
-        <link href="components/pg.chocka-blocks/css/cb-style.css" rel="stylesheet" type="text/css">
-        <link href="components/pg.chocka-blocks/css/owl.carousel.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css">
+        <link href="/css/style-library-1.css" rel="stylesheet" type="text/css">
+        <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+        <link href="/css/blocks.css" rel="stylesheet" type="text/css">
+        <link href="/components/pg.chocka-blocks/css/cb-style.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="css/custom.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>  
+        <link href="/css/custom.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>  
+
     </head>     
     <body data-spy="scroll" data-target="nav">   
         
@@ -37,15 +37,15 @@
         <section id="cb-title-1-5" class="cb-title-block cb-title-1-5"> 
             <div id="title5"> 
                 `     
-                <h1 style="padding-bottom: 10px">Staff Management System</h1>
+                <h1 id="headertitle">Staff Management System</h1>
             </div>
         </section>
         <section id="cb-team-1-3" class="cb-team-block cb-team-1-3">
             <div id="team3"> 
                 <div class="container"> 
                     <div class="title"> 
-                        <h3 class="editContent" style="outline: none; cursor: inherit;">Meet THE Team</h3> 
-                        <p class="editContent" style="outline: none; cursor: inherit;">NULLI SECUNDUS</p>
+                        <h3 class="editContent cleanup">MEET THE TEAM</h3> 
+                        <p class="editContent cleanup">NULLI SECUNDUS</p>
                     </div>                     
                     <div class="row"> 
                         <!-- TEAM MEMBER -->                         
@@ -53,16 +53,16 @@
                             <div class="text-center team-box"> 
                                 <div class="team-image"> 
                                     <span class="imghover-effect-team"></span> 
-                                    <img src="images/pete.jpg" alt="Image" style="outline: none; cursor: inherit;"> 
+                                    <img src="images/pete.jpg" alt="Image" class="cleanup"> 
                                     <div class="social-icons-team"> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><span class="fa fa-facebook" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><span class="fa fa-google-plus" style="outline: none; cursor: inherit;"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><span class="fa fa-facebook cleanup"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><span class="fa fa-google-plus cleanup" ></span></a> 
                                         <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><span class="fa fa-twitter"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><span class="fa fa-youtube" style="outline: none; cursor: inherit;"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><span class="fa fa-youtube cleanup" ></span></a> 
                                     </div>                                     
                                 </div>                                 
-                                <h4 class="editContent" style="outline: none; cursor: inherit;">PETE aXTON</h4> 
-                                <p class="editContent" style="outline: none; cursor: inherit;">hEAD OF SOLUTIONS</p>
+                                <h4 class="editContent cleanup">PETE AXTON</h4> 
+                                <p class="editContent cleanup">HEAD OF SOLUTIONS</p>
                             </div>                             
                         </div>                         
                         <!-- END / TEAM MEMBER -->                         
@@ -71,16 +71,16 @@
                             <div class="text-center team-box"> 
                                 <div class="team-image"> 
                                     <span class="imghover-effect-team"></span> 
-                                    <img src="images/ed.jpg" alt="Image" style="outline: none; cursor: inherit;"> 
+                                    <img src="images/ed.jpg" class="cleanup" alt="Image"> 
                                     <div class="social-icons-team"> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><span class="fa fa-facebook" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><span class="fa fa-google-plus" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><span class="fa fa-twitter" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><span class="fa fa-youtube" style="outline: none; cursor: inherit;"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><span class="fa fa-facebook cleanup"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><span class="fa fa-google-plus cleanup"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><span class="fa fa-twitter cleanup"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><span class="fa fa-youtube cleanup"></span></a> 
                                     </div>                                     
                                 </div>                                 
-                                <h4 class="editContent" style="outline: none; cursor: inherit;">ed blackshaw</h4> 
-                                <p class="editContent" style="outline: none; cursor: inherit;">head of sales</p>
+                                <h4 class="editContent cleanup">ED BLACKSHAW</h4> 
+                                <p class="editContent cleanup">HEAD OF SALES</p>
                             </div>                             
                         </div>                         
                         <!-- END / TEAM MEMBER -->                         
@@ -89,16 +89,16 @@
                             <div class="text-center team-box"> 
                                 <div class="team-image"> 
                                     <span class="imghover-effect-team"></span> 
-                                    <img src="images/tom.jpg" alt="Image" style="outline: none; cursor: inherit;"> 
+                                    <img src="images/tom.jpg" alt="Image" class="cleanup"> 
                                     <div class="social-icons-team"> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><span class="fa fa-facebook" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><span class="fa fa-google-plus" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><span class="fa fa-twitter" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><span class="fa fa-youtube" style="outline: none; cursor: inherit;"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><span class="fa fa-facebook cleanup" ></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><span class="fa fa-google-plus cleanup" ></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><span class="fa fa-twitter cleanup" ></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><span class="fa fa-youtube cleanup" ></span></a> 
                                     </div>                                     
                                 </div>                                 
-                                <h4 class="editContent" style="outline: none; cursor: inherit;">tom somerville</h4> 
-                                <p class="editContent" style="outline: none; cursor: inherit;">Web development team leader</p>
+                                <h4 class="editContent cleanup" >TOM SOMERVILLE</h4> 
+                                <p class="editContent cleaup" >WEB DEVELOPMENT TEAM LEADER</p>
                             </div>                             
                         </div>                         
                         <!-- END / TEAM MEMBER -->                         
@@ -107,16 +107,16 @@
                             <div class="text-center team-box"> 
                                 <div class="team-image"> 
                                     <span class="imghover-effect-team"></span> 
-                                    <img src="images/drew.jpg" alt="Image" style="outline: none; cursor: inherit;"> 
+                                    <img src="images/drew.jpg" alt="Image cleanup" > 
                                     <div class="social-icons-team"> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><span class="fa fa-facebook" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><span class="fa fa-google-plus" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><span class="fa fa-twitter" style="outline: none; cursor: inherit;"></span></a> 
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><span class="fa fa-youtube" style="outline: none; cursor: inherit;"></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><span class="fa fa-facebook cleanup" ></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><span class="fa fa-google-plus cleanup" ></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><span class="fa fa-twitter cleanup" ></span></a> 
+                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><span class="fa fa-youtube cleanup" ></span></a> 
                                     </div>                                     
                                 </div>                                 
-                                <h4 class="editContent" style="outline: none; cursor: inherit;">drew barnard</h4> 
-                                <p class="editContent" style="outline: none; cursor: inherit;">business development manager</p>
+                                <h4 class="editContent cleanup">DREW BARNARD</h4> 
+                                <p class="editContent cleanup">BUSINESS DEVELOPMENT MANAGER</p>
                             </div>                             
                         </div>                         
                         <!-- END / TEAM MEMBER -->                         
@@ -127,8 +127,8 @@
         <section id="cb-contact-1-2" class="cb-contact-block cb-contact-1-2">
             <div id="contact2" style="background-image:url('images/contactform.jpg');"> 
                 <div class="container"> 
-                    <h6 class="editContent" style="outline: none; cursor: inherit;">Contact us</h6> 
-                    <h3 class="editContent" style="outline: none; cursor: inherit;">Leave us a message</h3> 
+                    <h6 class="editContent cleanup" >CONTACT US</h6> 
+                    <h3 class="editContent cleanup" >LEAVE A MESSAGE</h3> 
                     <div class="row mt40 mb40"> 
                         <div class="col-md-8 col-md-offset-2"> 
                             <form id="form" action="/sendemail" method="POST"> 
@@ -158,7 +158,9 @@
                     </div>                     
                 </div>                 
             </div>             
-        </section>        
+        </section>    
+
+        <!-- notifications -->    
 
         @if($flash = session('regd'))
             <script>
@@ -196,137 +198,19 @@
         
 
 
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>         
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="js/bskit-scripts.js"></script>         
-        <script type="text/javascript" src="components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="components/pg.chocka-blocks/js/cb-main.js"></script>    
-        <script src="/js/jquery.confirm.js"></script>  
-        <script>
-
+        <script type="text/javascript" src="/js/plugins.js"></script>
       
-
-            function sendEmail()
-            {
-                var first = $("#first").val();
-                var last = $("#last").val();
-                var email = $("#email").val();
-                var subject = $("#subject").val();
-                var message = $("#message").val();
+        <script type="text/javascript" src="/js/bskit-scripts.js"></script>         
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>    
+        <script src="/js/jquery.confirm.js"></script>  
+        <script src="/js/index.js"></script>  
 
 
-
-
-                $.post(
-                    $( "#form" ).prop( 'action' ),
-                    {
-                        "_token": $( "#form" ).find( 'input[name=_token]' ).val(),
-                        "firstname": first,
-                        "surname": last,
-                        "email": email,
-                        "subject": subject,
-                        "message": message
-                    },
-                    function( data ) 
-                    {
-                        //do something with data/response returned by server
-                        
-                        try 
-                        {
-                          if(data.ok) 
-                          {
-                            $('.modal-body').html(data.ok);
-                            $('#getCodeModal').modal('show');
-                          }
-                        } 
-                        catch(e) 
-                        {
-
-                        }
-                        
-                        try 
-                        {
-                            if(data.errors.firstname)   
-                            {
-                                $('.modal-body').html(data.errors.firstname);
-                                $('#getCodeModal').modal('show');
-                            }  
-                        }
-                         catch(e) {}
-
-                        
-
-                        try {
-                            if(data.errors.surname)   
-                            {
-                                $('.modal-body').html(data.errors.surname);
-                                $('#getCodeModal').modal('show');
-                            }  
-                        
-                        } catch(e) {}
-                    
-
-
-                        try {
-                            if(data.errors.email)   
-                            {
-                                $('.modal-body').html(data.errors.email);
-                                $('#getCodeModal').modal('show');
-                            }  
-                        
-                        } catch(e) {}
-
-
-                        try {
-                            if(data.errors.subject)   
-                            {
-                                $('.modal-body').html(data.errors.subject);
-                                $('#getCodeModal').modal('show');
-                            }  
-                        
-                        } catch(e) {}
-                        
-                        try {
-                            if(data.errors.message)   
-                            {
-                                $('.modal-body').html(data.errors.message);
-                                $('#getCodeModal').modal('show');
-                            }  
-                        
-                        } catch(e) {}
-                        
-
-                    },
-                    'json'
-                );
-
-    
-
-             
-            }
-
-            $(".confirm").confirm({
-                text: "Send Email?",
-                title: "Email Confirmation",
-                confirm: function(button) 
-                {
-                    //send email
-                    sendEmail();
-                },
-                cancel: function(button) {
-                    // nothing to do
-                },
-                confirmButton: "Yes",
-                cancelButton: "No",
-                post: true,
-                confirmButtonClass: "btn-danger",
-                cancelButtonClass: "btn-default",
-                dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
-            });
-        </script>  
+        <!-- modals -->
 
         <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">

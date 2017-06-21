@@ -66,6 +66,22 @@ class PagesController extends Controller
             return View('layouts.message', compact('message', 'flag'));    
         }
     }
+
+    public function errorpage()
+    {
+        if (Auth::guest()) 
+        {
+
+            return view('index');
+        }
+        else
+        {
+            return view('layouts.unavailable.nopage');   
+        }
+
+    }
+
+
     public function compose()
     {
         if (Auth::guest()) 
@@ -117,6 +133,13 @@ class PagesController extends Controller
         else
         {
             $team = Team::find($teamid);
+
+            if($team == null)
+            {
+                return view('layouts.unavailable.noteam');   
+            }
+
+
             $users = null;
             $users = $team->users;
 
@@ -152,7 +175,13 @@ class PagesController extends Controller
         }
         else
         {
+
+
+
             return Redirect::to('members');    
+        
+
+
         }
     }
     public function search()
@@ -289,6 +318,16 @@ class PagesController extends Controller
         }
         else
         {
+
+            //check for intro
+            if(Auth::user()->intro === 0)
+            {
+                $user = User::where('id', Auth::user()->id)->first();
+                $user->intro = 1;
+                $user->save();
+                return view('layouts.intro');
+            }
+
 
             $announcements ="";
             $unread = 0;

@@ -25,10 +25,10 @@ class AdminController extends Controller
 {
     public function inbox()
     {
-    	if (Auth::guest()) 
+    	if (Auth::guest() || Auth::user()->role == 0) 
         {
 
-            return view('index');
+            return Redirect::to('/');
         }
         else
         {
@@ -41,7 +41,7 @@ class AdminController extends Controller
 
     public function updeltask()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -93,7 +93,7 @@ class AdminController extends Controller
 
      public function ajaxid()
      {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -177,7 +177,7 @@ class AdminController extends Controller
 
     public function taskdel()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -213,7 +213,7 @@ class AdminController extends Controller
 
     public function ajaxuser()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -331,7 +331,7 @@ class AdminController extends Controller
 
     public function createtask()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -414,7 +414,7 @@ class AdminController extends Controller
 
     public function Announcement()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -482,7 +482,7 @@ class AdminController extends Controller
 
     public function delemail()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -507,7 +507,7 @@ class AdminController extends Controller
 
     public function assignteam()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
            return Redirect::guest('/');
         }
@@ -667,7 +667,7 @@ class AdminController extends Controller
     public function revokeuser()
     {
 
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -752,7 +752,7 @@ class AdminController extends Controller
 
     public function grantuser()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -835,7 +835,7 @@ class AdminController extends Controller
 
     public function createteam()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -923,7 +923,7 @@ class AdminController extends Controller
 
     public function delteam()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
 
             return Redirect::guest('/');
@@ -1153,9 +1153,9 @@ class AdminController extends Controller
 
     public function users()
     {
-        if (Auth::guest()) 
+        if (Auth::guest() || Auth::user()->role == 0) 
         {
-            return view('index');
+            return Redirect::to('/');
         }
         else
         {
@@ -1169,10 +1169,10 @@ class AdminController extends Controller
 
     public function tasks()
     {
-         if (Auth::guest()) 
+         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
-            return view('index');
+            return Redirect::to('/');
         }
         else
         {

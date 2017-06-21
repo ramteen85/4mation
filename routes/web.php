@@ -32,6 +32,7 @@ Route::post('/checktask', 'PagesController@checktask');
 Route::get('/messages/message/{msgid}', 'PagesController@readmsg');
 Route::get('/messages/compose/{username}', 'PagesController@compose2');
 Route::post('/searchusers', 'PagesController@search');
+Route::get('/404','PagesController@errorpage');
 
 
 //registration controller

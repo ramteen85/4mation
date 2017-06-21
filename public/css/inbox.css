@@ -37,3 +37,47 @@
     color: #807a7a;
 }
 
+#intro15
+{
+    background-image: url('/images/tech.png');
+}
+
+.headshade
+{
+    background: black; 
+    opacity: 0.6;
+}
+.inboxwhitewrap
+{
+    word-wrap: break-word;
+}
+
+#diffcontent
+{
+    background: white; 
+    height: 700px; 
+    margin-bottom: 20px;
+}
+.greygrey
+{
+    border: 2px solid grey;
+}
+.marbot20
+{
+    margin-bottom: 20px;
+}
+.profheadcleanup
+{
+    text-align: center; 
+    margin-top: 26px;
+}
+.marleft20
+{
+    margin-left: 20px;
+}
+
+.msgh4
+{
+    text-align: center; 
+    margin-top: 26px;
+}

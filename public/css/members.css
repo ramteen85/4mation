@@ -172,3 +172,29 @@ html, body
     }
 }
 
+#statdiv
+{
+    height: auto; 
+    margin: 0;
+}
+
+#anndiv
+{
+    padding-top: 50px;
+}
+
+#content-1-9
+{
+    margin-bottom: 50px;
+}
+
+.blborder
+{
+    border-top: 2px solid black;
+}
+
+#atitlewrap
+{
+    height: 100%; 
+    word-wrap: break-word;
+}

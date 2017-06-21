@@ -44,3 +44,12 @@
     }
 }
 
+.teamimg
+{
+    /* background-image:url('/images/5.jpg'); */
+}
+
+.teamimg2
+{
+    background-image:url('/images/team.png');
+}

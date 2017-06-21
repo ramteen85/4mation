@@ -2,32 +2,35 @@
 <html lang="en" style="height:100%;">
     <head> 
         <meta charset="utf-8"> 
-        <title>Pinegrow Bootstrap Blocks</title>
+        <title>4Mation | Register</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
-        <meta name="description" content="My new website" />
-        <link rel="shortcut icon" href="ico/favicon.png"> 
+        <meta name="description" content="4Mation Technologies Employee Management System | Register" />
+
         <!-- Core CSS -->         
         <!-- Style Library -->         
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->         
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->         
+
+        <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="css/style-library-1.css" rel="stylesheet" type="text/css">
-        <link href="css/plugins.css" rel="stylesheet" type="text/css">
-        <link href="css/blocks.css" rel="stylesheet" type="text/css">
-        <link href="components/pg.chocka-blocks/css/cb-style.css" rel="stylesheet" type="text/css">
-        <link href="components/pg.chocka-blocks/css/owl.carousel.css" rel="stylesheet" type="text/css">
+        <link href="/css/style-library-1.css" rel="stylesheet" type="text/css">
+        <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+        <link href="/css/blocks.css" rel="stylesheet" type="text/css">
+        <link href="/components/pg.chocka-blocks/css/cb-style.css" rel="stylesheet" type="text/css">
+        <link href="/components/pg.chocka-blocks/css/owl.carousel.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="css/custom.css" rel="stylesheet" type="text/css">
-    </head>     
+        <link href="/css/custom.css" rel="stylesheet" type="text/css">
+
+    </head> 
+
     <body data-spy="scroll" data-target="nav">
 
         @include('layouts.nav')
@@ -48,22 +51,22 @@
                                 <form method="POST" action="/register"> 
                                 {{ csrf_field() }}
 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Username</p> 
+                                    <p class="dark editContent cleanup">Username</p> 
                                     <input type="text" autocomplete="off" class="form-control" name="username" placeholder="Enter your username" required>
                                     <br> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">First name</p> 
+                                    <p class="dark editContent cleanup">First name</p> 
                                     <input type="text" autocomplete="off" name="firstname" class="form-control" placeholder="Enter your first name" required>
                                     <br> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Last name</p> 
+                                    <p class="dark editContent cleanup">Last name</p> 
                                     <input type="text" autocomplete="off" name="lastname" class="form-control" placeholder="Enter your last name" required>
                                     <br> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Email</p> 
+                                    <p class="dark editContent cleanup">Email</p> 
                                     <input type="email" autocomplete="off" name="email" class="form-control" placeholder="Enter your E-mail" required>
                                     <br> 
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Password</p> 
+                                    <p class="dark editContent cleanup">Password</p> 
                                     <input type="password" autocomplete="off" name="password" class="form-control" placeholder="Enter your password" required>
                                     <br>
-                                    <p class="dark editContent" style="outline: none; cursor: inherit;">Confirm Password</p> 
+                                    <p class="dark editContent cleanup">Confirm Password</p> 
                                     <input id="password_confirmation" autocomplete="off" name="password_confirmation" type="password" class="form-control" placeholder="Confirm your password" required>
                                     <br>
                                     <input type="submit" autocomplete="off" class="btn btn-default-green editContent" value="Register">
@@ -84,28 +87,28 @@
                         <div class="col-md-4 nopaddingnomargin"> 
                             <div class="content"> 
                                 <div class="icon"> 
-                                    <span class="fa fa-hashtag" style="outline: none; cursor: inherit;"></span> 
+                                    <span class="fa fa-hashtag cleanup"></span> 
                                 </div>                                 
-                                <h3 style="outline: none; cursor: inherit;" class="sectiontitle">RECEIVE AND COMPLETE TASKS</h3> 
+                                <h3 class="sectiontitle cleanup">RECEIVE AND COMPLETE TASKS</h3> 
                                 <p style="outline: none; cursor: inherit;">Employees are to use this system to log in and complete their tasks. A manager will post daily tasks and it is up to the employee to complete them and sign off on them. All tasks will appear on the task list on each employees accounts and are assigned to each individual employee.</p>
                             </div>                             
                         </div>                         
                         <div class="col-md-4 nopaddingnomargin"> 
                             <div class="content"> 
                                 <div class="icon"> 
-                                    <span class="fa fa-hashtag" style="outline: none; cursor: inherit;"></span> 
+                                    <span class="fa fa-hashtag cleanup"></span> 
                                 </div>                                 
-                                <h3 style="outline: none; cursor: inherit;" class="sectiontitle">messaging system</h3> 
-                                <p style="outline: none; cursor: inherit;">Our staff management system also has a private messaging system. Every Employee including Managers and Administrators can send messages to one another within the system.</p>
+                                <h3 class="cleanup sectiontitle">messaging system</h3> 
+                                <p style="outline: none; cursor: inherit;">Our staff management system also has a private messaging system. Every Employee, including Administrators can send messages to one another within the system.</p>
                             </div>                             
                         </div>                         
                         <div class="col-md-4 nopaddingnomargin"> 
                             <div class="content"> 
                                 <div class="icon"> 
-                                    <span class="fa fa-hashtag" style="outline: none; cursor: inherit;"></span> 
+                                    <span class="fa fa-hashtag cleanup"></span> 
                                 </div>                                 
-                                <h3 style="outline: none; cursor: inherit;" class="sectiontitle">aDMIN AND MANAGER TOOLS</h3> 
-                                <p style="outline: none; cursor: inherit;">Administrators can log in with full permission and access control over the entire staff management system. They can do everything Managers and Employees can do. Managers also have a higher level of Access control, however they may only assign and delete tasks for every individual Employee.</p>
+                                <h3 class="cleanup sectiontitle">ADMIN AND MANAGER TOOLS</h3> 
+                                <p class="cleanup">Administrators can log in with full permission and access control over the entire staff management system, as well as use the basic staff functinality. </p>
                             </div>                             
                         </div>                         
                     </div>                     
@@ -115,15 +118,15 @@
 
         @include('layouts.footer')
 
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>         
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>         
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="js/bskit-scripts.js"></script>         
-        <script type="text/javascript" src="components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
+        <script type="text/javascript" src="/js/plugins.js"></script>
+
+        <script type="text/javascript" src="/js/bskit-scripts.js"></script>         
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="components/pg.chocka-blocks/js/cb-main.js"></script>         
-        <script type="text/javascript" src="components/pg.chocka-blocks/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>         
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/owl.carousel.min.js"></script>
     </body>     
 </html>

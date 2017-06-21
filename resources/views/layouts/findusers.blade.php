@@ -2,18 +2,19 @@
 <html lang="en" style="height:100%;">
     <head> 
         <meta charset="utf-8"> 
-        <title>Pinegrow Bootstrap Blocks</title>
+        <title>4Mation | Sent Messages</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
-        <meta name="description" content="My new website" />
-        <link rel="shortcut icon" href="ico/favicon.png"> 
+        <meta name="description" content="4Mation Technologies Employee Management Systemn | Find Workmates" />
+   
         <!-- Core CSS -->         
         <!-- Style Library -->         
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->         
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->         
+
         <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
@@ -33,8 +34,8 @@
         <link href="/css/findusers.css" rel="stylesheet" type="text/css">
     </head>     
     <body data-spy="scroll" data-target="nav">
+    
         <!-- logged in version of nav -->
-        
         @include('layouts.members.nav')
 
         <section id="cb-content-2-2" class="content-block cb-content-2-2 bg-official" data-pg-collapsed>
@@ -45,8 +46,8 @@
                     </div>                     
                     <div class="nopaddingnomargin col-sm-8"> 
                         <div class="content-center"> 
-                            <h3 class="editContent" style="outline: none; cursor: inherit;">Employee Management System Search</h3> 
-                            <p class="editContent" style="outline: none; cursor: inherit;">Use the search form below to find your workmates! You can choose to either view their profiles, or message them!<br>You can search for a user via their first name, last name, email or their username</p>
+                            <h3 class="editContent cleanup">Employee Management System Search</h3> 
+                            <p class="editContent cleanup">Use the search form below to find your workmates! You can choose to either view their profiles, or message them!<br>You can search for a user via their first name, last name, email or their username</p>
                         </div>                         
                     </div>                     
                 </div>                 
@@ -58,9 +59,9 @@
                     <div class="row"> 
                         <div class="col-md-6"> 
                             <div class="icon"> 
-                                <span class="fa fa-paper-plane" style="outline: none; cursor: inherit;"></span> 
+                                <span class="fa fa-paper-plane cleanup"></span> 
                             </div>                             
-                            <h3 class="editContent" style="outline: none; cursor: inherit;">Search for workmates</h3> 
+                            <h3 class="editContent cleanup">Search for workmates</h3> 
                         </div>                         
                         <div class="col-md-6"> 
                             <form action="/searchusers" method="POST">
@@ -108,8 +109,8 @@
                 <div class="col-md-4 bg-official bguser" data-pg-collapsed>
                     <div class="bg-official col-sm-12 border" data-pg-collapsed>
                         <header class="resh1 price-block bg-official">
-                            <a href="/profile/{{ $user->username }}"><h1 style="text-align: center;" class="usrheader">{{ $user->username }}</h1></a>
-                            <h5 style="text-align: center;" class="regheader">Registered: {{ $user->created_at->diffForHumans() }}</h5>
+                            <a href="/profile/{{ $user->username }}"><h1 class="text-centert usrheader">{{ $user->username }}</h1></a>
+                            <h5 class="text-center regheader">Registered: {{ $user->created_at->diffForHumans() }}</h5>
                             <!-- /.price -->
                             <a href="/messages/compose/{{ $user->username }}" class="btn btn-success col-xs-12">Message</a>
                         </header>                         
@@ -124,18 +125,13 @@
             <!-- /.container -->
         </section>
         @include('layouts.footer')
-        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
+       <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="/js/bskit-scripts.js"></script>         
-        <script type="text/javascript" src="/components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
+        <script type="text/javascript" src="/js/plugins.js"></script>    
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>         
-        <script type="text/javascript" src="/components/pg.chocka-blocks/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>
         <script type="text/javascript" src="/components/pg.blocks/js/plugins.js"></script>
         <script type="text/javascript" src="/components/pg.blocks/js/bskit-scripts.js"></script>
-        <script type="text/javascript" src="/components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
     </body>
 </html>

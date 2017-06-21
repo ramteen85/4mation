@@ -124,3 +124,36 @@
     height: 100%;
 }
 
+.bckgrnd
+{
+    background-image: url('/images/tech.png');
+}
+
+#msgtitlewrap
+{
+    background: black; 
+    opacity: 0.6
+}
+
+.basicmargin-00
+{
+    height: auto; 
+    bottom: 0;
+}
+
+.formwrap-00
+{
+    word-wrap: break-word;
+}
+.msgtitlewrap-01
+{
+    background: #282828; 
+    overflow: auto; 
+    height: 200px; 
+   
+}
+
+.noresize
+{
+    resize: none;
+}

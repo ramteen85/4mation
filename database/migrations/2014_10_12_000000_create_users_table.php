@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->integer('role');
+            $table->integer('intro');
             $table->string('email')->unique();
             $table->string('about');
             $table->string('password');
@@ -38,6 +39,7 @@ class CreateUsersTable extends Migration
                 'email' => 'admin@admin.com',
                 'about' => '<< I am the main Administrator >>',
                 'role' => 1,
+                'intro' => 0,
                 'password' => bcrypt('demo'),
                 "created_at" => \Carbon\Carbon::now(),
                 "updated_at" => \Carbon\Carbon::now()

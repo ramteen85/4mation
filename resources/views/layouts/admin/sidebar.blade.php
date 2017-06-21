@@ -1,5 +1,5 @@
 <div class="col-md-3" data-pg-id="74">
-    <div style="text-align: center;" class="well" data-pg-id="75">
+    <div class="well text-center" data-pg-id="75">
         <strong data-pg-id="76">ADMIN OPTIONS</strong> 
     </div>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" data-pg-id="77">
@@ -9,7 +9,7 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;" data-pg-id="83">
                 <div class="panel-body" data-pg-id="84">
-                    <div style="text-align: center;" class="list-group" data-pg-id="85">
+                    <div class="list-group text-center" data-pg-id="85">
                         <div class="col-xs-12" data-pg-id="86">
                             <a href="/admin" data-pg-id="87">Admin Inbox</a> 
                         </div>

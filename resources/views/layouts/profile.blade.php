@@ -2,32 +2,35 @@
 <html lang="en" style="height:100%;">
     <head> 
        <meta charset="utf-8"> 
-        <title>View Profile</title>
+        <title>4Mation | View Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
-        <meta name="description" content="My new website" />
-        <link rel="shortcut icon" href="ico/favicon.png"> 
-        <!-- Core CSS -->         
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
-        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <meta name="description" content="4Mation Technologies Employee Management Systemn | View Profile" />
+        
+        <!-- Core CSS -->  
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->  
+
+        
+        <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+        <link href="/css/font-awesome.min.css" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet">
         <!-- Style Library -->         
-        <link href="css/style-library-1.css" rel="stylesheet">
-        <link href="css/plugins.css" rel="stylesheet">
-        <link href="css/blocks.css" rel="stylesheet">
-        <link href="css/custom.css" rel="stylesheet">
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
-        <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->         
+        <link href="/css/style-library-1.css" rel="stylesheet">
+        <link href="/css/plugins.css" rel="stylesheet">
+        <link href="/css/blocks.css" rel="stylesheet">
+        <link href="/css/custom.css" rel="stylesheet">
+                
         <link rel="stylesheet" href="components/pg.chocka-blocks/css/cb-style.css">
-        <link rel="stylesheet" href="components/pg.chocka-blocks/css/owl.carousel.css">
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400">
-        <link href="css/eprofile.css" rel="stylesheet" type="text/css">
-        <link href="css/profile.css" rel="stylesheet" type="text/css">
+        <link href="/css/eprofile.css" rel="stylesheet" type="text/css">
+        <link href="/css/profile.css" rel="stylesheet" type="text/css">
     </head>     
     <body data-spy="scroll" data-target="nav">
 
@@ -36,7 +39,7 @@
         <section id="cb-contact-1-1" class="cb-contact-block cb-contact-1-1">
             <div id="contact1"> 
                 <div class="container"> 
-                    <h3 id="ephead" class="editContent" style="outline: none; cursor: inherit;">Profile</h3>
+                    <h3 id="ephead" class="editContent cleanup">Profile</h3>
                     <div class="row mt40 mb40"> 
                         <div id="pbox1" class="col-sm-12">
                             <div class="col-sm-6">
