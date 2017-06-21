@@ -134,19 +134,19 @@
                             <form id="form" action="/sendemail" method="POST"> 
                             {{ csrf_field() }}
                                 <div class="col-md-6"> 
-                                    <input type="text" id="first" class="form-control" placeholder="Your Name" name="firstname" required /> 
+                                    <input type="text" id="first" class="form-control" placeholder="Your Name" name="firstname" autocomplete="off" required /> 
                                 </div>                                 
                                 <div class="col-md-6"> 
-                                    <input type="text" id="last" class="form-control" placeholder="Surname" name="surname" required /> 
+                                    <input type="text" id="last" class="form-control" placeholder="Surname" name="surname" autocomplete="off" required /> 
                                 </div>                                 
                                 <div class="col-md-6"> 
-                                    <input type="email" id="email" class="form-control" placeholder="Email" name="email" required /> 
+                                    <input type="email" id="email" class="form-control" placeholder="Email" name="email" autocomplete="off" required /> 
                                 </div>                                 
                                 <div class="col-md-6"> 
-                                    <input type="text" id="subject" class="form-control" placeholder="Subject" name="subject" /> 
+                                    <input type="text" id="subject" class="form-control" placeholder="Subject" name="subject" autocomplete="off" /> 
                                 </div>                                 
                                 <div class="col-md-12"> 
-                                    <textarea id="message" name="message" class="form-control textarea" placeholder="Message" name="message"></textarea>                      
+                                    <textarea id="message" name="message" class="form-control textarea" placeholder="Message" name="message" autocomplete="off"></textarea>                      
                                 </div>                                 
                                 <div class="text-center mb20"> 
                                     

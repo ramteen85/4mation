@@ -377,17 +377,17 @@ class AdminController extends Controller
             //check user exists
             $username = request('to_user');
             $flag = User::UserExistsByName($username);
-            $id = User::getIdByUsername($username);
+            
 
             if($flag == 0)
             {
                 session()->flash('nouser', 'ok');
                 //user does not exist
-                return redirect('/admin/tasks')->withErrors('user doesnt exist');
+                return redirect('/admin/tasks');
             }
 
             //user does exist
-
+            $id = User::getIdByUsername($username);
 
             //create task
 
@@ -403,7 +403,7 @@ class AdminController extends Controller
 
             //success
 
-            session()->flash('tasked', 'ok');
+            session()->flash('tasked', $task->id);
 
 
 
@@ -431,6 +431,36 @@ class AdminController extends Controller
             $body = request('body');
 
             $issue_id = Auth::user()->id;
+
+
+
+            //validate form
+
+             $messages = array(
+                'title.required'=>'You must enter a Title.',
+                'body.required'=>'You must enter an Announcement.',
+               
+            );
+
+
+
+            $rules = array(
+                'title' => 'required',
+                'body' => 'required'
+                
+            );
+
+
+
+             $validation = \Illuminate\Support\Facades\Validator::make(request()->all(), $rules, $messages );
+
+             if (!$validation->passes()) 
+             {
+                return redirect('/admin/tasks')->withErrors($validation->errors());
+             }
+
+             //validation has passed
+
 
 
 
@@ -490,6 +520,7 @@ class AdminController extends Controller
             }
 
 
+
             $username = request('username');
             $teamid = request('teamid');
             $team = request('team');
@@ -525,8 +556,38 @@ class AdminController extends Controller
 
              //validation has passed
 
+
+             //check user and team exists
+
+
+            $user = User::UserExistsByName($username);
+
+            if($user == null)
+            {
+                //user does not exist
+
+                return Response::json( array(                
+                'grantfail' => "User does not exist!"
+                ) );
+            }
+
+            
+            
+            if(!$team = Team::find($teamid))
+            {
+                //user does not exist
+
+                return Response::json( array(                
+                'grantfail' => "Team does not exist!"
+                ) );
+            }
+            
+
+
              //get user id
              $user_id = User::getIdByUsername($username);
+
+             
 
 
              //delete user record from team_user database

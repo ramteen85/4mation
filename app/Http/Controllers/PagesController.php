@@ -33,7 +33,20 @@ class PagesController extends Controller
         {
             $message = Message::getMessageById($msgid);
 
-            if(Auth::user()->id == $message->recv_id)
+
+            if($message == null)
+            {
+                return View('layouts.unavailable.nomessage');  
+            }
+
+
+
+
+            if(!Auth::user()->id == $message->recv_id)
+            {
+                return View('layouts.unavailable.nomessage');   
+            }
+            else
             {
                 $message->read = 1; 
                 $message->save();
@@ -353,11 +366,19 @@ class PagesController extends Controller
 
 
 
-            $skills = Skill::fetchAllSkills($usr);
+          
 
             //find record by username
 
             $user = User::getByUsername($usr);
+
+            if($user == null)
+            {
+                return view('layouts.unavailable.noprofile'); 
+            }
+
+              $skills = Skill::fetchAllSkills($usr);
+
 
             $datetmp = $user->created_at;
 

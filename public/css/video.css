@@ -1,0 +1,37 @@
+
+
+#videowrapper
+{
+    background: url('images/scenery1.png');
+}
+
+#videotitle
+{
+    text-align: center;
+    color: white;
+    font-weight: 900;
+}
+
+#content23 h3
+{
+    font-size: 5em;
+    color: #332c93;
+}
+
+#content23 p
+{
+    color: #332c93;
+    font-family: aerial;
+    font-size: 1.4em;
+    font-weight: 800;
+}
+
+#colsec
+{
+    background-color: #87acfb;
+    padding-bottom: 50px;
+    left: 50px;
+    right: 50px;
+    top: 50px;
+}
+

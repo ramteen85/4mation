@@ -81,13 +81,13 @@
                                     <section class="col-xs-12 panelbg margin30" data-pg-id="108">
                                         <form id="formdelete" action="/usrdelete" method="POST">
                                             {{ csrf_field() }}
-                                            <div class="col-md-3 col-xs-12 col-sm-3" data-pg-id="109">
+                                            <div class="formcover col-md-3 col-xs-12 col-sm-3" data-pg-id="109">
                                                 <h1 class="delh labelsize1 labelsm" data-pg-id="110">Delete User:</h1> 
                                             </div>
                                             <div class="col-md-6 col-xs-12 topspacesm col-sm-6" data-pg-id="111">
                                                 <div class="col-xs-12" data-pg-id="112"> 
                                                     <input autocomplete="off" name="usrname" id="forminput01" type="text" style="width: 100%;  height: 40px;" placeholder="Search for a user" data-pg-id="113" />
-                                                    <div style="" id="usrlist"></div>
+                                                    <div class="clickoff" style="" id="usrlist"></div>
                                                 </div>
                                                  
                                             </div>
@@ -107,7 +107,7 @@
                                         <div class="col-sm-6 col-xs-12 topspacesm" data-pg-id="120">
                                             <div class="col-xs-12" data-pg-id="121"> 
                                                 <input autocomplete="off" id="forminput02" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
-                                                <div id="usrlist2"></div>
+                                                <div class="clickoff" id="usrlist2"></div>
                                             </div>                                             
                                         </div>
                                         <div class="col-xs-8 col-xs-offset-2 col-sm-3 col-sm-offset-0" data-pg-id="123">
@@ -127,7 +127,7 @@
                                         <div class="col-sm-6 col-xs-12 topspacesm" data-pg-id="129">
                                             <div class="col-xs-12" data-pg-id="130"> 
                                                 <input autocomplete="off" id="forminput03" type="text" style="width: 100%; height: 40px;" placeholder="Search for a user" data-pg-id="122" name="username" />
-                                                <div id="usrlist3"></div>
+                                                <div class="clickoff" id="usrlist3"></div>
                                             </div>                                             
                                         </div>
                                         <div class="col-xs-8 col-sm-3 col-xs-offset-2 col-sm-offset-0" data-pg-id="132">
@@ -147,7 +147,7 @@
                                             <div class="col-sm-4 col-xs-12" data-pg-id="139">
                                                 <div class="col-xs-12" style="margin-top: 32px" data-pg-id="140">
                                                     <input autocomplete="off"  id="forminput00" type="text" style="width: 100%; height: 40px;" name="username" placeholder="Search for a user" data-pg-id="141" />
-                                                    <div id="usrlist0"></div> 
+                                                    <div class="clickoff" id="usrlist0"></div> 
                                                 </div>                                                 
                                             </div>
                                             <div class="col-sm-4 col-xs-12" data-pg-id="142">
@@ -263,8 +263,7 @@
 
          function fireRevoke()
          {
-            alert("works");
-            
+          
 
             var username = "";
 
@@ -576,10 +575,10 @@
                     
                     try 
                     {
-                      if(data.granttfail) 
+                      if(data.grantfail) 
                       {
                         
-                        $('.modal-body').html(data.granttfail);
+                        $('.modal-body').html(data.grantfail);
                         $('#ErrorModal').modal('show');
 
 
@@ -843,21 +842,18 @@
         });
 
 
-        /*
+       
 
-        $("#forminput00").focus(function() {
-            $('#usrlist').fadeIn();
+        $("input").focus(function() {
+            //do nothing
 
-        }).blur(function() {
+        }).blur(function() {          
+                
+            $('.clickoff').fadeOut();
             
-            if(!$('#forminput00').val().length > 0)
-            {
-                $('#forminput00').val("");
-                $('#usrlist').fadeOut();
-            }
         });
 
-        */
+        
 
          $('#forminput02').keyup(function(){
 

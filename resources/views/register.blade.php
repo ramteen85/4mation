@@ -49,24 +49,24 @@
                                 {{ csrf_field() }}
 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Username</p> 
-                                    <input type="text" class="form-control" name="username" placeholder="Enter your username" required>
+                                    <input type="text" autocomplete="off" class="form-control" name="username" placeholder="Enter your username" required>
                                     <br> 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">First name</p> 
-                                    <input type="text" name="firstname" class="form-control" placeholder="Enter your first name" required>
+                                    <input type="text" autocomplete="off" name="firstname" class="form-control" placeholder="Enter your first name" required>
                                     <br> 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Last name</p> 
-                                    <input type="text" name="lastname" class="form-control" placeholder="Enter your last name" required>
+                                    <input type="text" autocomplete="off" name="lastname" class="form-control" placeholder="Enter your last name" required>
                                     <br> 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Email</p> 
-                                    <input type="email" name="email" class="form-control" placeholder="Enter your E-mail" required>
+                                    <input type="email" autocomplete="off" name="email" class="form-control" placeholder="Enter your E-mail" required>
                                     <br> 
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Password</p> 
-                                    <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                                    <input type="password" autocomplete="off" name="password" class="form-control" placeholder="Enter your password" required>
                                     <br>
                                     <p class="dark editContent" style="outline: none; cursor: inherit;">Confirm Password</p> 
-                                    <input id="password_confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirm your password" required>
+                                    <input id="password_confirmation" autocomplete="off" name="password_confirmation" type="password" class="form-control" placeholder="Confirm your password" required>
                                     <br>
-                                    <input type="submit" class="btn btn-default-green editContent" value="Register">
+                                    <input type="submit" autocomplete="off" class="btn btn-default-green editContent" value="Register">
 
 
                                     @include('layouts.errors')                                     

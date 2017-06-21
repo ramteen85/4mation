@@ -1,0 +1,30 @@
+
+
+.page404-1
+{
+    background-color: #7ba6b5;
+}
+
+.page404-1 h1
+{
+    font-family: cursive;
+    color: #b7381a;
+}
+
+.page404-1 p
+{
+    color: #302b58;
+    font-weight: 700;
+}
+
+.btn-default-transparent
+{
+    background-color: #201f1f;
+}
+
+.btn-default-transparent:hover
+{
+    background-color: #31d936;
+    color: #2d3370;
+}
+

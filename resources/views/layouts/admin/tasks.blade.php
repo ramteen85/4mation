@@ -140,8 +140,8 @@
                                             </div>
                                             <div class="col-sm-8 col-xs-12">
                                                 <div class="col-xs-12">
-                                                    <input id="forminput00" name="to_user" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail" class="marginlge"> 
-                                                    <div style="" id="usrlist"></div>
+                                                    <input id="forminput00" name="to_user" type="text" style="width: 100%; height: 40px;" placeholder="Enter Username or E-mail" autocomplete="off" class="marginlge"> 
+                                                    <div class="clickoff" style="" id="usrlist"></div>
                                                 </div>                                                 
                                             </div>                                             
                                         </div>
@@ -203,13 +203,25 @@
 
             });
             </script>
-        @endif
+            @endif
 
          @if($flash = session('tasked'))
             <script>
             $(function() {
                
-                $('.modal-body').html("Your task has been Assigned!");
+                $('.modal-body').html("Your task has been Assigned! Your task id is  {{ Session::get('tasked') }} . Please write this down in case you need to update this task in future." );
+                $('#getCodeModal2').modal('show');
+
+            });
+            </script>
+        @endif
+
+
+        @if($flash = session('nouser'))
+            <script>
+            $(function() {
+               
+                $('.modal-body').html("User does not exist!");
                 $('#getCodeModal2').modal('show');
 
             });
@@ -271,6 +283,16 @@
         <script src="/js/jquery.confirm.js"></script> 
 
         <script> 
+
+
+            $("input").focus(function() {
+            //do nothing
+
+        }).blur(function() {          
+                
+            $('.clickoff').fadeOut();
+            
+        });
 
 
 

@@ -37,25 +37,14 @@ class RegistrationController extends Controller
         $rules = "";
 
 
-        if($email == Auth::user()->email)
-        {
+     
             $rules = array(
             'fname' => 'required',
             'lname' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email,'.Auth::user()->id,
 
             );
-        }
-        else
-        {
-            $rules = array(
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required|email|unique:users',
-
-            );
-        }
-
+       
         
 
 

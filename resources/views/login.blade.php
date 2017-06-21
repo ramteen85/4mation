@@ -73,8 +73,8 @@
                     <div class="login"> 
                         <form action="members" method="POST"> 
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="text" name="username" class="form-control" placeholder="Username"> 
-                            <input type="password" name="password" class="form-control" placeholder="Password"> 
+                            <input type="text" autocomplete="off" name="username" class="form-control" placeholder="Username"> 
+                            <input type="password" autocomplete="off" name="password" class="form-control" placeholder="Password"> 
                             <input type="submit" class="btn btn-default-orange-tiny-no-t" style="outline: none; cursor: inherit;" value="Login" /> 
                         </form>                         
                     </div>                     

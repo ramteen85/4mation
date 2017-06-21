@@ -1,4 +1,5 @@
 
+
 .list-group-item:first-child
 {
     height: 268px;
@@ -117,37 +118,48 @@
     }
 }
 
-#usrlist, #usrlist2, #usrlist3, #usrlist4, #usrlist5, #usrlist0
+
+.usrlist, .usrlist2, .usrlist3, .usrlist0
+{
+    
+    position: absolute;
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 0;
+}
+
+#usrlist, #usrlist2, #usrlist3, #usrlist0
 {
     position: absolute;
-    margin: 0;
+    width: 100%;
     z-index: 100;
-    width: 92%;
+}
+
+
+
+.ulist, .ulist2, .ulist3, .ulist0
+{
     background: white;
-    left: 17px;
-}
-
-.usrlist, .usrlist2, .usrlist3, .usrlist4, .usrlist5, .usrlist5
-{
-    padding-left: 0;
+    padding: 10px 10px 10px 10px;
     text-align: center;
-    padding-bottom: 0;
-    margin-bottom: 0;
-
-
 }
-
-.ulist, .ulist2, .ulist3, .ulist4, .ulist0
+.ulist:hover, .ulist2:hover, .ulist3:hover, .ulist0:hover
 {
-    padding: 10px;
-    margin: 0;
+    
+    background: #49dcd8
 }
 
-.ulist:hover, .ulist2:hover, .ulist3:hover, .ulist4:hover, .ulist5:hover, .ulist0:hover
+input[disabled]
 {
-    background: #bed5d3;
+    background: #979595;
 }
-
-input[type="text"]:disabled {
-    background: #dddddd;
+textarea[disabled]
+{
+    background: #979595;
+    box-shadow: 0 2px #979595;
+}
+#taskdel[disabled], #taskup[disabled]
+{
+    background: #979595;
+    box-shadow: 0 2px #979595;
 }

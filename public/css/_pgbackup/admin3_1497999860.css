@@ -1,0 +1,120 @@
+
+
+.list-group-item:first-child
+{
+    height: 268px;
+    margin-bottom: 44px;
+}
+
+@media (max-width:479px)
+{
+    .list-group-item:first-child
+    {
+        height: 393px;
+    }
+}
+
+.panelbg
+{
+    background-color: #294a56;
+}
+
+.margin30
+{
+    margin-bottom: 30px;
+}
+
+.delh
+{
+    font-weight: 700;
+    font-size: 2.5em;
+    color: #5d87d1;
+}
+
+@media (max-width:767px)
+{
+    .webbbody
+    {
+        background: white;
+        height: 2163px;
+    }
+}
+
+.labelsize1
+{
+    font-size: 1.4em;
+}
+
+@media (max-width:767px)
+{
+    .labelsm
+    {
+        text-align: center;
+        font-size: 2em;
+    }
+}
+
+@media (min-width:768px)
+{
+    .topspacesm
+    {
+        padding-top: 32px;
+    }
+}
+
+@media (max-width:767px)
+{
+    .delbgsm
+    {
+        height: 238px;
+    }
+}
+
+@media (min-width:768px)
+{
+    .marginlge
+    {
+        margin-top: 32px;
+    }
+}
+
+@media (max-width:767px)
+{
+    .marginsm
+    {
+        margin-top: 13px;
+    }
+}
+
+@media (min-width:768px)
+{
+    .webbody
+    {
+        height: 1202px;
+        background: white;
+    }
+}
+
+@media (max-width:479px)
+{
+    .btnleftxs
+    {
+        left: -15px;
+    }
+}
+
+.margin
+{
+    margin-top: 32px;
+}
+
+@media (max-width:479px)
+{
+    .makeadminsm
+    {
+        height: 280px;
+        background: transparent;
+        border: none;
+    }
+}
+
