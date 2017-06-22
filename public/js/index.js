@@ -31,6 +31,9 @@
                           {
                             $('.modal-body').html(data.ok);
                             $('#getCodeModal').modal('show');
+
+                            $('input').val("");
+                            $('textarea').val("");
                           }
                         } 
                         catch(e) 

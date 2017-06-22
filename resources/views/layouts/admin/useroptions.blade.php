@@ -246,7 +246,7 @@
     <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>
     <script src="/js/jquery.confirm.js"></script> 
     <script type="text/javascript">
-         function fireRevoke()
+ function fireRevoke()
  {
   
 
@@ -279,6 +279,7 @@
               {
                 $('.modal-body').html(data.grantsuccess);
                 $('#ErrorModal').modal('show');
+                $('#forminput03').val("");
               }
             } 
             catch(e) 
@@ -293,6 +294,7 @@
                 
                 $('.modal-body').html(data.grantfail);
                 $('#ErrorModal').modal('show');
+                $('#forminput03').val("");
               }
             } 
             catch(e) 
@@ -340,6 +342,7 @@ function firePromote()
               {
                 $('.modal-body').html(data.grantsuccess);
                 $('#ErrorModal').modal('show');
+                $('#forminput02').val("");
               }
             } 
             catch(e) 
@@ -401,6 +404,7 @@ function fireDelete1()
               {
                 $('.modal-body').html(data.delsuccess);
                 $('#ErrorModal').modal('show');
+                $('#forminput01').val("");
               }
             } 
             catch(e) 
@@ -415,6 +419,7 @@ function fireDelete1()
                 
                 $('.modal-body').html(data.delfail);
                 $('#ErrorModal').modal('show');
+                $('#forminput01').val("");
               }
             } 
             catch(e) 
@@ -464,7 +469,7 @@ function fireTeamDelete()
 
                 $('select').load("/getteams2");
 
-
+                
 
 
 
@@ -534,7 +539,7 @@ function fireTeamAssign()
                 $('#ErrorModal').modal('show');
 
                 
-                $('#forminput03').val("");
+                $('#forminput00').val("");
 
                 $('select').load("/getteams2");
 

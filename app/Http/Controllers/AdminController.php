@@ -1022,7 +1022,33 @@ class AdminController extends Controller
             $text = request('text');
 
 
+            //switch all members of that team to "not assigned"
             $teamtmp = Team::find($id);
+            $allusers = User::all();
+
+
+
+          
+            foreach($allusers as $user)
+            {
+               
+
+
+                if($user->team[0]->name == $teamtmp->name)
+                {
+                    $uid = $user->id;
+                    $teamuser = DB::table('team_user')->where('user_id', $uid)->delete();
+
+
+                    
+
+                    DB::table('team_user')->insert(
+                        array(
+                            'team_id' => 1,                
+                            'user_id' => $uid
+                        )); 
+                    }
+            }
 
             if($teamtmp === null)
             {
@@ -1037,7 +1063,8 @@ class AdminController extends Controller
             //all good
 
 
-            //switch all members of that team to "not assigned"
+            
+
 
 
             //delete team
@@ -1087,14 +1114,23 @@ class AdminController extends Controller
         }
         //user does exist
 
-        
+
         $id = User::getIdByUsername($username);
 
+        //check if user is admin
+       
+        if($id === 1)
+        {
+            return Response::json( array(
+                
+            'delfail' => "The Administrator account cannot be deleted!"
+            ) );
+        }
         
 
         
         //wipe team
-        DB::table('team_user')->where('user_id', $id)->delete();
+        DB::table('team_user')->where('user_id', $id)->where('team_id', '!=', 1)->delete();
 
         //wipe tasks
         DB::table('tasks')->where('issue_id', $id)->delete();

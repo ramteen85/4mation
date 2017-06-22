@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="col-md-3 text-center">
                                         <h3 class="h3margin h3m1">{{ $email->firstname }}</h3>
-                                        <h3 class="h3margin">Taheri</h3>
+                                        <h3 class="h3margin">{{ $email->lastname }}</h3>
                                         <h6 class="fz13 h3margin h3m1">{{ $email->email }}</h6>
                                         <button type="submit" class="btn btn-danger btn-md btn-block">Delete</button>
                                         <p class="dater">{{ $email->created_at->diffForHumans() }} </p>

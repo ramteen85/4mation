@@ -53,15 +53,12 @@ class PagesController extends Controller
 
             /* mark as read only if receiver opens it */
 
-            if(!Auth::user()->id == $message->recv_id)
-            {
-                return View('layouts.unavailable.nomessage');   
-            }
-            else
+            if(Auth::user()->id == $message->recv_id)
             {
                 $message->read = 1; 
-                $message->save();
+                $message->save();   
             }
+           
 
             //success
 

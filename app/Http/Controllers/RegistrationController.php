@@ -25,6 +25,8 @@ class RegistrationController extends Controller
         $lname = request('lname');
         $email = request('email');
         $about = request('aboutme');
+ 
+ 
 
         //get skills
         $checkboxes= [
@@ -34,6 +36,7 @@ class RegistrationController extends Controller
             request('cb7'), request('cb8'), request('cb9'),
             request('cb10'), request('cb11'), request('cb12') 
         ];
+
 
         
 
@@ -46,7 +49,8 @@ class RegistrationController extends Controller
             $rules = array(
             'fname' => 'required|max:50',
             'lname' => 'required|max:50',
-            'email' => 'required|email|unique:users,email|max:50,'.Auth::user()->id,
+            'email' => 'required|email|max:50,'.Auth::user()->id,
+            'aboutme' => 'required|max:500,'.Auth::user()->id,
 
             );
        
@@ -60,6 +64,8 @@ class RegistrationController extends Controller
             'lname.max'=>'Your last name cannot exceed 50 characters.',
             'email.required'=>'Please enter your Email Address.',
             'email.max'=>'Your email cannot exceed 50 characters.',
+
+            'aboutme.max'=>'Your profile description cannot exceed 500 characters.',
             
         );
 
@@ -71,6 +77,7 @@ class RegistrationController extends Controller
             return redirect('/eprofile')->withErrors($validation->errors());
          }
 
+        
          
 
         //validation passed - save data
@@ -172,7 +179,7 @@ class RegistrationController extends Controller
     		'username' => 'required|unique:users|max:32',
     		'firstname' => 'required|max:50',
     		'lastname' => 'required|max:50',
-    		'email' => 'required|email|unique:users|max:50',
+    		'email' => 'required|email|max:50',
     		'password' => 'required|confirmed|max:100',
     		
     	]);
