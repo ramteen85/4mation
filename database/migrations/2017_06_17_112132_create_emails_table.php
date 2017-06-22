@@ -16,11 +16,11 @@ class CreateEmailsTable extends Migration
     {
        Schema::create('emails', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstname', 32);
-            $table->string('lastname', 32);
+            $table->string('firstname', 50);
+            $table->string('lastname', 50);
             $table->string('email', 50);
-            $table->string('subject', 50);
-            $table->string('message', 170);    
+            $table->string('subject', 100);
+            $table->string('message', 600);    
             $table->timestamps();        
         });
 

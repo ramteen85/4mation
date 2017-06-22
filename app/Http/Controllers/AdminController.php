@@ -25,6 +25,8 @@ class AdminController extends Controller
 {
     public function inbox()
     {
+        /* Admin Inbox where all the emails go */
+
     	if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -39,8 +41,10 @@ class AdminController extends Controller
     }
 
 
-    public function updeltask()
+    public function updatetask()
     {
+        /* update task */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -55,14 +59,17 @@ class AdminController extends Controller
 
             $rules = array(
             'taskidselector' => 'required',
-            'tasktitleselector' => 'required',
+            'tasktitleselector' => 'required|max:50',
             'taskdescselector' => 'required',
+            'taskdescselector' => 'required|max:300',
 
             );
 
             $messages = array(
             'taskidselector.required'=>'Task id cannot be blank.',
             'tasktitleselector.required'=>'Task title cannot be blank.',
+            'tasktitleselector.max'=>'Task title cannot exceeed 50 characters',
+            'taskdescselector.max'=>'Task description cannot exceeed 300 characters',
             'taskdescselector.required'=>'Task description cannot be blank.',
             
             );
@@ -93,6 +100,8 @@ class AdminController extends Controller
 
      public function ajaxid()
      {
+        /* search for and unlock task for editing using id */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -177,6 +186,8 @@ class AdminController extends Controller
 
     public function taskdel()
     {
+        /* admin deletes selected task */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -213,6 +224,8 @@ class AdminController extends Controller
 
     public function ajaxuser()
     {
+        /* ajax user search */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -331,6 +344,8 @@ class AdminController extends Controller
 
     public function createtask()
     {
+        /* Assign User a task */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -349,16 +364,19 @@ class AdminController extends Controller
 
              $messages = array(
                 'title.required'=>'You must enter a title.',
+                'title.max'=>'Task title cannot exceeed 50 characters',
                 'to_user.required'=>'You must enter a username.',
+                'to_user.max'=>'Username cannot exceeed 32 characters',
                 'description.required'=>'You must enter a task description.',
+                'description.max'=>'Task description cannot exceeed 300 characters.',
             );
 
 
 
             $rules = array(
-                'title' => 'required',
-                'to_user' => 'required',
-                'description' => 'required'
+                'title' => 'required|max:50',
+                'to_user' => 'required|max:32',
+                'description' => 'required|max:300'
             );
 
 
@@ -414,6 +432,8 @@ class AdminController extends Controller
 
     public function Announcement()
     {
+        /* Post Announcement */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -438,15 +458,17 @@ class AdminController extends Controller
 
              $messages = array(
                 'title.required'=>'You must enter a Title.',
+                'title.max'=>'The title must not exceed 50 characters.',
                 'body.required'=>'You must enter an Announcement.',
+                'body.max'=>'The Announcement message must not exceed 600 characters.',
                
             );
 
 
 
             $rules = array(
-                'title' => 'required',
-                'body' => 'required'
+                'title' => 'required|max:50',
+                'body' => 'required|max:600'
                 
             );
 
@@ -482,6 +504,8 @@ class AdminController extends Controller
 
     public function delemail()
     {
+        /* delete email */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -507,6 +531,8 @@ class AdminController extends Controller
 
     public function assignteam()
     {
+        /* Assign user a team */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
            return Redirect::guest('/');
@@ -531,16 +557,18 @@ class AdminController extends Controller
 
              $messages = array(
                 'username.required'=>'You must enter a username.',
+                'username.max'=>'Username cannot exceed 32 characters.',
                 'teamid.required'=>'Team Identification is required.',
                 'team.required'=>'Team Name is required.',
+                'team.max'=>'Team name cannot exceed 32 characters.',
             );
 
 
 
             $rules = array(
-                'username' => 'required',
+                'username' => 'required|max:32',
                 'teamid' => 'required',
-                'team' => 'required'
+                'team' => 'required|max:32'
             );
 
 
@@ -666,6 +694,7 @@ class AdminController extends Controller
 
     public function revokeuser()
     {
+        /* Revoke a User's Administration Privelages */
 
         if (Auth::guest() || Auth::user()->role == 0) 
         {
@@ -752,6 +781,8 @@ class AdminController extends Controller
 
     public function grantuser()
     {
+        /* Grant a User Administration Privelages */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -835,6 +866,8 @@ class AdminController extends Controller
 
     public function createteam()
     {
+        /* Create a new Team */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -866,6 +899,38 @@ class AdminController extends Controller
                 'tfail' => "Enter a Team description."
                 ) );
             }
+
+
+
+             $rules = array(
+            
+            'tname' => 'required|max:50',            
+            'tdesc' => 'required|max:300',
+            );
+
+            $messages = array(
+            
+            'tname.max'=>'Task title cannot exceeed 50 characters.',
+            'tname.request'=>'You must enter a task name.',
+            'tdesc.max'=>'Task description cannot exceeed 300 characters.',
+            'tdesc.required'=>'Task description cannot be blank.',
+            
+            );
+
+            $validation = \Illuminate\Support\Facades\Validator::make(request()->all(), $rules, $messages );
+
+            if (!$validation->passes()) 
+            {
+                //if validation fails return errors
+                 return Response::json( array(
+                    
+                'tfail' => $validation->errors()->first()
+                ) );
+
+                
+            }
+
+
 
 
             //check to see team name doesnt exist
@@ -923,6 +988,8 @@ class AdminController extends Controller
 
     public function delteam()
     {
+        /* Delete Selected Team */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
 
@@ -988,6 +1055,8 @@ class AdminController extends Controller
 
     public function deluser()
     {
+        /* Delete a User's Account */
+
         if ( Session::token() !== request( '_token' ) ) {
             return Response::json( array(
                 'msg' => 'Invalid Authorization Token'
@@ -1065,7 +1134,9 @@ class AdminController extends Controller
 
 
     public function email()
-    {     
+    { 
+
+        /* Send an Email from the front page */    
 
 
         if ( Session::token() !== request( '_token' ) ) {
@@ -1083,11 +1154,11 @@ class AdminController extends Controller
         
 
         $rules = array(
-            'firstname' => 'required|max:32',
-            'surname' => 'required|max:32',
+            'firstname' => 'required|max:50',
+            'surname' => 'required|max:50',
             'email' => 'required|email|max:50',
-            'subject' => 'required|max:50',
-            'message' => 'required|max:170',
+            'subject' => 'required|max:100',
+            'message' => 'required|max:600',
 
         );
 
@@ -1099,7 +1170,7 @@ class AdminController extends Controller
             'email.max'=>'Please enter an email address of no more than 50 characters.',
             'surname.required'=>'Please enter your last name.',
             'surname.max'=>'Please enter no more than 50 characters for your last name.',
-            'message.max'=>'Please enter no more than 170 characters for your message.',
+            'message.max'=>'Please enter no more than 600 characters for your message.',
             'message.required'=>'You can\'t send a blank message!.',
         );
 
@@ -1153,6 +1224,8 @@ class AdminController extends Controller
 
     public function users()
     {
+        /* Admin User options page */
+
         if (Auth::guest() || Auth::user()->role == 0) 
         {
             return Redirect::to('/');
@@ -1169,6 +1242,8 @@ class AdminController extends Controller
 
     public function tasks()
     {
+        /* Admin Tasks and Announcements Page */
+
          if (Auth::guest() || Auth::user()->role == 0) 
         {
 

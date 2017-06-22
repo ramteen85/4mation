@@ -200,8 +200,7 @@
 
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/plugins.js"></script>
-      
+        <script type="text/javascript" src="/js/plugins.js"></script>      
         <script type="text/javascript" src="/js/bskit-scripts.js"></script>         
         <script type="text/javascript" src="/components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

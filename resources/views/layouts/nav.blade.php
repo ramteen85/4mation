@@ -12,25 +12,25 @@
                                 <span class="icon-bar"></span> 
                                 <span class="icon-bar"></span> 
                             </button>                             
-                            <a class="navbar-brand" href="/" style="outline: none; cursor: inherit;">
-                                <img src="images/logo.png" alt="Logo" style="outline: none; cursor: inherit;">
+                            <a class="navbar-brand" href="/" class="cleanup">
+                                <img src="images/logo.png" alt="Logo" class="cleanup">
                             </a>                             
                         </div>                         
                         <!-- Collect the nav links, forms, and other content for toggling -->                         
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
                             <ul class="nav navbar-nav pull-right"> 
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" role="button" aria-haspopup="true" aria-expanded="false" style="outline: none; cursor: inherit;">Menu&nbsp;<span class="caret"></span></a> 
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" role="button" aria-haspopup="true" aria-expanded="false" class="cleanup">Menu&nbsp;<span class="caret"></span></a> 
                                     <ul class="dropdown-menu text-center"> 
                                         <li>
-                                            <a href="/" style="outline: none; cursor: inherit;">Home</a>
+                                            <a href="/" class="cleanup">Home</a>
                                         </li>
 
                                         <li>
-                                            <a href="login" style="outline: none; cursor: inherit;">Log in</a>
+                                            <a href="login" class="cleanup"">Log in</a>
                                         </li>                                         
                                         <li>
-                                            <a href="register" style="outline: none; cursor: inherit;">Register</a>
+                                            <a href="register" class="cleanup">Register</a>
                                         </li>                                         
                                     </ul>                                     
                                 </li>                                 

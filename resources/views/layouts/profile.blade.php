@@ -105,8 +105,7 @@
         
         <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
-        <script type="text/javascript" src="/js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="/js/plugins.js"></script>        
         <script type="text/javascript" src="/js/bskit-scripts.js"></script>         
         <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>
         <script type="text/javascript" src="/components/pg.chocka-blocks/js/owl.carousel.min.js"></script>

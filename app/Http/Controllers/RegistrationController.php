@@ -15,6 +15,10 @@ class RegistrationController extends Controller
 {
     public function updateprofile()
     {
+
+        /* update user profile */
+
+
         // grab all information
 
         $fname = request('fname');
@@ -22,6 +26,7 @@ class RegistrationController extends Controller
         $email = request('email');
         $about = request('aboutme');
 
+        //get skills
         $checkboxes= [
 
             request('cb1'), request('cb2'), request('cb3'),
@@ -39,9 +44,9 @@ class RegistrationController extends Controller
 
      
             $rules = array(
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required|email|unique:users,email,'.Auth::user()->id,
+            'fname' => 'required|max:50',
+            'lname' => 'required|max:50',
+            'email' => 'required|email|unique:users,email|max:50,'.Auth::user()->id,
 
             );
        
@@ -50,8 +55,11 @@ class RegistrationController extends Controller
 
         $messages = array(
             'fname.required'=>'Please enter your first name.',
+            'fname.max'=>'Your first name cannot exceed 50 characters.',
             'lname.required'=>'Please enter your last name.',
+            'lname.max'=>'Your last name cannot exceed 50 characters.',
             'email.required'=>'Please enter your Email Address.',
+            'email.max'=>'Your email cannot exceed 50 characters.',
             
         );
 
@@ -95,18 +103,23 @@ class RegistrationController extends Controller
 
     public function changepass()
     {
+
+        /* Change user password */
+
         //validate form
 
          $messages = array(
             'oldpass.required'=>'Your current password is required.',
-            'newpass.required'=>'You must enter a new password.'
+            'oldpass.max'=>'Your password cannot exceed 100 characters.',
+            'newpass.required'=>'You must enter a new password.',
+            'newpass.max'=>'Your password cannot exceed 100 characters.'
         );
 
 
 
         $rules = array(
-            'oldpass' => 'required',
-            'newpass' => 'required',
+            'oldpass' => 'required|max:100',
+            'newpass' => 'required|max:100',
         );
 
          $validation = \Illuminate\Support\Facades\Validator::make(request()->all(), $rules, $messages );
@@ -150,14 +163,17 @@ class RegistrationController extends Controller
 
     public function create()
     {
+        /* register user account */
+
+
     	//validate form
 
     	$this->validate(request(), [
-    		'username' => 'required|unique:users',
-    		'firstname' => 'required',
-    		'lastname' => 'required',
-    		'email' => 'required|email|unique:users',
-    		'password' => 'required|confirmed',
+    		'username' => 'required|unique:users|max:32',
+    		'firstname' => 'required|max:50',
+    		'lastname' => 'required|max:50',
+    		'email' => 'required|email|unique:users|max:50',
+    		'password' => 'required|confirmed|max:100',
     		
     	]);
 

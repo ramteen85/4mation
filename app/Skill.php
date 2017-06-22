@@ -19,6 +19,9 @@ class Skill extends Model
         'name', 'user_id'
     ];
 
+
+
+    /* Check User possesses skill */
     public static function skillExists($skill, $uid)
     {
     	//check record exists
@@ -37,11 +40,15 @@ class Skill extends Model
 
     }
 
+
+    /* Fetch all skills possessed by a user */
     public static function fetchAllSkills($usr)
     {
     	return Skill::where('user_id', User::getByUsername($usr)->id)->get();
     }
 
+
+    /* Set skills on profile update */
     public static function setSkills($checkboxes, $userid)
     {
     	$php = false;  
@@ -458,6 +465,8 @@ class Skill extends Model
 
     public static function getByUserId($val)
     {
+    	/* Get skills list to update profile page */
+
     	$skillarray = [
     		0,
     		0,

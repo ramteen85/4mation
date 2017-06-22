@@ -32,17 +32,23 @@ class User extends Authenticatable
 
 
 
-
+    /* Associate user with team, however will only belong to one, as I needed a pivot table.
+       Flexibility to have users join multiple teams later.
+     */
     public function team()
     {
         return $this->belongsToMany(Team::class);
     }
 
+    /* dates */
     public function getDates()
     {
         return array('created_at', 'updated_at');
     }
 
+
+
+    /* check if user is admin */
     public static function isAdmin($id)
     {
         $user = User::where('id', $id) -> first();
@@ -57,6 +63,8 @@ class User extends Authenticatable
         }
     }
 
+
+    /* get ID with an input of username */
     public static function getIdByUsername($uname)
     {
         if($uname)
@@ -69,6 +77,8 @@ class User extends Authenticatable
         }
     }
 
+
+    /* get User object with an input of ID */
     public static function getUserById($uid)
     {
         return User::where('id', $uid) -> first();
@@ -76,7 +86,7 @@ class User extends Authenticatable
 
     
    
-
+    /* delete record by username */
     public static function deleteByUsername($user)
     {
         
@@ -97,6 +107,7 @@ class User extends Authenticatable
 
     }
 
+    /* Check if user exists given the ID */
     public static function UserExistsById($uid)
     {
         $test = User::where('id', $uid) -> first();
@@ -112,6 +123,7 @@ class User extends Authenticatable
 
     }
 
+    /* Check user exists given the name */
     public static function UserExistsByName($uname)
     {
         $test = User::where('username', $uname) -> first();
@@ -127,16 +139,20 @@ class User extends Authenticatable
 
     }
 
+    /* Get username given the ID */
     public static function getUsernameById($uid)
     {
         return User::where('id', $uid) -> first();
     }
 
+    /* get user object with input of username */
     public static function getByUsername($val)
     {
         return User::where('username', $val) -> first();
     }
 
+
+    /* check user password */
     public static function checkPassword($val, $val2)
     {
 
@@ -149,6 +165,9 @@ class User extends Authenticatable
 
         return $result;
     }
+
+
+    /* Accessors and Mutators */
 
     public function getUsernameAttribute($value)
     {

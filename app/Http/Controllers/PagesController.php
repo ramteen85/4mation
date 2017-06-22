@@ -24,6 +24,8 @@ class PagesController extends Controller
 {
     public function readmsg($msgid)
     {
+        /* user opens a message */
+
         if (Auth::guest()) 
         {
 
@@ -33,7 +35,7 @@ class PagesController extends Controller
         {
             $message = Message::getMessageById($msgid);
 
-
+            /* handle message cannot be found error */
             if($message == null)
             {
                 return View('layouts.unavailable.nomessage');  
@@ -41,6 +43,15 @@ class PagesController extends Controller
 
 
 
+             /* you should only be able to "read" a message intended for you */
+
+
+            if(Auth::user()->id !== $message->sender_id && Auth::user()->id !== $message->recv_id)
+            {
+                return View('layouts.unavailable.nomessage'); 
+            }
+
+            /* mark as read only if receiver opens it */
 
             if(!Auth::user()->id == $message->recv_id)
             {
@@ -51,6 +62,8 @@ class PagesController extends Controller
                 $message->read = 1; 
                 $message->save();
             }
+
+            //success
 
             $flag = "";
 
@@ -69,6 +82,8 @@ class PagesController extends Controller
 
     public function errorpage()
     {
+        /* load 404 page */
+
         if (Auth::guest()) 
         {
 
@@ -84,6 +99,8 @@ class PagesController extends Controller
 
     public function compose()
     {
+        /* send a message */
+
         if (Auth::guest()) 
         {
 
@@ -91,9 +108,7 @@ class PagesController extends Controller
         }
         else
         {
-            $usr="";
-
-           
+            $usr="";           
             return view('layouts.compose', compact('usr'));    
         }
     }
@@ -101,33 +116,26 @@ class PagesController extends Controller
 
     public function teams()
     {
-        $teams = Team::get()->all();
+        /* list created teams */
 
-       
-
-        
-
-        
+        $teams = Team::get()->all();       
 
         if (Auth::guest()) 
         {
-
             return view('index');
         }
         else
-        {
-            
-
+        {  
             return view('layouts.team', compact('teams'));    
         }  
     }
 
     public function players($teamid = null)
     {
+        /* list all members of a team */
 
         if (Auth::guest()) 
         {
-
             return view('index');
         }
         else
@@ -155,6 +163,8 @@ class PagesController extends Controller
 
     public function compose2($usr)
     {
+        /* direct messaging compose routed through controller */
+
         if (Auth::guest()) 
         {
 
@@ -168,6 +178,8 @@ class PagesController extends Controller
 
     public function index()
     {
+        /* go to index */
+
     	if (Auth::guest()) 
         {
 
@@ -175,17 +187,13 @@ class PagesController extends Controller
         }
         else
         {
-
-
-
-            return Redirect::to('members');    
-        
-
-
+            return Redirect::to('members'); 
         }
     }
     public function search()
     {
+        /* search for a user by email, first and last name, and username */
+
         if (Auth::guest()) 
         {
 
@@ -295,6 +303,7 @@ class PagesController extends Controller
     }
     public function findmates()
     {
+        /* search users page */
         if (Auth::guest()) 
         {
 
@@ -311,6 +320,8 @@ class PagesController extends Controller
     }
     public function members()
     {
+        /* members main page */
+
         if (Auth::guest()) 
         {
 
@@ -349,7 +360,8 @@ class PagesController extends Controller
         
     }
     public function inbox()
-    {
+    {   
+        /* go to inbox */
         if (Auth::guest()) 
         {
 
@@ -365,6 +377,7 @@ class PagesController extends Controller
     }
     public function sent()
     {
+        /* go to sent messages */
         if (Auth::guest()) 
         {
 
@@ -379,8 +392,11 @@ class PagesController extends Controller
             return view('layouts.sent', compact('messages'));    
         }
     }
+
+    /* ----- template for admin page
     public function admin()
     {
+        
         if (Auth::guest() || Auth::user()->role != 1) 
         {
 
@@ -391,10 +407,13 @@ class PagesController extends Controller
             return view('layouts.admin');    
         }
     }
+    */
 
 
     public function profile($usr)
     {
+        /* view user profile */
+
         if (Auth::guest()) 
         {
 
@@ -402,10 +421,6 @@ class PagesController extends Controller
         }
         else
         {
-
-
-
-          
 
             //find record by username
 
@@ -442,6 +457,8 @@ class PagesController extends Controller
     }
     public function eprofile()
     {
+        /* edit user profile */
+
         if (Auth::guest()) 
         {
 
@@ -462,6 +479,8 @@ class PagesController extends Controller
     }
     public function checktask()
     {
+        /* user checks off a task */
+
         $boolval = request('boolval');
         $taskid = request('taskid');
 
@@ -474,6 +493,8 @@ class PagesController extends Controller
     }
     public function showTasks()
     {
+        /* show tasks */
+
         if (Auth::guest()) 
         {
 
@@ -489,6 +510,8 @@ class PagesController extends Controller
     }
     public function showLoginForm()
     {
+        /* log in page */
+
     	if (Auth::guest()) 
         {
 
@@ -501,6 +524,8 @@ class PagesController extends Controller
     }
     public function showRegisterForm()
     {
+        /* register page */
+
     	if (Auth::guest()) 
         {
 
@@ -513,6 +538,8 @@ class PagesController extends Controller
     }
     public function logmein(Request $req)
     {
+        /* log user in */
+
     	//do log in
 
     	$username = $req->input('username');
@@ -527,11 +554,6 @@ class PagesController extends Controller
 
         //login good
 
-
-        
-
-        //$users = "test";
-
         return Redirect::to('/members'); 
     	
         
@@ -539,6 +561,8 @@ class PagesController extends Controller
 
     public function destroy()
     {
+        /* log user out */
+        
         auth()->logout();
         return redirect()->home();
     }

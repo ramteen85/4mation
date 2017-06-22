@@ -15,8 +15,8 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 32);
-            $table->string('body', 100);
+            $table->string('title', 50);
+            $table->string('body', 300);
             $table->integer('issue_id');
             $table->integer('receiver_id');
             $table->boolean('completed');

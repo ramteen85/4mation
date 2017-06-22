@@ -46,7 +46,7 @@ Route::post('/messages/deletereceiver/{msgid}', 'MessageController@delr');
 Route::post('/messages/deletesender/{msgid}', 'MessageController@dels');
 
 //admin controller
-Route::post('/selecttask', 'AdminController@updeltask');
+Route::post('/selecttask', 'AdminController@updatetask');
 Route::get('/admin', 'AdminController@inbox');
 Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/tasks', 'AdminController@tasks');

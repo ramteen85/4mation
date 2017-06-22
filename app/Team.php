@@ -14,6 +14,7 @@ class Team extends Model
 
     public $timestamps = false;
 
+    /* Associate Teams With Users */
     public function users()
     {
     	return $this->belongsToMany(User::class);

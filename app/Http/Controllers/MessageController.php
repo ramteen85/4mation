@@ -12,7 +12,7 @@ class MessageController extends Controller
 
 	public function dels($id)
 	{
-		//delete message
+		/* delete sent message */
 
 		$message = Message::where('id', $id)->first();
 
@@ -41,7 +41,7 @@ class MessageController extends Controller
 
 	public function delr($id)
 	{
-		//delete message
+		/* delete received message */
 
 		$message = Message::where('id', $id)->first();
 
@@ -70,20 +70,23 @@ class MessageController extends Controller
     public function send()
     {
 
+    	/* send a message */
+
     	//form validation
     	$rules = array(
-            'msgto' => 'required',
-            'subject' => 'required|max:30',
-            'body' => 'required|max:170',
+            'msgto' => 'required|max:32',
+            'subject' => 'required|max:100',
+            'body' => 'required|max:600',
 
         );
 
 
     	$messages = array(
             'msgto.required'=>'Who do you wish to send a message to?',
+            'msgto.max'=>'Username cannot exceed 32 characters.',
             'subject.required'=>'Please enter a subject.',
-            'subject.max'=>'Please enter no more than 30 characters.',
-            'body.max'=>'Please enter a message of no more than 170 characters.',
+            'subject.max'=>'Please enter no more than 100 characters.',
+            'body.max'=>'Please enter a message of no more than 600 characters.',
             'body.required'=>'Please enter a message!',
             
         );

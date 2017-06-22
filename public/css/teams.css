@@ -53,3 +53,10 @@
 {
     background-image:url('/images/team.png');
 }
+
+.feat_cleanup
+{
+    padding-right: 0; 
+    z-index:200; 
+    margin-right: 10px;
+}

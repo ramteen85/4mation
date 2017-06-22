@@ -16,8 +16,8 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('subject', 32);
-            $table->string('body', 100);
+            $table->string('subject', 100);
+            $table->string('body', 600);
             $table->integer('sender_id');
             $table->integer('recv_id');
             $table->boolean('read');

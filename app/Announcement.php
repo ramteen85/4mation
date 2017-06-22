@@ -13,12 +13,13 @@ class Announcement extends Model
     ];
 
 
-
+    /* get sender of announcement */
     public static function getSenderFromId($id)
     {
         return User::getUsernameById($id);
     }
 
+    /* how long ago the announcement was posted */
     public function timeAgo()
     {
         if($this->created_at->diffForHumans())

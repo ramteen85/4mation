@@ -56,10 +56,10 @@
     
                     @foreach($users as $user)
 
-                    <div class="feautures-box .namebg col-xs-12 nopaddingsm col-sm-3" style="padding-right: 0; z-index:200; margin-right: 10px;" data-pg-collapsed> 
+                    <div class="feat-cleanup feautures-box .namebg col-xs-12 nopaddingsm col-sm-3" data-pg-collapsed> 
                         <div> 
-                            <h1 style="text-align: center;" class="editContent nameheader nameheadersize">{{ $user->username }}</h1>
-                            <h3 style="text-align: center;" class="editContent nameheader">{{ $user->firstname }} {{ $user->lastname }}</h3> 
+                            <h1 class="editContent nameheader nameheadersize text-center">{{ $user->username }}</h1>
+                            <h3 class="editContent nameheader text-center">{{ $user->firstname }} {{ $user->lastname }}</h3> 
                         </div>
                         <div class="col-xs-6 col-sm-6">
                             <a href="/messages/compose/{{ $user->username }}" style="margin: auto;" class=" btn btn-success">message<a>                             

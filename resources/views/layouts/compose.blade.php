@@ -64,7 +64,7 @@
                         <span class="label label-default full-width text-center msglabels">To:</span> 
                     </div>
                     <div class="col-xs-8">
-                        <input name="msgto" type="text" class="full-width titlepadding msglabels" value="{{ $usr }}"> 
+                        <input name="msgto" type="text" placeholder="Enter Username" class="full-width titlepadding msglabels" value="{{ $usr }}"> 
                     </div>                     
                 </div>
                 <div class="col-xs-12 margin-bot1">
@@ -72,12 +72,12 @@
                         <span class="label label-default full-width text-center msglabels">Subject:</span> 
                     </div>
                     <div class="col-xs-8">
-                        <input type="text" name="subject" class="full-width titlepadding msglabels"> 
+                        <input type="text" name="subject" placeholder="Enter Subject"  class="full-width titlepadding msglabels"> 
                     </div>                     
                 </div>
                 <div class="col-xs-12 margin-bot1">
                     <div class="col-xs-12">
-                        <textarea class="noresize" name="body" class="full-width gridheight bodypadding"></textarea>                         
+                        <textarea name="body" placeholder="Write Message..."  class="noresize full-width gridheight bodypadding"></textarea>                         
                     </div>                     
                 </div>
                 <div class="col-xs-12 margin-bot1">
@@ -187,16 +187,12 @@
 
         @include('layouts.footer')
 
-        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
+  <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>         
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>         
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="/js/bskit-scripts.js"></script>         
-        <script type="text/javascript" src="/components/pg.chocka-blocks/js/jquery.easy-pie-chart.js"></script>
+        <script type="text/javascript" src="/js/plugins.js"></script>    
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>         
-        <script type="text/javascript" src="/components/pg.chocka-blocks/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="/components/pg.chocka-blocks/js/cb-main.js"></script>
         <script type="text/javascript" src="/components/pg.blocks/js/plugins.js"></script>
         <script type="text/javascript" src="/components/pg.blocks/js/bskit-scripts.js"></script>
     </body>
