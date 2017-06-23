@@ -1,5 +1,9 @@
 User Characteristics:
 
+
+
+...
+
 - Admin: 
 
 The Administrator is a super user and he has complete control over all activities the can be performed.

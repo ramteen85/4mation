@@ -168,6 +168,10 @@ class RegistrationController extends Controller
 
     }
 
+     
+
+     
+
     public function create()
     {
         /* register user account */

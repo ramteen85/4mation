@@ -315,6 +315,12 @@ class PagesController extends Controller
             return view('layouts.findusers', compact('users'));    
         }
     }
+
+    public function intro()
+    {
+        return view('layouts.intro');
+    }
+
     public function members()
     {
         /* members main page */

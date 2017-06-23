@@ -27,6 +27,10 @@
                                         </li>
 
                                         <li>
+                                            <a href="/video" class="cleanup">Video</a>
+                                        </li>
+
+                                        <li>
                                             <a href="login" class="cleanup"">Log in</a>
                                         </li>                                         
                                         <li>

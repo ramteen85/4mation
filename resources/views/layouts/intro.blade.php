@@ -63,17 +63,19 @@
            @include('layouts.members.nav')
 
 
-            <section id="videowrapper" class="content-block cb-content-3-3">
-                <div id="content23"> 
-                    <div class="container"> 
-                        <div id="colsec" class="col-md-12"> 
+
+
+             <section id="videowrapper" style="padding-left: 0;" class="content-block cb-content-3-3">
+                <div id="content23" class="paddnig: 0;"> 
+                    <div class="container" style="padding-left:0; margin-left:0"> 
+                        <div class="col-md-12"> 
                             <h3 id="videotitle" class="eidtContent">Thanks for registering!</h3> 
-                            <p class="eidtContent paratext">Hello Admins and Employees. You are viewing this page since this is your first time logging in. Thanks for taking the time to sign up to the new and improved 4mation employee management system. To get started on how to navigate this site, please view the video below. You can return here again via the nav menu if you wish. Enjoy!</p> 
+                            <p class="eidtContent paratext">Hello Admins and Employees. You are viewing this page since this is your first time logging in or you are revisiting. Thanks for taking the time to sign up to the new and improved 4mation employee management system. To get started on how to navigate this site, please view the video below. You can return here again via the nav menu if you wish. Enjoy!</p> 
                             <div class="embed-responsive embed-responsive-16by9"> 
-                                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/146742515?badge=0" allowfullscreen=""></iframe>                     
+                                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/222775371" allowfullscreen=""></iframe>                                 
                             </div>
-                        </div>             
-                    </div>         
+                        </div>                         
+                    </div>                     
                 </div>
             </section>
 

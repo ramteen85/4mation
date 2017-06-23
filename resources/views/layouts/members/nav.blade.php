@@ -52,6 +52,9 @@
                                             <a href="/getteams" class="cleanup">View Teams</a>
                                         </li>
                                         <li>
+                                            <a href="/video" class="cleanup">Video</a>
+                                        </li>
+                                        <li>
                                             <a href="/logout" class="cleanup">Logout</a>
                                         </li>
                                     </ul>                                     
